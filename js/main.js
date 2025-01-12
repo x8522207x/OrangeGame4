@@ -26,7 +26,7 @@ $(document).ready(() => {
         $('.youtube--2').remove();
     });
 
-    let pcSwiperPage, p2Child1SwiperPage, p2Child2SwiperPage, p6SwiperPage, mobileSwiperPage;
+    let pcSwiperPage, mobileSwiperPage;
 
     const pcSwiper = () => {
         pcSwiperPage = new Swiper('.section-pages', {
@@ -58,8 +58,12 @@ $(document).ready(() => {
                     });
                     $('.UNI-footer').css('display', 'none');
 
-                    $('.scroll').on('click', () => {
+                    $('.section_hero .scroll').on('click', () => {
                         swiper.slideTo(1);
+                    });
+
+                    $('.section_hero_sec .scroll').on('click', () => {
+                        swiper.slideTo(5);
                     });
 
                     document.querySelectorAll('.swiper-slide-page').forEach(node => {
@@ -131,83 +135,21 @@ $(document).ready(() => {
         }
     };
 
-    const p2Child1Swiper = () => {
-        p2Child1SwiperPage = new Swiper('.nested-swiper-child1', {
-            direction: 'horizontal',
-            slidesPerView: 1,
+    const heroTabSwiper = () => {
+        pcSwiperPage = new Swiper('.section-group-pages', {
+            touchReleaseOnEdges: true,
             mousewheel: {
                 releaseOnEdges: true,
-                enabled: false,
             },
+            loop: false,
+            slideActiveClass: 'animated',
+            noSwiping: true,
+            noSwipingSelector: 'button',
             autoHeight: true,
             speed: 1000,
-            nested: true,
-            loop: true,
-            passiveListeners: false,
-            allowTouchMove: true,
-            navigation: {
-                nextEl: '.nested-swiper-child1 .swiper-button-next',
-                prevEl: '.nested-swiper-child1 .swiper-button-prev',
-            }
-        });
-    };
-
-    const p2Child2Swiper = () => {
-        p2Child2SwiperPage = new Swiper('.nested-swiper-child2', {
-            direction: 'horizontal',
             slidesPerView: 1,
-            mousewheel: {
-                releaseOnEdges: true,
-                enabled: false,
-            },
-            autoHeight: true,
-            speed: 1000,
-            nested: true,
-            loop: true,
-            passiveListeners: false,
-            allowTouchMove: true,
-            navigation: {
-                nextEl: '.swiper-child2-button-next',
-                prevEl: '.swiper-child2-button-prev',
-            },
-            on: {
-                init: (swiper) => {
-                    $('.progress1').on('click', () => {
-                        swiper.slideToLoop(0);
-                    });
-                    $('.progress2').on('click', () => {
-                        swiper.slideToLoop(1);
-                    });
-                    $('.progress3').on('click', () => {
-                        swiper.slideToLoop(2);
-                    });
-                },
-                slideChange: (swiper) => {
-                    $('[class*=progress]').removeClass('active');
-                    $(`.progress${swiper.realIndex + 1}`).toggleClass('active');
-                }
-            }
-        });
-    };
-
-    const p6Swiper = () => {
-        p6SwiperPage = new Swiper('.nested-swiper', {
-            direction: 'horizontal',
-            slidesPerView: 1,
-            mousewheel: {
-                releaseOnEdges: true,
-                enabled: false,
-            },
-            autoHeight: true,
-            speed: 1000,
-            nested: true,
-            loop: true,
-            passiveListeners: false,
-            allowTouchMove: true,
-            navigation: {
-                nextEl: '.nested-swiper .swiper-button-next',
-                prevEl: '.nested-swiper .swiper-button-prev',
-            }
+            spaceBetween: 0,
+            allowTouchMove: false,
         });
     };
 
@@ -264,10 +206,8 @@ $(document).ready(() => {
         $('.event_gnb').addClass('type_default');
         $('.event_gnb').removeClass('type_clear');
         mobileSwiper();
-        p2Child2Swiper();
     }
-    p2Child1Swiper();
-    p6Swiper();
+    heroTabSwiper();
 
     function updateMaxVH() {
         const root = document.documentElement;
@@ -278,7 +218,6 @@ $(document).ready(() => {
             $('.event_gnb').removeClass('type_default');
             if (pcSwiperPage) {
                 setTimeout(() => { pcSwiperPage.update(); }, 100);
-
             } else {
                 pcSwiper();
             }
@@ -290,23 +229,6 @@ $(document).ready(() => {
             } else {
                 mobileSwiper();
             }
-
-            if (p2Child2SwiperPage) {
-                p2Child2SwiperPage.update();
-            } else {
-                p2Child2Swiper();
-            }
-        }
-
-        if (p2Child1SwiperPage) {
-            p2Child1SwiperPage.update();
-        } else {
-            p2Child1Swiper()
-        }
-        if (p6SwiperPage) {
-            p6SwiperPage.update();
-        } else {
-            p6Swiper();
         }
     }
 });
