@@ -26,6 +26,16 @@ $(document).ready(() => {
         $('.youtube--2').remove();
     });
 
+    $('.section_spec .content .sub_content .video .sourcebox .video_button').on('click', () => {
+        const video = document.querySelector('.section_spec .content .sub_content .video video');
+        if (video.paused) {
+            video.play();
+            $('.section_spec .content .sub_content .video').addClass('play');
+        } else {
+            video.pause();
+        }
+    });
+
     let pcSwiperPage, mobileSwiperPage;
 
     const pcSwiper = () => {
