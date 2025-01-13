@@ -36,6 +36,18 @@ $(document).ready(() => {
         }
     });
 
+    $('.type--fortress').on('click', () => {
+        $('.section_story .textbox').addClass('open');
+        $('.section_story .dimmed').addClass('show');
+        $('.section_story .infoside').addClass('open')
+    });
+
+    $('.section_story .close button').on('click', () => {
+        $('.section_story .textbox').removeClass('open'); 
+        $('.section_story .dimmed').removeClass('show');
+        $('.section_story .infoside').removeClass('open')
+    });
+
     let pcSwiperPage, mobileSwiperPage;
 
     const pcSwiper = () => {
