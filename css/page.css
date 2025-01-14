@@ -1937,6 +1937,11 @@ section.section_elf .content {
     transition: filter .18s ease;
 }
 
+.section_place .map .point.dimmed {
+    filter: grayscale(.5) brightness(.7) contrast(.7);
+    opacity: .85;
+}
+
 .section_story .map .point:hover,
 .section_place .map .point:hover {
     filter: grayscale(0) brightness(1.1) contrast(1.1);
@@ -1944,7 +1949,7 @@ section.section_elf .content {
 
 .section_story .map .point.type--fortress .pointbadge,
 .section_place .map .point.type--fortress .pointbadge {
-    background-image: url(../img/page6/p6_point_fortress.png);
+    background-image: url(../img/page6/p6point_fortress.png);
 }
 
 .section_story .map .point .pointbadge.size--land,
@@ -2008,8 +2013,8 @@ section.section_elf .content {
     width: 10px;
 }
 
-.section_story .map .point.type--1 .pointbadge,
-.section_place .map .point.type--1 .pointbadge {
+.section_story .map .point.type_1 .pointbadge,
+.section_place .map .point.type_1 .pointbadge {
     background-image: url(../img/page7/p7_point_1.png);
 }
 
@@ -2019,8 +2024,8 @@ section.section_elf .content {
     width: 69px;
 }
 
-.section_story .map .point.type--1 .pointname,
-.section_place .map .point.type--1 .pointname {
+.section_story .map .point.type_1 .pointname,
+.section_place .map .point.type_1 .pointname {
     background-color: #0d234e;
 }
 
@@ -2063,13 +2068,13 @@ section.section_elf .content {
     width: 10px;
 }
 
-.section_story .map .point.type--3 .pointbadge,
-.section_place .map .point.type--3 .pointbadge {
+.section_story .map .point.type_3 .pointbadge,
+.section_place .map .point.type_3 .pointbadge {
     background-image: url(../img/page7/p7_point_3.png);
 }
 
-.section_story .map .point.type--3 .pointname,
-.section_place .map .point.type--3 .pointname {
+.section_story .map .point.type_3 .pointname,
+.section_place .map .point.type_3 .pointname {
     background-color: #583e0d;
 }
 
@@ -2088,22 +2093,18 @@ section.section_elf .content {
     display: none;
 }
 
-.section_story .map .point.type--n1 .pointbadge,
 .section_place .map .point.type--n1 .pointbadge {
     background-image: url(../img/page7/p7_point_n1.png);
 }
 
-.section_story .map .point.type--n2 .pointbadge,
 .section_place .map .point.type--n2 .pointbadge {
     background-image: url(../img/page7/p7_point_n2.png);
 }
 
-.section_story .map .point.type--n3 .pointbadge,
 .section_place .map .point.type--n3 .pointbadge {
     background-image: url(../img/page7/p7_point_n3.png);
 }
 
-.section_story .map .point.type--n4 .pointbadge,
 .section_place .map .point.type--n4 .pointbadge {
     background-image: url(../img/page7/p7_point_n4.png);
 }
@@ -2571,6 +2572,10 @@ section.section_elf .content {
     width: 407px;
 }
 
+.section_elf .content .elfs .elf_data.open .wrap {
+    background-image: url(../img/page8/p8_textbg_2.png);
+}
+
 .section_elf .content .elfs .elf_data .wrap {
     align-items: center;
     background-image: url(../img/page8/p8_textbg_1.png);
@@ -2584,6 +2589,10 @@ section.section_elf .content {
     height: 100%;
     padding: 30px;
     width: 100%;
+}
+
+.section_elf .content .elfs .elf_data.open .title {
+    margin-top: 30px;
 }
 
 .section_elf .content .elfs .elf_data .title {
@@ -2625,6 +2634,10 @@ section.section_elf .content {
     width: 2px;
 }
 
+.section_elf .content .elfs .elf_data.open .content {
+    display: flex;
+}
+
 .section_elf .content .elfs .elf_data .content {
     align-items: center;
     display: none;
@@ -2659,6 +2672,14 @@ section.section_elf .content {
     margin-top: 10px;
 }
 
+.section_elf .content .elfs .elf_data.open .toggle:hover {
+    background-image: url(../img/page8/p8_toggle_active_hover.png);
+}
+
+.section_elf .content .elfs .elf_data.open .toggle {
+    background-image: url(../img/page8/p8_toggle_active.png);
+}
+
 .section_elf .content .elfs .elf_data .toggle {
     background-image: url(../img/page8/p8_toggle.png);
     background-position: 50% 50%;
@@ -2671,6 +2692,10 @@ section.section_elf .content {
     transition: background-image .2s ease;
     width: 58px;
     -webkit-text-size-adjust: none;
+}
+
+.section_elf .content .elfs .elf_data .toggle:hover {
+    background-image: url(../img/page8/p8_toggle_hover.png);
 }
 
 .section_elf .content .elfs .elf_data:nth-child(2) .thumb {
@@ -2787,7 +2812,7 @@ section.section_elf .content {
         min-height: 900px;
     }
 
-    section.area .content .dimmed {
+    section.area .content div.dimmed {
         display: none;
     }
 
@@ -2799,7 +2824,7 @@ section.section_elf .content {
         min-height: 900px;
     }
 
-    .section_place .content .infoside .infoside_wrap>h4._name {
+    .section_place .content .infoside .infoside_wrap>h4.name {
         display: none;
     }
 
@@ -2819,6 +2844,11 @@ section.section_elf .content {
     .section_elf .content .elfs .elf_data:nth-child(2) {
         left: 19.4%;
         top: 24.4%;
+    }
+
+    .section_elf .content .elfs .elf_data.open .wrap {
+        height: 754px;
+        padding: 36px;
     }
 }
 
@@ -2858,6 +2888,54 @@ section.section_elf .content {
     section.area .content>:not(.layout-escape) {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    .map .map_plate .clouds,
+    .map canvas {
+        display: none
+    }
+
+    .map .point .pointbadge {
+        filter: drop-shadow(0 7px 3px rgba(0, 0, 0, .5))
+    }
+
+    .map .point .pointbadge.size--land {
+        height: 52px;
+        width: 56px
+    }
+
+    .map .point .pointbadge.size--point {
+        height: 36px;
+        width: 34px
+    }
+
+    .map .point .pointname {
+        font-size: 9px;
+        height: 18px;
+        margin: 2px 0;
+        padding: 1px 4px 2px 7px
+    }
+
+    .map .point .pointname .new {
+        height: 12px;
+        left: -6px;
+        top: -3px;
+        width: 12px
+    }
+
+    .map .point .pointname .new i.i--new {
+        height: 6px;
+        width: 6px
+    }
+
+    .map .point .pointname .pointname_more {
+        height: 14px;
+        width: 14px
+    }
+
+    .map .point .pointname .pointname_more i.i--plus {
+        height: 6px;
+        width: 6px
     }
 }
 

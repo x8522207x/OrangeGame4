@@ -695,7 +695,7 @@
                           </div>
                         </div>
                       </div>
-                      <canvas width="1511" height="1268"></canvas>
+                      <canvas id="firstCanvas" width="1325" height="1268"></canvas>
                     </div>
                     <div class="content_wrap">
                       <div class="content_box">
@@ -837,7 +837,7 @@
                           </span>
                         </button>
                       </div>
-                      <canvas width="1511" height="911"></canvas>
+                      <canvas id="secondCanvas" width="1511" height="911"></canvas>
                     </div>
                     <div class="dimmed"></div>
                     <div class="infoside">
@@ -992,19 +992,19 @@
                           <span></span>
                         </div>
                         <button
-                          class="type--1 key--1 point"
+                          class="type_1 key--1 point"
                           style="left: 47%; top: 43%"
                         >
                           <span class="pointbadge size--point"></span>
                           <span class="pointname">
-                            <span>烽火台</span>
+                            <span>裝甲架橋車</span>
                             <span class="pointname_more">
                               <i class="i--plus"></i>
                             </span>
                           </span>
                         </button>
                         <button
-                          class="type--1 key--2 point"
+                          class="type_1 key--2 point"
                           style="left: 52.9%; top: 43%"
                         >
                           <span class="pointbadge size--point"></span>
@@ -1046,7 +1046,7 @@
                           </span>
                         </button>
                         <button
-                          class="type--3 key--5 point"
+                          class="type_3 key--5 point"
                           style="left: 41%; top: 35.2%"
                         >
                           <span class="pointbadge size--point"></span>
@@ -1058,7 +1058,7 @@
                           </span>
                         </button>
                         <button
-                          class="type--3 key--6 point"
+                          class="type_3 key--6 point"
                           style="left: 58.4%; top: 35.2%"
                         >
                           <span class="pointbadge size--point"></span>
@@ -1130,7 +1130,7 @@
                           </span>
                         </button>
                       </div>
-                      <canvas width="1511" height="911"></canvas>
+                      <canvas id="thirdCanvas" width="1511" height="911"></canvas>
                     </div>
                     <div class="dimmed"></div>
                     <div class="infoside">
@@ -1140,12 +1140,7 @@
 
                       <div class="infoside_wrap">
                         <h4 class="name">裝甲架橋車</h4>
-                        <div class="sourcebox block">
-                          <img
-                            src="img/page6/p6_thumb_1.png"
-                            alt="裝甲架橋車 - 이미지"
-                          />
-                        </div>
+                        <div class="sourcebox block"></div>
                         <div class="detail block">
                           <h4 class="name">裝甲架橋車</h4>
                           <span class="dot_ornate">
@@ -1153,8 +1148,8 @@
                           </span>
                           <span class="tip">Tip</span>
                           <p class="description">
-                            교량전차를 소환해서 이동하는 결사는 沙漠之瞳 및
-                            성 내부 주요 건물을 사전에 제거해 우회로를 개척할 수
+                            교량전차를 소환해서 이동하는 결사는 沙漠之瞳 및 성
+                            내부 주요 건물을 사전에 제거해 우회로를 개척할 수
                             있다.
                           </p>
                         </div>
@@ -1217,20 +1212,15 @@
                             <div class="content">
                               <div class="thumb"></div>
                               <div class="flavor">
-                                "겨우 이 정도 힘으로 날 막으려 했나?<br />나를
-                                막을 수 있는 건 아무 것도 없다."
+                                「僅憑這點力量就妄圖阻擋我嗎？<br />
+                                世上沒有任何事物能夠阻止我。」
                               </div>
                               <div class="description">
-                                오랜 기간 동안 재탄생을 기다리며 잠들어있던 시길
-                                엘프의 군주로 혼란스러운 파도세계에 환멸을 느껴
-                                세계 이주를 결심한다.<br />신수의 뼈를 빼앗기
-                                위해 황금사자의 파르티아를 집요하게 노리지만,
-                                스탠더와 파벌 때문에 포기하며 자신의 힘만으로
-                                세계 이주를 강행한다.<br />
-                                사자 신수와 함께 몰려드는 프라시아 동맹을 막기
-                                위해 바스마를 시길로 내보내고 그 틈을 타서 차원
-                                관문을 열려 하지만 끝내 실패하고 잿빛달 요새로
-                                물러나는데…&ZeroWidthSpace;
+                                作為西吉爾妖精的君主，他在漫長的沉睡中等待重生。<br />
+                                然而，他對混亂的波濤世界感到幻滅，最終決心推動世界的遷徙計畫。<br />
+                                為了奪取神獸之骨，他執著地追擊金獅會的帕爾媞雅
+                                但因守護者與派系的干預而不得不放棄，轉而憑藉自身力量強行推動世界移居。<br />
+                                為了抵禦攜獅子神獸而來的波拉西亞同盟，他派遣巴斯馬前往西吉爾，以分散敵方注意力，趁機試圖打開次元之門。<br />然而，他最終未能成功，只得撤退至暗月要塞……&ZeroWidthSpace;
                               </div>
                             </div>
                             <button class="toggle">열기/닫기</button>
@@ -1264,18 +1254,14 @@
                             <div class="content">
                               <div class="thumb"></div>
                               <div class="flavor">
-                                "파르티아, 나를 위해서 춤추거라.<br />그 춤이
-                                멈추면 네 목숨도 끝날 테니까."
+                                「帕爾媞雅，為我起舞吧。<br />
+                                當舞步停止之時，就是你生命的終結。」
                               </div>
                               <div class="description">
-                                나세르의 재탄생 기간 동안 시길의 권력을 위임받은
-                                바스마.<br />실제 통치는 황금사자에게 맡기고
-                                잿빛사단의 양성에 주력한 그녀는 돌아온 나세르와
-                                함께 세계 이주를 추진한다.<br />잿빛사단을
-                                이끌고 전쟁을 선포한 그녀는 프라시아 동맹을 직접
-                                막아서며 스탠더와 결투를 벌인다.<br />그러나
-                                격렬한 전투의 와중, 그녀에게 얽힌 비밀이
-                                밝혀지는데…&ZeroWidthSpace;
+                                在納賽爾復甦期間，巴斯馬被授予了象徵性的權力代理。<br />
+                                她將實際的統治權交由金獅會負責，專注於培養灰色軍團的力量。隨著納賽爾的歸來，她開始推動世界的遷徙計畫。<br />
+                                巴斯馬率領灰色軍團對外宣戰，親自面對波拉西亞同盟，並與守護者展開了激烈的決鬥。<br />
+                                然而，在這場殘酷的戰鬥中，一個與她糾纏在一起的秘密終於浮出水面……&ZeroWidthSpace;
                               </div>
                             </div>
                             <button class="toggle">열기/닫기</button>
