@@ -1153,6 +1153,22 @@ section.area .visual video {
     overflow: hidden;
 }
 
+.section_map .map_plate {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    cursor: grab;
+    background-image: url(../img/page4/p4_bg.jpg);
+    will-change: background-position;
+    pointer-events: none;
+}
+
+.section_map .visual:active {
+    cursor: grabbing;
+    /* 鼠標按下時 */
+}
+
 .section_map .content {
     align-items: center;
     display: flex;
@@ -1831,6 +1847,17 @@ section.section_elf .content {
     -webkit-text-size-adjust: none;
 }
 
+.section_story .map_plate {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    cursor: grab;
+    background-image: url(../img/page6/p6_bg.jpg);
+    will-change: background-position;
+    pointer-events: none;
+}
+
 .section_story .content .dimmed.show {
     opacity: 1;
     pointer-events: all;
@@ -2107,6 +2134,17 @@ section.section_elf .content {
 
 .section_place .map .point.type--n4 .pointbadge {
     background-image: url(../img/page7/p7_point_n4.png);
+}
+
+.section_place .map_plate {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    cursor: grab;
+    background-image: url(../img/page7/p7_bg.jpg);
+    will-change: background-position;
+    pointer-events: none;
 }
 
 .section_story .content .infoside {

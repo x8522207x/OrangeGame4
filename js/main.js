@@ -50,6 +50,8 @@ $(document).ready(() => {
 
     $('.section_place .point').on('click', (e) => {
         if (!e.currentTarget.classList.contains('not')) {
+            map7Plate.css('width', '3691.52px');
+            map7Plate.css('width', '2076.48px');
             $('.section_place .point').addClass('dimmed');
             $('.section_place .dimmed').addClass('show');
             $('.section_place .infoside').addClass('open');
@@ -76,6 +78,8 @@ $(document).ready(() => {
     });
 
     $('.section_place .close button').on('click', () => {
+        map7Plate.css('width', '2636.8px');
+        map7Plate.css('width', '1483.2px');
         $('.section_place .point').removeClass('dimmed');
         $('.section_place .dimmed').removeClass('show');
         $('.section_place .infoside').removeClass('open');
@@ -90,90 +94,206 @@ $(document).ready(() => {
         $(e.target).parent().parent().siblings().removeClass('open');
     });
 
-    const canvas = document.getElementById('firstCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // 初始位移
-    let offsetX = 0; // 只更新 X 軸
-    let offsetY = 0; // 固定 Y 軸
-
-    // 拖曳相關變數
+    const map4 = $('.section_map .map'); // 取得背景圖容器
+    const map6 = $('.section_story .map');
+    const map7 = $('.section_place .map');
+    const map4Plate = $('.section_map .map_plate');
+    const map6Plate = $('.section_story .map_plate');
+    const map7Plate = $('.section_place .map_plate');
     let isDragging = false;
-    let startX;
+    let startX4 = 0;
+    let startY4 = 0;
+    let currentX4 = 0;
+    let currentY4 = 0;
+    let startX6 = 0;
+    let startY6 = 0;
+    let currentX6 = 0;
+    let currentY6 = 0;
+    let startX7 = 0;
+    let startY7 = 0;
+    let currentX7 = 0;
+    let currentY7 = 0;
+    const map4Width = map4[0].offsetWidth; // 父容器的寬度
+    const map4Height = map4[0].offsetHeight; // 父容器的高度
+    const plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
+    const plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
+    const map6Width = map6[0].offsetWidth; // 父容器的寬度
+    const map6Height = map6[0].offsetHeight; // 父容器的高度
+    const plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
+    const plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
+    const map7Width = map7[0].offsetWidth; // 父容器的寬度
+    const map7Height = map7[0].offsetHeight; // 父容器的高度
+    const plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+    const plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
 
-    // 背景圖
-    const background = new Image();
-    background.src = 'img/page4/p4_bg.png'; // 替換成背景圖片
-
-    // 等待圖片加載完成後開始繪製
-    background.onload = () => {
-        drawMap();
-    };
-
-    function drawMap() {
-        // 清空畫布
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // 繪製背景圖
-        ctx.drawImage(background, offsetX, offsetY, canvas.width, canvas.height);
-
-        // 繪製其他元素（如雲層、標記等）
-        drawClouds();
-        drawPoints();
-    }
-
-    function drawClouds() {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        ctx.fillRect(100 + offsetX, 50 + offsetY, 200, 50); // 模擬雲層
-    }
-
-    function drawPoints() {
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.arc(600 + offsetX, 300 + offsetY, 10, 0, Math.PI * 2); // 模擬標記點
-        ctx.fill();
-    }
-
-    // 拖曳開始
-    canvas.addEventListener('mousedown', (e) => {
+    // 當鼠標按下時
+    map4.on('mousedown touchstart', (e) => {
         isDragging = true;
-        startX = e.clientX;
+        startX4 = e.clientX - currentX4;
+        startY4 = e.clientY - currentY4;
+        map4.css("cursor", "grabbing")
     });
 
-    // 拖曳過程
-    document.addEventListener('mousemove', (e) => {
+    // 當鼠標移動時
+    map4.on('mousemove touchmove', (e) => {
         if (!isDragging) return;
+        let newX = e.clientX - startX4;
+        let newY = e.clientY - startY4;
 
-        // 計算 X 軸移動量
-        const dx = e.clientX - startX;
 
-        // 更新位移量
-        offsetX += dx;
+        // 限制 X 軸範圍
+        if (plate4Width > map4Width) {
+            const minX = map4Width - plate4Width; // 左边界
+            const maxX = 0; // 右边界
+            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+        } else {
+            newX = 0; // 如果子容器比父容器小，则保持水平居中
+        }
 
-        // 更新 .clouds 和 .point 元素的位置
-        updateElementsPosition();
+        if (plate4Height > map4Height) {
+            const minY = map4Height - plate4Height; // 上边界
+            const maxY = 0; // 下边界
+            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+        } else {
+            newY = 0; // 如果子容器比父容器小，则保持垂直居中
+        }
 
-        // 重新繪製地圖
-        drawMap();
+        // 更新位置
+        currentX4 = newX;
+        currentY4 = newY;
 
-        // 更新起始 X 座標
-        startX = e.clientX;
+        // 設置 transform，更新位置
+        map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`)
     });
 
-    // 拖曳結束
-    document.addEventListener('mouseup', () => {
+    // 當鼠標放開時
+    map4.on('mouseup touchend', () => {
         isDragging = false;
+        map4.css("cursor", "grab")
     });
 
-    // 更新 .clouds 和 .point 元素的位置
-    function updateElementsPosition() {
-        const clouds = document.querySelector('.clouds');
-        const point = document.querySelector('.point');
+    const buttons = document.querySelectorAll('.section_place button:not(.not)');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const buttonRect = button.getBoundingClientRect();
 
-        // 更新 .clouds 和 .point 的位置
-        clouds.style.transform = `translateX(${offsetX}px)`;
-        point.style.transform = `translate3d(${offsetX - 50}%, -50%, 0)`; // 這裡的 -50% 調整標記點相對位置
-    }
+            // 计算按钮在背景上的相对中心位置
+            const buttonX = buttonRect.left + buttonRect.width / 2;
+            const buttonY = buttonRect.top + buttonRect.height / 2;
+
+            // 获取背景的当前偏移量
+            const mapRect = map7[0].getBoundingClientRect();
+            const relativeX = buttonX - mapRect.left;
+            const relativeY = buttonY - mapRect.top;
+
+            // 计算新的背景位置
+            const newX = -(relativeX - map7Width / 2);
+            const newY = -(relativeY - map7Height / 2);
+
+            // 限制边界
+            const maxX = 0;
+            const minX = map7Width - map7Plate[0].offsetWidth;
+            const maxY = 0;
+            const minY = map7Height - map7Plate[0].offsetHeight;
+
+            const constrainedX = Math.max(minX, Math.min(maxX, newX));
+            const constrainedY = Math.max(minY, Math.min(maxY, newY));
+
+
+            // 更新背景位置
+            map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
+        });
+    });
+
+    map6.on('mousedown touchstart', (e) => {
+        isDragging = true;
+        startX6 = e.clientX - currentX6;
+        startY6 = e.clientY - currentY6;
+        map6.css("cursor", "grabbing")
+    });
+
+    // 當鼠標移動時
+    map6.on('mousemove touchmove', (e) => {
+        if (!isDragging) return;
+        let newX = e.clientX - startX6;
+        let newY = e.clientY - startY6;
+
+
+        // 限制 X 軸範圍
+        if (plate6Width > map6Width) {
+            const minX = map6Width - plate6Width; // 左边界
+            const maxX = 0; // 右边界
+            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+        } else {
+            newX = 0; // 如果子容器比父容器小，则保持水平居中
+        }
+
+        if (plate6Height > map6Height) {
+            const minY = map6Height - plate6Height; // 上边界
+            const maxY = 0; // 下边界
+            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+        } else {
+            newY = 0; // 如果子容器比父容器小，则保持垂直居中
+        }
+
+        // 更新位置
+        currentX6 = newX;
+        currentY6 = newY;
+
+        // 設置 transform，更新位置
+        map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`)
+    });
+
+    // 當鼠標放開時
+    map6.on('mouseup touchend', () => {
+        isDragging = false;
+        map6.css("cursor", "grab")
+    });
+
+    map7.on('mousedown touchstart', (e) => {
+        isDragging = true;
+        startX7 = e.clientX - currentX7;
+        startY7 = e.clientY - currentY7;
+        map7.css("cursor", "grabbing")
+    });
+
+    // 當鼠標移動時
+    map7.on('mousemove touchmove', (e) => {
+        if (!isDragging) return;
+        let newX = e.clientX - startX7;
+        let newY = e.clientY - startY7;
+
+
+        // 限制 X 軸範圍
+        if (plate7Width > map7Width) {
+            const minX = map7Width - plate7Width; // 左边界
+            const maxX = 0; // 右边界
+            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+        } else {
+            newX = 0; // 如果子容器比父容器小，则保持水平居中
+        }
+
+        if (plate7Height > map7Height) {
+            const minY = map7Height - plate7Height; // 上边界
+            const maxY = 0; // 下边界
+            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+        } else {
+            newY = 0; // 如果子容器比父容器小，则保持垂直居中
+        }
+
+        // 更新位置
+        currentX7 = newX;
+        currentY7 = newY;
+
+        // 設置 transform，更新位置
+        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`)
+    });
+
+    // 當鼠標放開時
+    map7.on('mouseup touchend', () => {
+        isDragging = false;
+        map7.css("cursor", "grab")
+    });
 
 
     let pcSwiperPage, mobileSwiperPage;
