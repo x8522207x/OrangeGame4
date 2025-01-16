@@ -36,55 +36,6 @@ $(document).ready(() => {
         }
     });
 
-    $('.type--fortress').on('click', () => {
-        $('.section_story .textbox').addClass('open');
-        $('.section_story .dimmed').addClass('show');
-        $('.section_story .infoside').addClass('open');
-    });
-
-    $('.section_story .close button').on('click', () => {
-        $('.section_story .textbox').removeClass('open');
-        $('.section_story .dimmed').removeClass('show');
-        $('.section_story .infoside').removeClass('open');
-    });
-
-    $('.section_place .point').on('click', (e) => {
-        if (!e.currentTarget.classList.contains('not')) {
-            map7Plate.css('width', '3691.52px');
-            map7Plate.css('width', '2076.48px');
-            $('.section_place .point').addClass('dimmed');
-            $('.section_place .dimmed').addClass('show');
-            $('.section_place .infoside').addClass('open');
-            e.currentTarget.classList.remove('dimmed');
-            $('.section_place .infoside .infoside_wrap .sourcebox').empty();
-            const img = document.createElement('img');
-            if (e.currentTarget.classList.contains('type_1')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("裝甲架橋車");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。`);
-                img.src = `img/page7/p7_thumb_1.png`;
-            } else if (e.currentTarget.classList.contains('type_2')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("沙漠之瞳");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`配置於暗月要塞內部的專用防禦塔
-                    當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。`);
-                img.src = `img/page7/p7_thumb_2.png`;
-            } else if (e.currentTarget.classList.contains('type_3')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("烽火台");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`在主要路徑上施加緩速減益效果。
-                為了縮短通往祭壇的動線，必須將其清除。`);
-                img.src = `img/page7/p7_thumb_3.png`;
-            }
-            $('.section_place .infoside .infoside_wrap .sourcebox').append(img);
-        }
-    });
-
-    $('.section_place .close button').on('click', () => {
-        map7Plate.css('width', '2636.8px');
-        map7Plate.css('width', '1483.2px');
-        $('.section_place .point').removeClass('dimmed');
-        $('.section_place .dimmed').removeClass('show');
-        $('.section_place .infoside').removeClass('open');
-    });
-
     $('.toggle').on('click', (e) => {
         if ($(e.target).parent().parent().hasClass('open')) {
             $(e.target).parent().parent().removeClass('open');
@@ -101,30 +52,30 @@ $(document).ready(() => {
     const map6Plate = $('.section_story .map_plate');
     const map7Plate = $('.section_place .map_plate');
     let isDragging = false;
-    let startX4 = 0;
-    let startY4 = 0;
-    let currentX4 = 0;
-    let currentY4 = 0;
-    let startX6 = 0;
-    let startY6 = 0;
-    let currentX6 = 0;
-    let currentY6 = 0;
-    let startX7 = 0;
-    let startY7 = 0;
-    let currentX7 = 0;
-    let currentY7 = 0;
-    const map4Width = map4[0].offsetWidth; // 父容器的寬度
-    const map4Height = map4[0].offsetHeight; // 父容器的高度
-    const plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
-    const plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
-    const map6Width = map6[0].offsetWidth; // 父容器的寬度
-    const map6Height = map6[0].offsetHeight; // 父容器的高度
-    const plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
-    const plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
-    const map7Width = map7[0].offsetWidth; // 父容器的寬度
-    const map7Height = map7[0].offsetHeight; // 父容器的高度
-    const plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-    const plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+    let startX4 = -540;
+    let startY4 = -1;
+    let currentX4 = -540;
+    let currentY4 = -1;
+    let startX6 = -686;
+    let startY6 = -175;
+    let currentX6 = -686;
+    let currentY6 = -175;
+    let startX7 = ($(window).width() - 2637) / 2;
+    let startY7 = ($(window).height() - 1483) / 2;
+    let currentX7 = ($(window).width() - 2637) / 2;
+    let currentY7 = ($(window).height() - 1483) / 2;
+    let map4Width = map4[0].offsetWidth; // 父容器的寬度
+    let map4Height = map4[0].offsetHeight; // 父容器的高度
+    let plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
+    let plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
+    let map6Width = map6[0].offsetWidth; // 父容器的寬度
+    let map6Height = map6[0].offsetHeight; // 父容器的高度
+    let plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
+    let plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
+    let map7Width = map7[0].offsetWidth;
+    let map7Height = map7[0].offsetHeight; // 父容器的高度
+    let plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+    let plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
 
     // 當鼠標按下時
     map4.on('mousedown touchstart', (e) => {
@@ -172,37 +123,16 @@ $(document).ready(() => {
         map4.css("cursor", "grab")
     });
 
-    const buttons = document.querySelectorAll('.section_place button:not(.not)');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const buttonRect = button.getBoundingClientRect();
+    $('.type--fortress').on('click', () => {
+        $('.section_story .textbox').addClass('open');
+        $('.section_story .dimmed').addClass('show');
+        $('.section_story .infoside').addClass('open');
+    });
 
-            // 计算按钮在背景上的相对中心位置
-            const buttonX = buttonRect.left + buttonRect.width / 2;
-            const buttonY = buttonRect.top + buttonRect.height / 2;
-
-            // 获取背景的当前偏移量
-            const mapRect = map7[0].getBoundingClientRect();
-            const relativeX = buttonX - mapRect.left;
-            const relativeY = buttonY - mapRect.top;
-
-            // 计算新的背景位置
-            const newX = -(relativeX - map7Width / 2);
-            const newY = -(relativeY - map7Height / 2);
-
-            // 限制边界
-            const maxX = 0;
-            const minX = map7Width - map7Plate[0].offsetWidth;
-            const maxY = 0;
-            const minY = map7Height - map7Plate[0].offsetHeight;
-
-            const constrainedX = Math.max(minX, Math.min(maxX, newX));
-            const constrainedY = Math.max(minY, Math.min(maxY, newY));
-
-
-            // 更新背景位置
-            map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
-        });
+    $('.section_story .close button').on('click', () => {
+        $('.section_story .textbox').removeClass('open');
+        $('.section_story .dimmed').removeClass('show');
+        $('.section_story .infoside').removeClass('open');
     });
 
     map6.on('mousedown touchstart', (e) => {
@@ -286,13 +216,142 @@ $(document).ready(() => {
         currentY7 = newY;
 
         // 設置 transform，更新位置
-        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`)
+        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
     });
 
     // 當鼠標放開時
     map7.on('mouseup touchend', () => {
         isDragging = false;
         map7.css("cursor", "grab")
+    });
+
+    $('.section_place button:not(.not)').on('click', (e) => {
+        let constrainedX, constrainedY;
+        if (e.currentTarget.classList.contains("type_1")) {
+            startY7 = -437;
+            currentY7 = -437;
+            constrainedY = -437;
+            if (e.currentTarget.classList.contains("key--1")) {
+                startX7 = -1042;
+                currentX7 = -1042;
+                constrainedX = -1042;
+            } else {
+                startX7 = -1259;
+                currentX7 = -1259;
+                constrainedX = -1259;
+            }
+        } else if (e.currentTarget.classList.contains("type_2")) {
+            startY7 = -296;
+            currentY7 = -296;
+            constrainedY = -296;
+            if (e.currentTarget.classList.contains("key--3")) {
+                startX7 = -1016;
+                currentX7 = -1016;
+                constrainedX = -1016;
+            } else {
+                startX7 = -1285;
+                currentX7 = -1285;
+                constrainedX = -1285;
+            }
+        } else if (e.currentTarget.classList.contains("type_3")) {
+            startY7 = -275;
+            currentY7 = -275;
+            constrainedY = -275;
+            if (e.currentTarget.classList.contains("key--5")) {
+                constrainedX = -820;
+                startX7 = -820;
+                currentX7 = -820;
+            } else {
+                constrainedX = -1462;
+                startX7 = -1462;
+                currentX7 = -1462;
+            }
+        }
+        // 更新背景位置
+        if (e.currentTarget.classList.length > 0) {
+            map7.addClass('mini');
+            map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
+            map7Plate.css('width', '3692.52px');
+            map7Plate.css('height', '2076.48px');
+            plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+            plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+        }
+    });
+
+    $('.section_place .point').on('click', (e) => {
+        if (!e.currentTarget.classList.contains('not')) {
+            $('.section_place .point').addClass('dimmed');
+            $('.section_place .dimmed').addClass('show');
+            $('.section_place .infoside').addClass('open');
+            e.currentTarget.classList.remove('dimmed');
+            $('.section_place .infoside .infoside_wrap .sourcebox').empty();
+            const img = document.createElement('img');
+            if (e.currentTarget.classList.contains('type_1')) {
+                $('.section_place .infoside .infoside_wrap .detail .name').text("裝甲架橋車");
+                $('.section_place .infoside .infoside_wrap .detail .description').text(`召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。`);
+                img.src = `img/page7/p7_thumb_1.png`;
+            } else if (e.currentTarget.classList.contains('type_2')) {
+                $('.section_place .infoside .infoside_wrap .detail .name').text("沙漠之瞳");
+                $('.section_place .infoside .infoside_wrap .detail .description').text(`配置於暗月要塞內部的專用防禦塔
+                    當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。`);
+                img.src = `img/page7/p7_thumb_2.png`;
+            } else if (e.currentTarget.classList.contains('type_3')) {
+                $('.section_place .infoside .infoside_wrap .detail .name').text("烽火台");
+                $('.section_place .infoside .infoside_wrap .detail .description').text(`在主要路徑上施加緩速減益效果。
+                為了縮短通往祭壇的動線，必須將其清除。`);
+                img.src = `img/page7/p7_thumb_3.png`;
+            }
+            $('.section_place .infoside .infoside_wrap .sourcebox').append(img);
+        }
+    });
+
+    $('.section_place .close button').on('click', () => {
+        map7Plate.css('width', '2636.8px');
+        map7Plate.css('height', '1483.2px');
+        plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+        plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+        map7.removeClass('mini');
+        $('.section_place .point').removeClass('dimmed');
+        $('.section_place .dimmed').removeClass('show');
+        $('.section_place .infoside').removeClass('open');
+        const lightBtn = $('.section_place .map_plate .point:not(.dimmed)');
+        if (lightBtn.hasClass('type_1')) {
+            startY7 = -182;
+            currentY7 = -182;
+            if (lightBtn.hasClass('key--1')) {
+                startX7 = -551;
+                currentX7 = -551;
+                map7Plate.css("transform", `translate3d(-551px, -182px, 0)`);
+            } else {
+                startX7 = -707;
+                currentX7 = -707;
+                map7Plate.css("transform", `translate3d(-707px, -182px, 0)`);
+            }
+        } else if (lightBtn.hasClass('type_2')) {
+            startY7 = -81;
+            currentY7 = -81;
+            if (lightBtn.hasClass('key--3')) {
+                startX7 = -533;
+                currentX7 = -533;
+                map7Plate.css("transform", `translate3d(-533px, -81px, 0)`);
+            } else {
+                startX7 = -725;
+                currentX7 = -725;
+                map7Plate.css("transform", `translate3d(-725px, -81px, 0)`);
+            }
+        } else if (lightBtn.hasClass('type_3')) {
+            startY7 = -66;
+            currentY7 = -66;
+            if (lightBtn.hasClass('key--5')) {
+                startX7 = -393;
+                currentX7 = -393;
+                map7Plate.css("transform", `translate3d(-393px, -66px, 0)`);
+            } else {
+                startX7 = -852;
+                currentX7 = -852;
+                map7Plate.css("transform", `translate3d(-852px, -66px, 0)`);
+            }
+        }
     });
 
 
@@ -318,7 +377,7 @@ $(document).ready(() => {
                 init: (swiper) => {
                     $('.UNI-footer').clone().appendTo('.section_soon');
                     $('.UNI-footer')[1]?.remove();
-                    $('.UNI-footer').css('z-index', 100).css('bottom', 0).css('position', 'absolute').css('width', '100%').css('height', 80);
+                    $('.UNI-footer').css('z-index', 100).css('position', 'absolute').css('width', '100%').css('height', 80);
 
                     $('.gotop').on('click', () => {
                         swiper.slideTo(0);
@@ -376,6 +435,7 @@ $(document).ready(() => {
                     });
                 },
                 slideChange: (swiper) => {
+                    map7.removeClass('mini');
                     $('.section_story .textbox').removeClass('open');
                     $('.section_story .dimmed').removeClass('show');
                     $('.section_story .infoside').removeClass('open');
@@ -392,6 +452,19 @@ $(document).ready(() => {
                     $('.depth_1')[swiper.realIndex].classList.add('point');
                     if (swiper.realIndex !== 0) {
                         $('.gotop').addClass('show');
+                    }
+
+                    if (swiper.realIndex === 6) {
+                        map7Plate.css('width', '2636.8px');
+                        map7Plate.css('height', '1483.2px');
+                        plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+                        plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+                        startX7 = ($(window).width() - 2637) / 2;
+                        startY7 = ($(window).height() - 1483) / 2;
+                        currentX7 = ($(window).width() - 2637) / 2;
+                        currentY7 = ($(window).height() - 1483) / 2;
+
+                        map7Plate.css("transform", `translate3d(${startX7}px, ${startY7}px, 0)`);
                     }
 
                     if (swiper.realIndex === 7) {
@@ -485,18 +558,44 @@ $(document).ready(() => {
     }
     heroTabSwiper();
 
+    let originWindowWidth = $(window).width();
+    let originWindowHeight = $(window).height();
     function updateMaxVH() {
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
         root.style.setProperty('--maxvh', newMaxVh);
+
         if ($(window).width() > 768) {
             $('.event_gnb').addClass('type_clear');
             $('.event_gnb').removeClass('type_default');
-            if (pcSwiperPage) {
-                setTimeout(() => { pcSwiperPage.update(); }, 100);
-            } else {
-                pcSwiper();
-            }
+            // if (pcSwiperPage) {
+            //     setTimeout(() => { pcSwiperPage.update(); }, 100);
+            // } else {
+            //     pcSwiper();
+            // }
+            map4Width = map4[0].offsetWidth; // 父容器的寬度
+            map4Height = map4[0].offsetHeight; // 父容器的高度
+            plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
+            plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
+            map6Width = map6[0].offsetWidth; // 父容器的寬度
+            map6Height = map6[0].offsetHeight; // 父容器的高度
+            plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
+            plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
+            map7Width = map7[0].offsetWidth;
+            map7Height = map7[0].offsetHeight; // 父容器的高度
+            plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+            plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+            currentX7 += ($(window).width() - originWindowWidth) / 2;
+            currentY7 += ($(window).height() - originWindowHeight) / 2;
+            const minX = map7Width - plate7Width; // 左边界
+            const maxX = 0; // 右边界
+            currentX7 = Math.max(minX, Math.min(maxX, currentX7));
+            const minY = map7Height - plate7Height; // 上边界
+            const maxY = 0; // 下边界
+            currentY7 = Math.max(minY, Math.min(maxY, currentY7));
+            map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
+            originWindowWidth = $(window).width();
+            originWindowHeight = $(window).height();
         } else {
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');

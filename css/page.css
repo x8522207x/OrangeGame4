@@ -89,7 +89,7 @@
     opacity: .5;
     text-align: right;
     transition: color .3s ease;
-    width: 200px;
+    width: 160px;
 }
 
 .nav_side>div ol li:after {
@@ -1406,6 +1406,7 @@ section.area .visual video {
     height: 100%;
     max-width: 1248px;
     pointer-events: none;
+    user-select: none;
     z-index: 2;
 }
 
@@ -1883,6 +1884,7 @@ section.section_elf .content {
     text-align: center;
     transition: transform .6s cubic-bezier(.33, 1, .68, 1);
     width: 503px;
+    user-select: none;
 }
 
 .section_story .content .content_wrap .textbox .title {
@@ -1917,7 +1919,6 @@ section.section_elf .content {
     cursor: grab;
     height: 100%;
     left: 0;
-    max-width: unset;
     max-width: unset !important;
     overflow: hidden;
     padding: 0;
@@ -2248,6 +2249,19 @@ section.section_elf .content {
     width: auto;
 }
 
+.infoside .infoside_wrap::-webkit-scrollbar {
+    border-right: 2px solid #0000;
+    width: 6px;
+}
+
+.infoside .infoside_wrap::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #0003, #0003 70%, #0000 0, #0000);
+}
+
+.infoside .infoside_wrap::-webkit-scrollbar-track {
+    background-color: initial;
+}
+
 .section_story .content .infoside .block {
     flex: 0 0 auto;
     width: auto;
@@ -2503,6 +2517,7 @@ section.section_elf .content {
 .section_place .content .infoside .infoside_wrap {
     height: 340px;
     grid-gap: 50px;
+    user-select: none;
 }
 
 .section_place .content .infoside h4._name {
@@ -2862,6 +2877,10 @@ section.section_elf .content {
         min-height: 900px;
     }
 
+    .section_story .content .content_wrap .textbox.open {
+        transform: translate3d(0, -200px, 0);
+    }
+
     .section_place .content .infoside .infoside_wrap>h4.name {
         display: none;
     }
@@ -2926,6 +2945,10 @@ section.section_elf .content {
     section.area .content>:not(.layout-escape) {
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    .map.mini {
+        transform: translate3d(0, -150px, 0);
     }
 
     .map .map_plate .clouds,
