@@ -77,152 +77,23 @@ $(document).ready(() => {
     let plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
     let plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
 
-    // 當鼠標按下時
-    map4.on('mousedown touchstart', (e) => {
-        isDragging = true;
-        startX4 = e.clientX - currentX4;
-        startY4 = e.clientY - currentY4;
-        map4.css("cursor", "grabbing")
-    });
-
-    // 當鼠標移動時
-    map4.on('mousemove touchmove', (e) => {
-        if (!isDragging) return;
-        let newX = e.clientX - startX4;
-        let newY = e.clientY - startY4;
-
-
-        // 限制 X 軸範圍
-        if (plate4Width > map4Width) {
-            const minX = map4Width - plate4Width; // 左边界
-            const maxX = 0; // 右边界
-            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-        } else {
-            newX = 0; // 如果子容器比父容器小，则保持水平居中
-        }
-
-        if (plate4Height > map4Height) {
-            const minY = map4Height - plate4Height; // 上边界
-            const maxY = 0; // 下边界
-            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-        } else {
-            newY = 0; // 如果子容器比父容器小，则保持垂直居中
-        }
-
-        // 更新位置
-        currentX4 = newX;
-        currentY4 = newY;
-
-        // 設置 transform，更新位置
-        map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`)
-    });
-
-    // 當鼠標放開時
-    map4.on('mouseup touchend', () => {
-        isDragging = false;
-        map4.css("cursor", "grab")
-    });
-
     $('.type--fortress').on('click', () => {
         $('.section_story .textbox').addClass('open');
         $('.section_story .dimmed').addClass('show');
         $('.section_story .infoside').addClass('open');
+        if ($(window).width() < 769) {
+            $('.section_story .content .dimmed.show').on('click', () => {
+                $('.section_story .textbox').removeClass('open');
+                $('.section_story .dimmed').removeClass('show');
+                $('.section_story .infoside').removeClass('open');
+            });
+        }
     });
 
     $('.section_story .close button').on('click', () => {
         $('.section_story .textbox').removeClass('open');
         $('.section_story .dimmed').removeClass('show');
         $('.section_story .infoside').removeClass('open');
-    });
-
-    map6.on('mousedown touchstart', (e) => {
-        isDragging = true;
-        startX6 = e.clientX - currentX6;
-        startY6 = e.clientY - currentY6;
-        map6.css("cursor", "grabbing")
-    });
-
-    // 當鼠標移動時
-    map6.on('mousemove touchmove', (e) => {
-        if (!isDragging) return;
-        let newX = e.clientX - startX6;
-        let newY = e.clientY - startY6;
-
-
-        // 限制 X 軸範圍
-        if (plate6Width > map6Width) {
-            const minX = map6Width - plate6Width; // 左边界
-            const maxX = 0; // 右边界
-            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-        } else {
-            newX = 0; // 如果子容器比父容器小，则保持水平居中
-        }
-
-        if (plate6Height > map6Height) {
-            const minY = map6Height - plate6Height; // 上边界
-            const maxY = 0; // 下边界
-            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-        } else {
-            newY = 0; // 如果子容器比父容器小，则保持垂直居中
-        }
-
-        // 更新位置
-        currentX6 = newX;
-        currentY6 = newY;
-
-        // 設置 transform，更新位置
-        map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`)
-    });
-
-    // 當鼠標放開時
-    map6.on('mouseup touchend', () => {
-        isDragging = false;
-        map6.css("cursor", "grab")
-    });
-
-    map7.on('mousedown touchstart', (e) => {
-        isDragging = true;
-        startX7 = e.clientX - currentX7;
-        startY7 = e.clientY - currentY7;
-        map7.css("cursor", "grabbing")
-    });
-
-    // 當鼠標移動時
-    map7.on('mousemove touchmove', (e) => {
-        if (!isDragging) return;
-        let newX = e.clientX - startX7;
-        let newY = e.clientY - startY7;
-
-
-        // 限制 X 軸範圍
-        if (plate7Width > map7Width) {
-            const minX = map7Width - plate7Width; // 左边界
-            const maxX = 0; // 右边界
-            newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-        } else {
-            newX = 0; // 如果子容器比父容器小，则保持水平居中
-        }
-
-        if (plate7Height > map7Height) {
-            const minY = map7Height - plate7Height; // 上边界
-            const maxY = 0; // 下边界
-            newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-        } else {
-            newY = 0; // 如果子容器比父容器小，则保持垂直居中
-        }
-
-        // 更新位置
-        currentX7 = newX;
-        currentY7 = newY;
-
-        // 設置 transform，更新位置
-        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
-    });
-
-    // 當鼠標放開時
-    map7.on('mouseup touchend', () => {
-        isDragging = false;
-        map7.css("cursor", "grab")
     });
 
     $('.section_place button:not(.not)').on('click', (e) => {
@@ -548,10 +419,227 @@ $(document).ready(() => {
     };
 
     if ($(window).width() > 768) {
+        // 當鼠標按下時
+        map4.on('mousedown touchstart', (e) => {
+            isDragging = true;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+            startX4 = clientX - currentX4;
+            startY4 = clientY - currentY4;
+            map4.css("cursor", "grabbing")
+        });
+
+        // 當鼠標移動時
+        map4.on('mousemove touchmove', (e) => {
+            if (!isDragging) return;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+            let newX = clientX - startX4;
+            let newY = clientY - startY4;
+
+
+            // 限制 X 軸範圍
+            if (plate4Width > map4Width) {
+                const minX = map4Width - plate4Width; // 左边界
+                const maxX = 0; // 右边界
+                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+            } else {
+                newX = 0; // 如果子容器比父容器小，则保持水平居中
+            }
+
+            if (plate4Height > map4Height) {
+                const minY = map4Height - plate4Height; // 上边界
+                const maxY = 0; // 下边界
+                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+            } else {
+                newY = 0; // 如果子容器比父容器小，则保持垂直居中
+            }
+
+            // 更新位置
+            currentX4 = newX;
+            currentY4 = newY;
+
+            // 設置 transform，更新位置
+            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`)
+        });
+
+        // 當鼠標放開時
+        map4.on('mouseup touchend', () => {
+            isDragging = false;
+            map4.css("cursor", "grab")
+        });
+
+        map6.on('mousedown touchstart', (e) => {
+            isDragging = true;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+
+            startX6 = clientX - currentX6;
+            startY6 = clientY - currentY6;
+            map6.css("cursor", "grabbing")
+        });
+
+        // 當鼠標移動時
+        map6.on('mousemove touchmove', (e) => {
+            if (!isDragging) return;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+            let newX = clientX - startX6;
+            let newY = clientY - startY6;
+
+
+            // 限制 X 軸範圍
+            if (plate6Width > map6Width) {
+                const minX = map6Width - plate6Width; // 左边界
+                const maxX = 0; // 右边界
+                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+            } else {
+                newX = 0; // 如果子容器比父容器小，则保持水平居中
+            }
+
+            if (plate6Height > map6Height) {
+                const minY = map6Height - plate6Height; // 上边界
+                const maxY = 0; // 下边界
+                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+            } else {
+                newY = 0; // 如果子容器比父容器小，则保持垂直居中
+            }
+
+            // 更新位置
+            currentX6 = newX;
+            currentY6 = newY;
+
+            // 設置 transform，更新位置
+            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`)
+        });
+
+        // 當鼠標放開時
+        map6.on('mouseup touchend', () => {
+            isDragging = false;
+            map6.css("cursor", "grab")
+        });
+
+        map7.on('mousedown touchstart', (e) => {
+            isDragging = true;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+            startX7 = clientX - currentX7;
+            startY7 = clientY - currentY7;
+            map7.css("cursor", "grabbing")
+        });
+
+        // 當鼠標移動時
+        map7.on('mousemove touchmove', (e) => {
+            if (!isDragging) return;
+            let clientX = 0;
+            if (e.clientX !== undefined) {
+                clientX = e.clientX;
+            } else {
+                clientX = e.targetTouches[0].clientX;
+            }
+
+            let clientY = 0;
+            if (e.clientY !== undefined) {
+                clientY = e.clientY;
+            } else {
+                clientY = e.targetTouches[0].clientY;
+            }
+            let newX = clientX - startX7;
+            let newY = clientY - startY7;
+
+
+            // 限制 X 軸範圍
+            if (plate7Width > map7Width) {
+                const minX = map7Width - plate7Width; // 左边界
+                const maxX = 0; // 右边界
+                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
+            } else {
+                newX = 0; // 如果子容器比父容器小，则保持水平居中
+            }
+
+            if (plate7Height > map7Height) {
+                const minY = map7Height - plate7Height; // 上边界
+                const maxY = 0; // 下边界
+                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
+            } else {
+                newY = 0; // 如果子容器比父容器小，则保持垂直居中
+            }
+
+            // 更新位置
+            currentX7 = newX;
+            currentY7 = newY;
+
+            // 設置 transform，更新位置
+            map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
+        });
+
+        // 當鼠標放開時
+        map7.on('mouseup touchend', () => {
+            isDragging = false;
+            map7.css("cursor", "grab")
+        });
+
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
+        $('.section_map .map_plate').css('width', '1868.8px').css('height', '911.04px');
+        $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
         $('.event_gnb').addClass('type_default');
         $('.event_gnb').removeClass('type_clear');
         mobileSwiper();
@@ -585,18 +673,33 @@ $(document).ready(() => {
             map7Height = map7[0].offsetHeight; // 父容器的高度
             plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
             plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+            let maxX = 0; // 右边界
+            let maxY = 0; // 下边界
+            currentX4 += ($(window).width() - originWindowWidth) / 2;
+            currentY4 += ($(window).height() - originWindowHeight) / 2;
+            currentX6 += ($(window).width() - originWindowWidth) / 2;
+            currentY6 += ($(window).height() - originWindowHeight) / 2;
             currentX7 += ($(window).width() - originWindowWidth) / 2;
             currentY7 += ($(window).height() - originWindowHeight) / 2;
-            const minX = map7Width - plate7Width; // 左边界
-            const maxX = 0; // 右边界
+            let minX = map4Width - plate4Width; // 左边界
+            let minY = map4Height - plate4Height; // 上边界
+            currentX4 = Math.max(minX, Math.min(maxX, currentX4));
+            currentY4 = Math.max(minY, Math.min(maxY, currentY4));
+            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
+            minX = map6Width - plate6Width;
+            minY = map6Height - plate6Height; // 上边界
+            currentX6 = Math.max(minX, Math.min(maxX, currentX6));
+            currentY6 = Math.max(minY, Math.min(maxY, currentY6));
+            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
+            minY = map7Height - plate7Height; // 上边界
+            minX = map7Width - plate7Width;
             currentX7 = Math.max(minX, Math.min(maxX, currentX7));
-            const minY = map7Height - plate7Height; // 上边界
-            const maxY = 0; // 下边界
             currentY7 = Math.max(minY, Math.min(maxY, currentY7));
             map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
             originWindowWidth = $(window).width();
             originWindowHeight = $(window).height();
         } else {
+            $('.section_map .map_plate').css('transform', `translate3d(-470 + ($(window).width() - 375)/2px, -121px, 0px)`)
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');
             if (mobileSwiperPage) {
