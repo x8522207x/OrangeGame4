@@ -87,6 +87,10 @@ $(document).ready(() => {
                 $('.section_story .dimmed').removeClass('show');
                 $('.section_story .infoside').removeClass('open');
             });
+
+            $('.section_story .infoside_wrap').on('touchmove', (e) => {
+                e.stopPropagation();
+            });
         }
     });
 
@@ -94,59 +98,6 @@ $(document).ready(() => {
         $('.section_story .textbox').removeClass('open');
         $('.section_story .dimmed').removeClass('show');
         $('.section_story .infoside').removeClass('open');
-    });
-
-    $('.section_place button:not(.not)').on('click', (e) => {
-        let constrainedX, constrainedY;
-        if (e.currentTarget.classList.contains("type_1")) {
-            startY7 = -437;
-            currentY7 = -437;
-            constrainedY = -437;
-            if (e.currentTarget.classList.contains("key--1")) {
-                startX7 = -1042;
-                currentX7 = -1042;
-                constrainedX = -1042;
-            } else {
-                startX7 = -1259;
-                currentX7 = -1259;
-                constrainedX = -1259;
-            }
-        } else if (e.currentTarget.classList.contains("type_2")) {
-            startY7 = -296;
-            currentY7 = -296;
-            constrainedY = -296;
-            if (e.currentTarget.classList.contains("key--3")) {
-                startX7 = -1016;
-                currentX7 = -1016;
-                constrainedX = -1016;
-            } else {
-                startX7 = -1285;
-                currentX7 = -1285;
-                constrainedX = -1285;
-            }
-        } else if (e.currentTarget.classList.contains("type_3")) {
-            startY7 = -275;
-            currentY7 = -275;
-            constrainedY = -275;
-            if (e.currentTarget.classList.contains("key--5")) {
-                constrainedX = -820;
-                startX7 = -820;
-                currentX7 = -820;
-            } else {
-                constrainedX = -1462;
-                startX7 = -1462;
-                currentX7 = -1462;
-            }
-        }
-        // 更新背景位置
-        if (e.currentTarget.classList.length > 0) {
-            map7.addClass('mini');
-            map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
-            map7Plate.css('width', '3692.52px');
-            map7Plate.css('height', '2076.48px');
-            plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-            plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
-        }
     });
 
     $('.section_place .point').on('click', (e) => {
@@ -158,21 +109,33 @@ $(document).ready(() => {
             $('.section_place .infoside .infoside_wrap .sourcebox').empty();
             const img = document.createElement('img');
             if (e.currentTarget.classList.contains('type_1')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("裝甲架橋車");
+                $('.section_place .infoside .infoside_wrap .name').text("裝甲架橋車");
                 $('.section_place .infoside .infoside_wrap .detail .description').text(`召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。`);
                 img.src = `img/page7/p7_thumb_1.png`;
             } else if (e.currentTarget.classList.contains('type_2')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("沙漠之瞳");
+                $('.section_place .infoside .infoside_wrap .name').text("沙漠之瞳");
                 $('.section_place .infoside .infoside_wrap .detail .description').text(`配置於暗月要塞內部的專用防禦塔
                     當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。`);
                 img.src = `img/page7/p7_thumb_2.png`;
             } else if (e.currentTarget.classList.contains('type_3')) {
-                $('.section_place .infoside .infoside_wrap .detail .name').text("烽火台");
+                $('.section_place .infoside .infoside_wrap .name').text("烽火台");
                 $('.section_place .infoside .infoside_wrap .detail .description').text(`在主要路徑上施加緩速減益效果。
                 為了縮短通往祭壇的動線，必須將其清除。`);
                 img.src = `img/page7/p7_thumb_3.png`;
             }
             $('.section_place .infoside .infoside_wrap .sourcebox').append(img);
+            if ($(window).width() < 769) {
+                $('.section_place .content>.dimmed.show').on('click', () => {
+                    $('.section_place .point').removeClass('dimmed');
+                    $('.section_place .dimmed').removeClass('show');
+                    $('.section_place .infoside').removeClass('open');
+                    map7.removeClass('mini');
+                });
+
+                $('.section_place .infoside_wrap').on('touchmove', (e) => {
+                    e.stopPropagation();
+                });
+            }
         }
     });
 
@@ -404,6 +367,9 @@ $(document).ready(() => {
                     $('.UNI-footer').css('display', 'none');
                 },
                 slideChange: (swiper) => {
+                    $('.section_story .textbox').removeClass('open');
+                    $('.section_story .dimmed').removeClass('show');
+                    $('.section_story .infoside').removeClass('open');
                     $('.gotop').removeClass('show');
                     $('.UNI-footer').css('display', 'none');
                     if (swiper.realIndex !== 0) {
@@ -634,12 +600,71 @@ $(document).ready(() => {
             map7.css("cursor", "grab")
         });
 
+        $('.section_place button:not(.not)').on('click', (e) => {
+            let constrainedX, constrainedY;
+            if (e.currentTarget.classList.contains("type_1")) {
+                startY7 = -437;
+                currentY7 = -437;
+                constrainedY = -437;
+                if (e.currentTarget.classList.contains("key--1")) {
+                    startX7 = -1042;
+                    currentX7 = -1042;
+                    constrainedX = -1042;
+                } else {
+                    startX7 = -1259;
+                    currentX7 = -1259;
+                    constrainedX = -1259;
+                }
+            } else if (e.currentTarget.classList.contains("type_2")) {
+                startY7 = -296;
+                currentY7 = -296;
+                constrainedY = -296;
+                if (e.currentTarget.classList.contains("key--3")) {
+                    startX7 = -1016;
+                    currentX7 = -1016;
+                    constrainedX = -1016;
+                } else {
+                    startX7 = -1285;
+                    currentX7 = -1285;
+                    constrainedX = -1285;
+                }
+            } else if (e.currentTarget.classList.contains("type_3")) {
+                startY7 = -275;
+                currentY7 = -275;
+                constrainedY = -275;
+                if (e.currentTarget.classList.contains("key--5")) {
+                    constrainedX = -820;
+                    startX7 = -820;
+                    currentX7 = -820;
+                } else {
+                    constrainedX = -1462;
+                    startX7 = -1462;
+                    currentX7 = -1462;
+                }
+            }
+            // 更新背景位置
+            if (e.currentTarget.classList.length > 0) {
+                map7.addClass('mini');
+                map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
+                map7Plate.css('width', '3692.52px');
+                map7Plate.css('height', '2076.48px');
+                plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
+                plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+            }
+        });
+
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
         $('.section_map .map_plate').css('width', '1868.8px').css('height', '911.04px');
         $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
+        $('.section_place button:not(.not)').on('click', (e) => {
+            // 更新背景位置
+            if (e.currentTarget.classList.length > 0) {
+                map7.addClass('mini');
+            }
+        });
         $('.event_gnb').addClass('type_default');
         $('.event_gnb').removeClass('type_clear');
         mobileSwiper();
