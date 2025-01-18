@@ -79,12 +79,12 @@ $(document).ready(() => {
 
     $('.type--fortress').on('click', () => {
         $('.section_story .textbox').addClass('open');
-        $('.section_story .dimmed').addClass('show');
+        $('.section_story .dimmed_bg').addClass('show');
         $('.section_story .infoside').addClass('open');
         if ($(window).width() < 769) {
-            $('.section_story .content .dimmed.show').on('click', () => {
+            $('.section_story .content .dimmed_bg.show').on('click', () => {
                 $('.section_story .textbox').removeClass('open');
-                $('.section_story .dimmed').removeClass('show');
+                $('.section_story .dimmed_bg').removeClass('show');
                 $('.section_story .infoside').removeClass('open');
             });
 
@@ -96,14 +96,14 @@ $(document).ready(() => {
 
     $('.section_story .close button').on('click', () => {
         $('.section_story .textbox').removeClass('open');
-        $('.section_story .dimmed').removeClass('show');
+        $('.section_story .dimmed_bg').removeClass('show');
         $('.section_story .infoside').removeClass('open');
     });
 
     $('.section_place .point').on('click', (e) => {
         if (!e.currentTarget.classList.contains('not')) {
             $('.section_place .point').addClass('dimmed');
-            $('.section_place .dimmed').addClass('show');
+            $('.section_place .dimmed_bg').addClass('show');
             $('.section_place .infoside').addClass('open');
             e.currentTarget.classList.remove('dimmed');
             $('.section_place .infoside .infoside_wrap .sourcebox').empty();
@@ -125,9 +125,9 @@ $(document).ready(() => {
             }
             $('.section_place .infoside .infoside_wrap .sourcebox').append(img);
             if ($(window).width() < 769) {
-                $('.section_place .content>.dimmed.show').on('click', () => {
+                $('.section_place .content>.dimmed_bg.show').on('click', () => {
                     $('.section_place .point').removeClass('dimmed');
-                    $('.section_place .dimmed').removeClass('show');
+                    $('.section_place .dimmed_bg').removeClass('show');
                     $('.section_place .infoside').removeClass('open');
                     map7.removeClass('mini');
                 });
@@ -146,7 +146,7 @@ $(document).ready(() => {
         plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
         map7.removeClass('mini');
         $('.section_place .point').removeClass('dimmed');
-        $('.section_place .dimmed').removeClass('show');
+        $('.section_place .dimmed_bg').removeClass('show');
         $('.section_place .infoside').removeClass('open');
         const lightBtn = $('.section_place .map_plate .point:not(.dimmed)');
         if (lightBtn.hasClass('type_1')) {
@@ -189,7 +189,7 @@ $(document).ready(() => {
     });
 
 
-    let pcSwiperPage, mobileSwiperPage;
+    let pcSwiperPage, mobileSwiperPage, heroSwiperPage;
 
     const pcSwiper = () => {
         pcSwiperPage = new Swiper('.section-pages', {
@@ -271,10 +271,10 @@ $(document).ready(() => {
                 slideChange: (swiper) => {
                     map7.removeClass('mini');
                     $('.section_story .textbox').removeClass('open');
-                    $('.section_story .dimmed').removeClass('show');
+                    $('.section_story .dimmed_bg').removeClass('show');
                     $('.section_story .infoside').removeClass('open');
                     $('.section_place .point').removeClass('dimmed');
-                    $('.section_place .dimmed').removeClass('show');
+                    $('.section_place .dimmed_bg').removeClass('show');
                     $('.section_place .infoside').removeClass('open');
                     ['active', 'point'].forEach(cl => ['.depth_1', '.depth_2'].forEach(ele => $(ele).removeClass(cl)));
                     $('.swiper-slide-page').off('scroll');
@@ -319,7 +319,7 @@ $(document).ready(() => {
     };
 
     const heroTabSwiper = () => {
-        pcSwiperPage = new Swiper('.section-group-pages', {
+        heroSwiperPage = new Swiper('.section-group-pages', {
             touchReleaseOnEdges: true,
             mousewheel: {
                 releaseOnEdges: true,
@@ -332,7 +332,7 @@ $(document).ready(() => {
             speed: 1000,
             slidesPerView: 1,
             spaceBetween: 0,
-            allowTouchMove: false,
+            allowTouchMove: true,
         });
     };
 
@@ -361,14 +361,19 @@ $(document).ready(() => {
                         swiper.slideTo(0);
                     });
 
-                    $('.scroll').on('click', () => {
+                    $('.section_hero .scroll').on('click', () => {
                         swiper.slideTo(1);
                     });
+
+                    $('.section_hero_sec .scroll').on('click', () => {
+                        swiper.slideTo(5);
+                    });
+
                     $('.UNI-footer').css('display', 'none');
                 },
                 slideChange: (swiper) => {
                     $('.section_story .textbox').removeClass('open');
-                    $('.section_story .dimmed').removeClass('show');
+                    $('.section_story .dimmed_bg').removeClass('show');
                     $('.section_story .infoside').removeClass('open');
                     $('.gotop').removeClass('show');
                     $('.UNI-footer').css('display', 'none');
@@ -657,6 +662,7 @@ $(document).ready(() => {
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
+        $('.section_story .map_plate').css('transform', `translate3d(${-1147 + ($(window).width() - 375) / 2}px, ${-234 + ($(window).height() - 675) / 2}px, 0px)`);
         $('.section_map .map_plate').css('width', '1868.8px').css('height', '911.04px');
         $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
         $('.section_place button:not(.not)').on('click', (e) => {
@@ -724,7 +730,8 @@ $(document).ready(() => {
             originWindowWidth = $(window).width();
             originWindowHeight = $(window).height();
         } else {
-            $('.section_map .map_plate').css('transform', `translate3d(-470 + ($(window).width() - 375)/2px, -121px, 0px)`)
+            $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
+            $('.section_story .map_plate').css('transform', `translate3d(${-1147 + ($(window).width() - 375) / 2}px, ${-234 + ($(window).height() - 675) / 2}px, 0px)`);
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');
             if (mobileSwiperPage) {

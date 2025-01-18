@@ -765,7 +765,7 @@ section.area .visual video {
 }
 
 .section_info .content .header .thumb {
-    background-image: url(../img/page2/p2_thumb.png);
+    background-image: url(../img/page2/p2thumb.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1876,8 +1876,8 @@ section.section_elf .content {
     pointer-events: none;
 }
 
-.section_story .content .dimmed.show,
-.section_place .content .dimmed.show {
+.section_story .content .dimmed_bg.show,
+.section_place .content .dimmed_bg.show {
     opacity: 1;
     pointer-events: all;
 }
@@ -2052,10 +2052,10 @@ section.section_elf .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    left: 50%;
+    /* left: 50%; */
     pointer-events: all;
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     transform: translate3d(-50%, -50%, 0);
     grid-gap: 5px;
     transition: filter .18s ease;
@@ -2073,7 +2073,7 @@ section.section_elf .content {
 
 .section_story .map .point.type--fortress .pointbadge,
 .section_place .map .point.type--fortress .pointbadge {
-    background-image: url(../img/page6/p6point_fortress.png);
+    background-image: url(../img/page6/p6_point_fortress.png);
 }
 
 .section_story .map .point .pointbadge.size--land,
@@ -2358,8 +2358,8 @@ section.section_elf .content {
     background-color: initial;
 } */
 
-.section_story .content .dimmed,
-.section_place .content .dimmed {
+.section_story .content .dimmed_bg,
+.section_place .content .dimmed_bg {
     height: 100%;
     left: 0;
     max-width: unset !important;
@@ -2977,7 +2977,7 @@ section.section_elf .content {
         min-height: 900px;
     }
 
-    section.area .content div.dimmed {
+    section.area .content div.dimmed_bg {
         display: none;
     }
 
@@ -3036,6 +3036,10 @@ section.section_elf .content {
 
     .section-pages>.swiper-wrapper>.swiper-slide {
         max-height: unset;
+    }
+
+    .bosspage_tab {
+        top: 44px;
     }
 
     /* section.area {
@@ -3116,8 +3120,8 @@ section.section_elf .content {
     }
 
     .section_story .point {
-        left: 51%;
-        top: 54%;
+        left: 51% !important;
+        top: 54% !important;
     }
 
     .section_story .map .map_plate,
@@ -3574,7 +3578,7 @@ section.section_elf .content {
         height: 236px;
         margin-bottom: auto;
         margin-left: unset;
-        margin-top: 107px;
+        margin-top: 44px;
         transform: translateZ(0) !important;
         width: 251px;
     }
@@ -3601,7 +3605,7 @@ section.section_elf .content {
         background-image: url(../img/page6/p2_bg_m.jpg);
     }
 
-    section.area .content .dimmed {
+    section.area .content .dimmed_bg {
         background-color: #00000080;
     }
 
@@ -3858,6 +3862,114 @@ section.section_elf .content {
     .section_place .point.type--n4.key--11 {
         left: 49.5%;
         top: 52%;
+    }
+
+    .section-pages>.swiper-wrapper>.swiper-slide>.section_elf {
+        height: auto;
+        opacity: 1;
+        transition: opacity .5s ease;
+        min-height: 100vh;
+        transform: none !important;
+    }
+
+    .section_elf .content .content_wrap {
+        margin-top: min(100vw, 380px);
+    }
+
+    .section_elf .visual video {
+        align-self: flex-start;
+        height: auto !important;
+        -webkit-mask-image: linear-gradient(180deg, #000 70%, #0000);
+        mask-image: linear-gradient(180deg, #000 70%, #0000);
+        max-height: 616px !important;
+        object-position: 50% 50%;
+    }
+
+    .section_elf .content .elfs {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 26px;
+        transform: translateZ(0);
+    }
+
+    .section_elf .content .elfs .elf_data {
+        height: 564px;
+        position: relative;
+        width: 326px;
+    }
+
+    .section_elf .content .elfs .elf_data .wrap {
+        background-image: url(../img/page8/p8_textbg_2.png);
+    }
+
+    .section_elf .content .elfs .elf_data .title {
+        margin-top: 30px;
+    }
+
+    .section_elf .content .elfs .elf_data .title span {
+        font-size: 15px;
+    }
+
+    .section_elf .content .elfs .elf_data .title strong {
+        font-size: 21px;
+    }
+
+    .section_elf .content .elfs .elf_data ._rune {
+        margin-top: 2px;
+    }
+
+    .section_elf .content .elfs .elf_data ._rune i {
+        height: 8px;
+        width: 8px;
+    }
+
+    .section_elf .content .elfs .elf_data .content {
+        display: flex;
+    }
+
+    .section_elf .content .elfs .elf_data .content .thumb {
+        height: 140px;
+        width: 143px;
+    }
+
+    .section_elf .content .elfs .elf_data .content .flavor {
+        font-size: 13px;
+    }
+
+    .section_elf .content .elfs .elf_data .content .description {
+        font-size: 12px;
+    }
+
+    .section_elf .content .elfs .elf_data .toggle {
+        background-image: url(../img/page8/p8_toggle_active.png);
+    }
+
+    .section_elf .content .elfs .elf_data .toggle {
+        display: none;
+    }
+
+    .section_elf .content .elfs2 {
+        margin-top: 50px;
+    }
+
+    .section_elf .content .elfs2 .title {
+        font-size: 15px;
+        height: 50px;
+        width: 110px;
+    }
+
+    .section_elf .content .elfs2 .list {
+        grid-gap: 25px;
+    }
+
+    .section_elf .content .elfs2 .list li .thumb {
+        height: 118px;
+        width: 90px;
+    }
+
+    .section_elf .content .elfs2 .list li p {
+        font-size: 11px;
     }
 }
 
