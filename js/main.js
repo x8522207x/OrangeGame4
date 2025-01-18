@@ -230,6 +230,14 @@ $(document).ready(() => {
                     });
 
                     document.querySelectorAll('.swiper-slide-page').forEach(node => {
+                        if (node.children[0].classList.contains("section_spec")) {
+                            if ($(window).width() <= 1280) {
+                                node.addEventListener('touchmove', function (e) {
+                                    handleSmallHeight(swiper, e);
+                                }, { passive: true });
+                            }
+                        }
+
                         node.addEventListener('wheel', e => {
                             e.stopPropagation();
                             const currentSlide = swiper.slides[swiper.activeIndex];
@@ -255,13 +263,15 @@ $(document).ready(() => {
                             }
                         }, { passive: true });
 
-                        node.addEventListener('touchmove', function (e) {
-                            if ($(window).height() < 911) {
-                                handleSmallHeight(swiper, e);
-                            } else {
-                                swiper.allowTouchMove = true;
-                            }
-                        }, { passive: true });
+                        if (!node.children[0].classList.contains("section_spec")) {
+                            node.addEventListener('touchmove', function (e) {
+                                if ($(window).height() < 911) {
+                                    handleSmallHeight(swiper, e);
+                                } else {
+                                    swiper.allowTouchMove = true;
+                                }
+                            }, { passive: true });
+                        }
 
                         node.addEventListener('touchstart', function (e) {
                             startY = e.touches[0].clientY;
