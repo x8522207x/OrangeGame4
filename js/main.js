@@ -191,7 +191,12 @@ $(document).ready(() => {
                 releaseOnEdges: true,
             },
             loop: false,
-            slideActiveClass: 'animated',
+            freeMode: {
+                enabled: true,
+                sticky: false,
+                momentumBounce: false,
+            },
+            // slideActiveClass: 'animated',
             noSwiping: true,
             noSwipingSelector: 'button',
             autoHeight: true,
@@ -686,15 +691,19 @@ $(document).ready(() => {
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
         root.style.setProperty('--maxvh', newMaxVh);
-
+        if (heroSwiperPage) {
+            heroSwiperPage.update();
+        } else {
+            setTimeout(() => heroTabSwiper());
+        }
         if ($(window).width() > 768) {
             $('.event_gnb').addClass('type_clear');
             $('.event_gnb').removeClass('type_default');
-            // if (pcSwiperPage) {
-            //     setTimeout(() => { pcSwiperPage.update(); }, 100);
-            // } else {
-            //     pcSwiper();
-            // }
+            if (pcSwiperPage) {
+                pcSwiperPage.update();
+            } else {
+                setTimeout(() => pcSwiper());
+            }
             map4Width = map4[0].offsetWidth; // 父容器的寬度
             map4Height = map4[0].offsetHeight; // 父容器的高度
             plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
@@ -740,7 +749,7 @@ $(document).ready(() => {
             if (mobileSwiperPage) {
                 mobileSwiperPage.update();
             } else {
-                mobileSwiper();
+                setTimeout(() => mobileSwiper());
             }
         }
     }
