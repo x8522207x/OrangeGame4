@@ -102,33 +102,24 @@ $(document).ready(() => {
 
     $('.section_place .point').on('click', (e) => {
         if (!e.currentTarget.classList.contains('not')) {
+            $('.section_place .infoside_wrap').css('display', 'none');
             $('.section_place .point').addClass('dimmed');
             $('.section_place .dimmed_bg').addClass('show');
             $('.section_place .infoside').addClass('open');
             e.currentTarget.classList.remove('dimmed');
-            $('.section_place .infoside .infoside_wrap .sourcebox').empty();
-            const img = document.createElement('img');
             if (e.currentTarget.classList.contains('type_1')) {
-                $('.section_place .infoside .infoside_wrap .name').text("裝甲架橋車");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。`);
-                img.src = `img/page7/p7_thumb_1.png`;
+                $('.section_place .infoside_wrap.info_type_1').css('display', 'flex');
             } else if (e.currentTarget.classList.contains('type_2')) {
-                $('.section_place .infoside .infoside_wrap .name').text("沙漠之瞳");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`配置於暗月要塞內部的專用防禦塔
-                    當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。`);
-                img.src = `img/page7/p7_thumb_2.png`;
+                $('.section_place .infoside_wrap.info_type_2').css('display', 'flex');
             } else if (e.currentTarget.classList.contains('type_3')) {
-                $('.section_place .infoside .infoside_wrap .name').text("烽火台");
-                $('.section_place .infoside .infoside_wrap .detail .description').text(`在主要路徑上施加緩速減益效果。
-                為了縮短通往祭壇的動線，必須將其清除。`);
-                img.src = `img/page7/p7_thumb_3.png`;
+                $('.section_place .infoside_wrap.info_type_3').css('display', 'flex');
             }
-            $('.section_place .infoside .infoside_wrap .sourcebox').append(img);
             if ($(window).width() < 769) {
                 $('.section_place .content>.dimmed_bg.show').on('click', () => {
                     $('.section_place .point').removeClass('dimmed');
                     $('.section_place .dimmed_bg').removeClass('show');
                     $('.section_place .infoside').removeClass('open');
+                    $('.section_place .infoside_wrap').css('display', 'none');
                     map7.removeClass('mini');
                 });
 
@@ -148,6 +139,7 @@ $(document).ready(() => {
         $('.section_place .point').removeClass('dimmed');
         $('.section_place .dimmed_bg').removeClass('show');
         $('.section_place .infoside').removeClass('open');
+        $('.section_place .infoside_wrap').css('display', 'none');
         const lightBtn = $('.section_place .map_plate .point:not(.dimmed)');
         if (lightBtn.hasClass('type_1')) {
             startY7 = -182;
@@ -286,6 +278,7 @@ $(document).ready(() => {
                     $('.section_place .point').removeClass('dimmed');
                     $('.section_place .dimmed_bg').removeClass('show');
                     $('.section_place .infoside').removeClass('open');
+                    $('.section_place .infoside_wrap').css('display', 'none');
                     ['active', 'point'].forEach(cl => ['.depth_1', '.depth_2'].forEach(ele => $(ele).removeClass(cl)));
                     $('.swiper-slide-page').off('scroll');
                     $('.swiper-slide-page').removeClass('scrollable');

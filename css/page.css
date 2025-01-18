@@ -488,7 +488,7 @@ section.area .visual video {
 }
 
 .section_hero .content .subtitle {
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 41px;
 }
 
@@ -522,7 +522,7 @@ section.area .visual video {
     color: #0000 !important;
     color: #333;
     display: flex;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 164px;
     justify-content: center;
     letter-spacing: -9px;
@@ -778,7 +778,7 @@ section.area .visual video {
 
 .section_info .content .header .title {
     color: #cfc2c0;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 32px;
     margin-top: 20px;
     text-align: center;
@@ -906,7 +906,7 @@ section.area .visual video {
     color: #cfc2c0;
     display: flex;
     flex-direction: column;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
 }
 
 .section_spec .content .sub_content .header .title {
@@ -1110,7 +1110,7 @@ section.area .visual video {
 
 .section_spec .content .benefit .title {
     color: #cfc2c0;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 36px;
     margin-bottom: 40px;
     margin-top: 50px;
@@ -1397,7 +1397,7 @@ section.area .visual video {
     color: #0000;
     color: #e7c385;
     display: block;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 24px;
     margin: 16px 0;
     position: relative;
@@ -1446,7 +1446,7 @@ section.area .visual video {
 
 .section_map .content .content_wrap .content_box .title {
     color: #765555;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 32px;
     margin-top: 94px;
     text-align: center;
@@ -1909,7 +1909,7 @@ section.section_elf .content {
     align-items: center;
     display: flex;
     flex-direction: column;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     margin-top: 50px;
 }
 
@@ -2345,19 +2345,6 @@ section.section_elf .content {
     width: auto;
 }
 
-/* .infoside .infoside_wrap::-webkit-scrollbar {
-    border-right: 2px solid #0000;
-    width: 6px;
-}
-
-.infoside .infoside_wrap::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #0003, #0003 70%, #0000 0, #0000);
-}
-
-.infoside .infoside_wrap::-webkit-scrollbar-track {
-    background-color: initial;
-} */
-
 .section_story .content .dimmed_bg,
 .section_place .content .dimmed_bg {
     height: 100%;
@@ -2392,7 +2379,7 @@ section.section_elf .content {
 
 .section_story .content .infoside .title {
     color: #3e3730;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-weight: 500;
     height: 50px;
     white-space: nowrap;
@@ -2490,7 +2477,7 @@ section.section_elf .content {
     box-sizing: border-box;
     color: #917559;
     display: inline-flex;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 32px;
     height: 65px;
     justify-content: center;
@@ -2613,7 +2600,7 @@ section.section_elf .content {
     color: #4c4237;
     display: inline-flex;
     filter: drop-shadow(0 6px 10px rgba(60, 37, 16, .3));
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 34px;
     height: 112px;
     justify-content: center;
@@ -2627,6 +2614,7 @@ section.section_elf .content {
 }
 
 .section_place .content .infoside .infoside_wrap {
+    display: none;
     height: 340px;
     grid-gap: 50px;
     user-select: none;
@@ -2634,7 +2622,7 @@ section.section_elf .content {
 
 .section_place .content .infoside h4._name {
     color: #3e3730;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 32px;
     font-weight: 400;
 }
@@ -2667,7 +2655,7 @@ section.section_elf .content {
     align-items: center;
     color: #3e3730;
     display: flex;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 20px;
     font-style: italic;
     font-weight: 400;
@@ -2764,7 +2752,7 @@ section.section_elf .content {
     align-items: center;
     display: flex;
     flex-direction: column;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     margin-top: 20px;
 }
 
@@ -2824,7 +2812,7 @@ section.section_elf .content {
 
 .section_elf .content .elfs .elf_data .content .flavor {
     color: #5c3824;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 16px;
     margin-top: 23px;
 }
@@ -2886,7 +2874,7 @@ section.section_elf .content {
     background-size: contain;
     color: #4c4237;
     display: flex;
-    font-family: WarsOfPrasia, serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 25px;
     height: 77px;
     justify-content: center;
