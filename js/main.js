@@ -183,6 +183,53 @@ $(document).ready(() => {
 
     let pcSwiperPage, mobileSwiperPage, heroSwiperPage;
 
+    function tabletTouchMove(swiper) {
+        return (e) => handleSmallHeight(swiper, e);
+    }
+
+    function pcTouchMove(swiper) {
+        return (e) => {
+            if ($(window).height() < 911) {
+                handleSmallHeight(swiper, e);
+            } else {
+                swiper.allowTouchMove = true;
+            }
+        };
+    }
+
+    let pcTouchMoveHandler, tabletTouchMoveHandler, pcWheelHandler;
+
+    function pcTouchStart(e) {
+        startY = e.touches[0].clientY;
+    }
+
+    function pcWheel(swiper) {
+        return e => {
+            e.stopPropagation();
+            const currentSlide = swiper.slides[swiper.activeIndex];
+            const slideScrollTop = currentSlide.scrollTop;
+            const scrollHeight = currentSlide.scrollHeight;
+            const clientHeight = currentSlide.clientHeight;
+            const isAtTop = slideScrollTop === 0;
+            const isAtBottom = (slideScrollTop + clientHeight >= scrollHeight);
+            if (swiper.realIndex === 0) {
+                if (isAtBottom && e.deltaY > 0) {
+                    swiper.slideTo(swiper.realIndex + 1);
+                }
+            } else if ([1, 2, 3, 4, 5, 6].includes(swiper.realIndex)) {
+                if (isAtTop && e.deltaY < 0) {
+                    swiper.slideTo(swiper.realIndex - 1);
+                } else if (isAtBottom && e.deltaY > 0) {
+                    swiper.slideTo(swiper.realIndex + 1);
+                }
+            } else {
+                if (isAtTop && e.deltaY < 0) {
+                    swiper.slideTo(swiper.realIndex - 1);
+                }
+            }
+        };
+    }
+
     const pcSwiper = () => {
         pcSwiperPage = new Swiper('.section-pages', {
             direction: 'vertical',
@@ -191,11 +238,7 @@ $(document).ready(() => {
                 releaseOnEdges: true,
             },
             loop: false,
-            freeMode: {
-                enabled: true,
-                sticky: false,
-                momentumBounce: false,
-            },
+            freeMode: false,
             // slideActiveClass: 'animated',
             noSwiping: true,
             noSwipingSelector: 'button',
@@ -206,6 +249,9 @@ $(document).ready(() => {
             allowTouchMove: false,
             on: {
                 init: (swiper) => {
+                    pcTouchMoveHandler = pcTouchMove(swiper);
+                    tabletTouchMoveHandler = tabletTouchMove(swiper);
+                    pcWheelHandler = pcWheel(swiper);
                     $('.UNI-footer').clone().appendTo('.section_soon');
                     $('.UNI-footer')[1]?.remove();
                     $('.UNI-footer').css('z-index', 100).css('position', 'absolute').css('width', '100%').css('height', 80);
@@ -229,50 +275,17 @@ $(document).ready(() => {
                     document.querySelectorAll('.swiper-slide-page').forEach(node => {
                         if (node.children[0].classList.contains("section_spec")) {
                             if ($(window).width() <= 1280) {
-                                node.addEventListener('touchmove', function (e) {
-                                    handleSmallHeight(swiper, e);
-                                }, { passive: true });
+                                node.addEventListener('touchmove', tabletTouchMoveHandler, { passive: true });
                             }
                         }
 
-                        node.addEventListener('wheel', e => {
-                            e.stopPropagation();
-                            const currentSlide = swiper.slides[swiper.activeIndex];
-                            const slideScrollTop = currentSlide.scrollTop;
-                            const scrollHeight = currentSlide.scrollHeight;
-                            const clientHeight = currentSlide.clientHeight;
-                            const isAtTop = slideScrollTop === 0;
-                            const isAtBottom = (slideScrollTop + clientHeight >= scrollHeight);
-                            if (swiper.realIndex === 0) {
-                                if (isAtBottom && e.deltaY > 0) {
-                                    swiper.slideTo(swiper.realIndex + 1);
-                                }
-                            } else if ([1, 2, 3, 4, 5, 6].includes(swiper.realIndex)) {
-                                if (isAtTop && e.deltaY < 0) {
-                                    swiper.slideTo(swiper.realIndex - 1);
-                                } else if (isAtBottom && e.deltaY > 0) {
-                                    swiper.slideTo(swiper.realIndex + 1);
-                                }
-                            } else {
-                                if (isAtTop && e.deltaY < 0) {
-                                    swiper.slideTo(swiper.realIndex - 1);
-                                }
-                            }
-                        }, { passive: true });
+                        node.addEventListener('wheel', pcWheelHandler, { passive: true });
 
                         if (!node.children[0].classList.contains("section_spec")) {
-                            node.addEventListener('touchmove', function (e) {
-                                if ($(window).height() < 911) {
-                                    handleSmallHeight(swiper, e);
-                                } else {
-                                    swiper.allowTouchMove = true;
-                                }
-                            }, { passive: true });
+                            node.addEventListener('touchmove', pcTouchMoveHandler, { passive: true });
                         }
 
-                        node.addEventListener('touchstart', function (e) {
-                            startY = e.touches[0].clientY;
-                        }, { passive: true });
+                        node.addEventListener('touchstart', pcTouchStart, { passive: true });
                     });
                 },
                 slideChange: (swiper) => {
@@ -397,7 +410,7 @@ $(document).ready(() => {
         });
     };
 
-    if ($(window).width() > 768) {
+    function pcAddMapEvent() {
         // 當鼠標按下時
         map4.on('mousedown touchstart', (e) => {
             isDragging = true;
@@ -665,7 +678,10 @@ $(document).ready(() => {
                 plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
             }
         });
+    }
 
+    if ($(window).width() > 768) {
+        pcAddMapEvent();
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
@@ -697,8 +713,17 @@ $(document).ready(() => {
             setTimeout(() => heroTabSwiper());
         }
         if ($(window).width() > 768) {
+            if (originWindowWidth <= 768) {
+                pcAddMapEvent();
+            }
+            map4Plate.css('width', '2603.8px');
+            map4Plate.css('height', '1269px');
             $('.event_gnb').addClass('type_clear');
             $('.event_gnb').removeClass('type_default');
+            if (mobileSwiperPage) {
+                mobileSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
+                mobileSwiperPage = null; // 重置為 null
+            }
             if (pcSwiperPage) {
                 pcSwiperPage.update();
             } else {
@@ -742,6 +767,25 @@ $(document).ready(() => {
             originWindowWidth = $(window).width();
             originWindowHeight = $(window).height();
         } else {
+            if (pcSwiperPage) {
+                pcSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
+                pcSwiperPage = null; // 重置為 null
+                document.querySelectorAll('.swiper-slide-page').forEach(node => {
+                    if (node.children[0].classList.contains("section_spec")) {
+                        if ($(window).width() <= 1280) {
+                            node.removeEventListener('touchmove', tabletTouchMoveHandler, { passive: true });
+                        }
+                    }
+
+                    node.removeEventListener('wheel', pcWheelHandler, { passive: true });
+
+                    if (!node.children[0].classList.contains("section_spec")) {
+                        node.removeEventListener('touchmove', pcTouchMoveHandler, { passive: true });
+                    }
+
+                    node.removeEventListener('touchstart', pcTouchStart, { passive: true });
+                });
+            }
             $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
             $('.section_story .map_plate').css('transform', `translate3d(${-1147 + ($(window).width() - 375) / 2}px, ${-234 + ($(window).height() - 675) / 2}px, 0px)`);
             $('.event_gnb').addClass('type_default');
