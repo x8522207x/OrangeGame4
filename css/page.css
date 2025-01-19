@@ -70,7 +70,8 @@
 }
 
 .nav_side>div ol li.active button {
-    color: #d3947f;
+    color: #e7ac9c;
+    font-weight: bold;
     opacity: 1;
 }
 
@@ -81,7 +82,8 @@
 
 .nav_side>div ol li button {
     box-sizing: border-box;
-    color: #dbb7b0;
+    color: #c3aea9;
+    font-weight: 400;
     font-family: "Noto Serif TC", serif;
     font-size: 18px;
     height: 18px;
@@ -395,6 +397,7 @@ section.area .visual video {
     margin-top: 10px;
     opacity: .4;
     text-align: center;
+    font-weight: 400;
 }
 
 .bosspage_tab .item.active .text {
@@ -490,6 +493,7 @@ section.area .visual video {
 .section_hero .content .subtitle {
     font-family: "Noto Serif TC", serif;
     font-size: 41px;
+    font-weight: 600;
 }
 
 .section_hero .content>:not(.layout-escape) {
@@ -534,10 +538,10 @@ section.area .visual video {
 }
 
 .section_hero .content .title .title_text {
-    /* background-image: url(../img/page1/p1_text_hero.png);
+    background-image: url(../img/page1/p1_text_hero.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain; */
+    background-size: contain;
     color: #dbb7b0;
     filter: drop-shadow(0 0 10px rgba(224, 61, 61, .8));
     height: 177px;
@@ -555,10 +559,10 @@ section.area .visual video {
 }
 
 .section_hero .content .date>span {
-    /* background-image: url(../img/page1/p1_text_period.png);
+    background-image: url(../img/page1/p1_text_period.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain; */
+    background-size: contain;
     color: #dbb7b0;
     display: inline-block;
     flex: 1;
@@ -782,12 +786,13 @@ section.area .visual video {
     font-size: 32px;
     margin-top: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 .section_info .content .header .title strong {
     color: #d3947f;
     font-size: 60px;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .section_info .content .ornate {
@@ -801,15 +806,12 @@ section.area .visual video {
 }
 
 .section_info .content .text {
-    /* background-image: url(../img/page2/p2_text.png);
-    background-position: 0;
-    background-repeat: no-repeat;
-    background-size: contain; */
-    color: #cfc2c0 !important;
+    font-family: "Noto Serif TC", serif;
+    color: #958b89 !important;
     font-size: 16px;
     height: 331px;
     text-align: center;
-    /* white-space: nowrap; */
+    font-weight: 400;
     width: 513px;
 }
 
@@ -903,7 +905,7 @@ section.area .visual video {
 
 .section_spec .content .sub_content .header {
     align-items: center;
-    color: #cfc2c0;
+    color: #c3b7b5;
     display: flex;
     flex-direction: column;
     font-family: "Noto Serif TC", serif;
@@ -913,17 +915,21 @@ section.area .visual video {
     font-size: 60px;
     letter-spacing: -2px;
     white-space: nowrap;
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
 }
 
 .section_spec .content .sub_content .header strong {
     color: #d3947f;
-    font-weight: 400;
 }
 
 .section_spec .content .sub_content .header .weapon {
     align-items: center;
     display: inline-flex;
     font-size: 30px;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 600;
+    color: #c3b7b5;
 }
 
 .section_spec .content .sub_content .header .weapon i {
@@ -956,7 +962,7 @@ section.area .visual video {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain; */
-    color: #cfc2c0 !important;
+    color: #958b89 !important;
     font-size: 16px;
     height: 102px;
     text-align: center;
@@ -1115,6 +1121,7 @@ section.area .visual video {
     margin-bottom: 40px;
     margin-top: 50px;
     text-align: center;
+    font-weight: 700;
 }
 
 .section_spec .content .benefit .items {
@@ -1394,7 +1401,6 @@ section.area .visual video {
 
 .section_map .content .map .map_plate .point .point_lens .point_lens_text {
     box-sizing: border-box;
-    color: #0000;
     color: #e7c385;
     display: block;
     font-family: "Noto Serif TC", serif;
@@ -1402,6 +1408,7 @@ section.area .visual video {
     margin: 16px 0;
     position: relative;
     white-space: nowrap;
+    font-weight: 700;
 }
 
 .section_map .content .map .map_plate .point .point_lens .point_lens_text:before {
@@ -1450,12 +1457,13 @@ section.area .visual video {
     font-size: 32px;
     margin-top: 94px;
     text-align: center;
+    font-weight: 600;
 }
 
 .section_map .content .content_wrap .content_box .title strong {
     color: #9e4b2a;
     font-size: 60px;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .section_map .content .content_wrap .content_box .ornate {
@@ -1475,11 +1483,11 @@ section.area .visual video {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain; */
-    /* color: #0000; */
+    color: #474444;
     font-size: 16px;
     height: 571px;
     text-align: center;
-    /* white-space: nowrap; */
+    font-weight: 400;
     width: 480px;
 }
 
@@ -1709,9 +1717,9 @@ section.section_elf .content {
     display: inline-block;
     filter: drop-shadow(0 6px 3px rgba(0, 0, 0, .2));
     height: auto;
-    left: 46%;
+    left: 40%;
     position: absolute;
-    top: -13%;
+    top: -20%;
     width: 12.23%;
     z-index: 3;
 }
@@ -3051,7 +3059,8 @@ section.section_elf .content {
         padding-right: 16px;
     } */
 
-    .map {
+    .section_story .map,
+    .section_place .map {
         height: 100% !important;
     }
 
@@ -3288,6 +3297,7 @@ section.section_elf .content {
     .section_info .content .text {
         max-width: 380px;
         width: 100%;
+        font-size: 18px;
     }
 
     .section_info .content .text:before {
