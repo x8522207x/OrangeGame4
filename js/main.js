@@ -36,6 +36,9 @@ $(document).ready(() => {
         }
     });
 
+    $('.section_hero .video_button').on('click', () => openVideo('AHkz5TEwE-g'));
+    $('.section_hero_sec .video_button').on('click', () => openVideo('BjdvG4A2shg'));
+
     $('.toggle').on('click', (e) => {
         if ($(e.target).parent().parent().hasClass('open')) {
             $(e.target).parent().parent().removeClass('open');

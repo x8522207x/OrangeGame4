@@ -769,7 +769,7 @@ section.area .visual video {
 }
 
 .section_info .content .header .thumb {
-    background-image: url(../img/page2/p2thumb.png);
+    background-image: url(../img/page2/p2_thumb.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1833,11 +1833,12 @@ section.section_elf .content {
     align-items: flex-end;
     color: #e7dacc;
     display: flex;
-    font-family: Gowun Dodum, sans-serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 18px;
     letter-spacing: 0;
     margin-top: 60px;
     text-shadow: 0 4px 4px #1b1e1959;
+    font-weight: 400;
 }
 
 .section_hero_sec .content .detail strong {
@@ -1922,22 +1923,24 @@ section.section_elf .content {
 }
 
 .section_story .content .content_wrap .textbox .title span {
-    color: #957b60;
+    color: #cfc2c0;
     font-size: 22px;
+    font-weight: 600;
 }
 
 .section_story .content .content_wrap .textbox .title strong {
-    color: #4c4237;
+    color: #d3947f;
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 700;
     margin-top: 3px;
 }
 
 .section_story .content .content_wrap .textbox .description {
-    color: #645a4f;
-    font-family: Gowun Dodum, sans-serif;
+    color: #958b89;
+    font-family: "Noto Serif TC", serif;
     font-size: 17px;
     margin-top: 20px;
+    font-weight: 400;
 }
 
 .section_place .point.type_1.key--1 {
@@ -2109,7 +2112,7 @@ section.section_elf .content {
     color: #fff;
     display: flex;
     font-size: 15px;
-    font-weight: 500;
+    font-family: "Noto Serif TC", serif;
     height: 28px;
     margin: 5px 0;
     padding: 0 6px 0 8px;
@@ -2117,6 +2120,7 @@ section.section_elf .content {
     top: 100%;
     white-space: nowrap;
     will-change: transform;
+    font-weight: 400;
 }
 
 .section_story .map .point .pointname .pointname_more,
@@ -2388,7 +2392,7 @@ section.section_elf .content {
 .section_story .content .infoside .title {
     color: #3e3730;
     font-family: "Noto Serif TC", serif;
-    font-weight: 500;
+    font-weight: 700;
     height: 50px;
     white-space: nowrap;
 }
@@ -2409,6 +2413,7 @@ section.section_elf .content {
     font-size: 22px;
     margin-left: -10px;
     position: relative;
+    font-weight: 600;
 }
 
 .section_story .content .infoside h5.title:after,
@@ -2424,6 +2429,12 @@ section.section_elf .content {
     margin: 5px;
     right: 100%;
     width: 17px;
+}
+
+.section_story .content .infoside .block .description {
+    color: #6b665f;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
 }
 
 .section_story .content .infoside .effects {
@@ -2474,6 +2485,9 @@ section.section_elf .content {
     box-sizing: border-box;
     display: inline-flex;
     padding: 9px;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
+    color: #6b665f;
 }
 
 .section_story .content .infoside .effects li .data .score {
@@ -2507,6 +2521,9 @@ section.section_elf .content {
     align-items: center;
     display: flex;
     width: 100%;
+    color: #6b665f;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
 }
 
 .section_story .content .infoside .taxs li .data .item {
@@ -2527,6 +2544,9 @@ section.section_elf .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 400;
+    color: #6b665f;
 }
 
 .section_story .content .infoside .item {
@@ -2596,6 +2616,8 @@ section.section_elf .content {
     justify-content: center;
     margin-top: 20px;
     transition: background-color .3s ease;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
     width: 100%;
 }
 
@@ -2619,6 +2641,7 @@ section.section_elf .content {
     top: 0;
     width: 274px;
     z-index: 3;
+    font-weight: 700;
 }
 
 .section_place .content .infoside .infoside_wrap {
@@ -2648,6 +2671,13 @@ section.section_elf .content {
     flex: 1 1 auto;
 }
 
+.section_place .content .infoside .infoside_wrap>h4.name,
+.section_place .content .infoside .detail.block>.name {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    color: #4c4237;
+}
+
 .section_place .content .infoside .detail {
     display: flex;
     flex-direction: column;
@@ -2661,7 +2691,7 @@ section.section_elf .content {
 
 .section_place .content .infoside .detail .tip {
     align-items: center;
-    color: #3e3730;
+    color: #6b665f;
     display: flex;
     font-family: "Noto Serif TC", serif;
     font-size: 20px;
@@ -2687,10 +2717,11 @@ section.section_elf .content {
 }
 
 .section_place .content .infoside .detail p.description {
-    color: #645a4f;
-    font-family: Gowun Dodum, sans-serif;
+    color: #6b665f;
+    font-family: "Noto Serif TC", serif;
     font-size: 17px;
     margin-top: 15px;
+    font-weight: 400;
 }
 
 .section_elf .visual {
@@ -2765,14 +2796,17 @@ section.section_elf .content {
 }
 
 .section_elf .content .elfs .elf_data .title span {
-    color: #ac8f70;
+    color: #9c8164;
     font-size: 19px;
+    font-weight: 600;
+    font-family: "Noto Serif TC", serif;
 }
 
 .section_elf .content .elfs .elf_data .title strong {
     color: #4c4237;
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
 }
 
 .section_elf .content .elfs .elf_data .rune {
@@ -2820,6 +2854,7 @@ section.section_elf .content {
 
 .section_elf .content .elfs .elf_data .content .flavor {
     color: #5c3824;
+    font-weight: 600;
     font-family: "Noto Serif TC", serif;
     font-size: 16px;
     margin-top: 23px;
@@ -2827,10 +2862,11 @@ section.section_elf .content {
 
 .section_elf .content .elfs .elf_data .content .description {
     color: #4f4131;
-    font-family: Gowun Dodum, sans-serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 15px;
     line-height: 1.55;
     margin-top: 10px;
+    font-weight:400;
 }
 
 .section_elf .content .elfs .elf_data.open .toggle:hover {
@@ -2915,7 +2951,7 @@ section.section_elf .content {
 
 .section_elf .content .elfs2 .list li p {
     color: #dcd5ce;
-    font-family: Gowun Dodum, sans-serif;
+    font-family: "Noto Serif TC", serif;
     font-size: 18px;
     margin-top: 10px;
 }
