@@ -691,6 +691,7 @@ section.area .visual video {
 }
 
 .section_info .visual:before {
+    transform: translateZ(0);
     background-image: url(../img/page2/p2_vignette.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -831,6 +832,7 @@ section.area .visual video {
 }
 
 .section_spec .visual:before {
+    transform: translateZ(0);
     background-image: url(../img/page3/p3_vignette.png);
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -1567,6 +1569,7 @@ section.section_elf .content {
 }
 
 .section_hero_sec .visual .dimmed {
+    transform: translateZ(0);
     background: #0009;
     height: 100%;
     position: absolute;
