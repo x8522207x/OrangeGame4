@@ -417,6 +417,13 @@ section.area .visual video {
     filter: grayscale(0);
 }
 
+.section_hero .visual {
+    background-image: url(../img/page1/p1_bg_pc.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .section_hero .visual .dimmed {
     background-color: #000;
     height: 100%;
@@ -3094,6 +3101,10 @@ section.section_elf .content {
         padding-left: 16px;
         padding-right: 16px;
     } */
+
+    .section_hero .visual {
+        background-image: url(../img/page1/p1_bg_m.png);
+    }
 
     .section_story .map,
     .section_place .map {
