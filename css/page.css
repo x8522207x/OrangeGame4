@@ -191,7 +191,7 @@
 
 section.area {
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .area,
@@ -371,6 +371,14 @@ section.area .visual video {
 
 .bosspage_tab .item.active .thumb {
     border-color: var(--boss-color);
+}
+
+.bosspage_tab .item:hover strong {
+    color: var(--boss-color);
+}
+
+.bosspage_tab .item.active strong {
+    color: var(--boss-color);
 }
 
 .bosspage_tab .item:hover .thumb {
@@ -710,7 +718,7 @@ section.area .visual video {
     height: 100%;
     object-fit: cover;
     object-position: bottom;
-    transform: scale(1.25) translateZ(0) translateX(clamp(0px, 50vw, 289px));
+    transform: scale(1.25) translateZ(0);
     width: 100%;
 }
 
@@ -816,7 +824,7 @@ section.area .visual video {
 .section_info .content .text {
     font-family: "Noto Serif TC", serif;
     color: #958b89 !important;
-    font-size: 16px;
+    font-size: 18px;
     height: 331px;
     text-align: center;
     font-weight: 400;
@@ -972,7 +980,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     background-size: contain; */
     color: #958b89 !important;
-    font-size: 16px;
+    font-size: 18px;
     height: 102px;
     text-align: center;
     /* white-space: nowrap; */
@@ -1152,7 +1160,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     background-size: contain;
     height: auto;
-    width: 956px;
+    width: 901px;
 }
 
 .section_spec .content .benefit .items>div:first-child:before {
@@ -1170,7 +1178,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     background-size: contain;
     height: auto;
-    width: 637px;
+    width: 580px;
 }
 
 .section_spec .content .benefit .items>div:nth-child(2):before {
@@ -1182,9 +1190,9 @@ section.area .visual video {
     width: 0;
 }
 
-.section_map {
+/* .section_map {
     overflow: hidden;
-}
+} */
 
 .section_map .map_plate {
     background-size: cover;
@@ -1493,7 +1501,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     background-size: contain; */
     color: #474444;
-    font-size: 16px;
+    font-size: 18px;
     height: 571px;
     text-align: center;
     font-weight: 400;
@@ -1844,7 +1852,7 @@ section.section_elf .content {
     color: #e7dacc;
     display: flex;
     font-family: "Noto Serif TC", serif;
-    font-size: 18px;
+    font-size: 24px;
     letter-spacing: 0;
     margin-top: 60px;
     text-shadow: 0 4px 4px #1b1e1959;
@@ -1933,22 +1941,23 @@ section.section_elf .content {
 }
 
 .section_story .content .content_wrap .textbox .title span {
-    color: #cfc2c0;
+    color: #957b60;
     font-size: 22px;
     font-weight: 600;
 }
 
 .section_story .content .content_wrap .textbox .title strong {
-    color: #d3947f;
+    color: #4c4237;
     font-size: 40px;
     font-weight: 700;
     margin-top: 3px;
 }
 
 .section_story .content .content_wrap .textbox .description {
-    color: #958b89;
+    width: 435px;
+    color: #645a4f;
     font-family: "Noto Serif TC", serif;
-    font-size: 17px;
+    font-size: 18px;
     margin-top: 20px;
     font-weight: 400;
 }
@@ -2131,6 +2140,11 @@ section.section_elf .content {
     white-space: nowrap;
     will-change: transform;
     font-weight: 400;
+}
+
+.section_story .map .point .pointname>span,
+.section_place .map .point .pointname>span {
+    height: 24px;
 }
 
 .section_story .map .point .pointname .pointname_more,
@@ -2515,7 +2529,7 @@ section.section_elf .content {
     justify-content: center;
     line-height: 1;
     margin-left: auto;
-    padding-top: 7px;
+    /* padding-top: 7px; */
     width: 71px;
 }
 
@@ -2686,6 +2700,7 @@ section.section_elf .content {
     font-family: "Noto Serif TC", serif;
     font-weight: 700;
     color: #4c4237;
+    font-size: 32px;
 }
 
 .section_place .content .infoside .detail {
@@ -2729,7 +2744,7 @@ section.section_elf .content {
 .section_place .content .infoside .detail p.description {
     color: #6b665f;
     font-family: "Noto Serif TC", serif;
-    font-size: 17px;
+    font-size: 18px;
     margin-top: 15px;
     font-weight: 400;
 }
@@ -2866,17 +2881,17 @@ section.section_elf .content {
     color: #5c3824;
     font-weight: 600;
     font-family: "Noto Serif TC", serif;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 23px;
 }
 
 .section_elf .content .elfs .elf_data .content .description {
     color: #4f4131;
     font-family: "Noto Serif TC", serif;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.55;
     margin-top: 10px;
-    font-weight:400;
+    font-weight: 400;
 }
 
 .section_elf .content .elfs .elf_data.open .toggle:hover {
@@ -3216,7 +3231,7 @@ section.section_elf .content {
     }
 
     .bosspage_tab .item .text {
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .section_hero .visual .scar {
@@ -3290,8 +3305,8 @@ section.section_elf .content {
     }
 
     .video_button:after {
-        height: 22.8%;
-        width: 15.5%;
+        height: 22.8% !important;
+        width: 15.5% !important;
     }
 
     .section_hero .content .scroll {
@@ -3303,6 +3318,10 @@ section.section_elf .content {
     .section_info .visual:before {
         background-image: url(../img/page2/p2_vignette_m.png);
         background-size: 100% 100%;
+    }
+
+    .section_info .visual>video {
+        transform: scale(1.25) translateZ(0) translateX(clamp(0px, 50vw, 289px));
     }
 
     .section_info .visual .model {
@@ -3338,6 +3357,10 @@ section.section_elf .content {
         transform: translateZ(0) !important;
     }
 
+    .section_info .content .header .title strong {
+        font-size: 30px !important;
+    }
+
     .section_info .content .ornate {
         height: 13px;
         margin: 13px 0 23px;
@@ -3347,7 +3370,7 @@ section.section_elf .content {
     .section_info .content .text {
         max-width: 380px;
         width: 100%;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .section_info .content .text:before {
@@ -3585,26 +3608,28 @@ section.section_elf .content {
     }
 
     .section_hero_sec .content .detail {
-        font-size: 11px;
+        font-size: 16px;
         margin-top: 50px;
         grid-gap: 5px;
         flex-wrap: wrap;
         justify-content: center;
-        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section_hero_sec .content .detail .start {
+        display: flex;
+        justify-content: center;
     }
 
     .section_hero_sec .content .detail strong {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .section_hero_sec .content .detail .sword {
         height: 18px;
         margin: 0 4px;
         width: 18px;
-    }
-
-    .section_hero_sec .content .detail strong {
-        font-size: 13px;
     }
 
     .section_hero_sec .content .scroll {
@@ -3623,16 +3648,21 @@ section.section_elf .content {
     }
 
     .section_story .content .content_wrap .textbox {
-        height: 236px;
+        height: 331px;
         margin-bottom: auto;
         margin-left: unset;
-        margin-top: 44px;
+        margin-top: 20px;
         transform: translateZ(0) !important;
-        width: 251px;
+        width: 364px;
+    }
+
+    .section_story .map .point .pointname>span,
+    .section_place .map .point .pointname>span {
+        height: unset;
     }
 
     .section_story .content .content_wrap .textbox .title {
-        margin-top: 30px;
+        margin-top: 50px;
     }
 
     .section_story .content .content_wrap .textbox .title span {
@@ -3644,8 +3674,9 @@ section.section_elf .content {
     }
 
     .section_story .content .content_wrap .textbox .description {
-        font-size: 10px;
+        font-size: 16px;
         margin-top: 10px;
+        width: 294px;
     }
 
     .section_story .content .map .map_plate,
@@ -3661,6 +3692,7 @@ section.section_elf .content {
         height: 30px;
         transform: translate3d(-50%, 100%, 0);
         width: 80px;
+        left: 50%;
     }
 
     .infoside .close button {
@@ -3690,6 +3722,7 @@ section.section_elf .content {
         overflow-x: hidden;
         overflow-y: auto;
         grid-gap: 25px;
+        align-items: center;
     }
 
     .section_story .content .infoside h4.title {
@@ -3712,7 +3745,7 @@ section.section_elf .content {
 
     .section_story .content .infoside h5.title {
         align-items: center;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 12px;
         margin-left: 0;
         grid-gap: 5px;
@@ -3747,6 +3780,7 @@ section.section_elf .content {
     .section_story .content .infoside .effects li {
         flex: 1;
         width: 100%;
+        height: 75.81px;
     }
 
     .section_story .content .infoside .effects li .dot_ornate {
@@ -3762,14 +3796,14 @@ section.section_elf .content {
         flex-direction: column;
         justify-content: space-around;
         padding: 0;
-        width: auto;
+        width: 109.33px;
     }
 
     .section_story .content .infoside .effects li .data .score {
         font-size: 16px;
-        height: 33px;
+        height: 39px;
         margin-left: unset;
-        padding-top: 2px;
+        /* padding-top: 2px; */
         width: 36px;
     }
 
@@ -3798,7 +3832,7 @@ section.section_elf .content {
     }
 
     .section_story .content .infoside .link {
-        font-size: 12px;
+        font-size: 16px;
         height: 35px;
         margin-top: 15px;
     }
@@ -3810,7 +3844,7 @@ section.section_elf .content {
 
     .section_place .content .infoside h4.name {
         box-sizing: border-box;
-        font-size: 18px;
+        font-size: 18px !important;
         left: 0;
         text-align: center;
         top: 0;
@@ -3832,7 +3866,7 @@ section.section_elf .content {
     }
 
     .section_place .content .infoside .detail p.description {
-        font-size: 11px;
+        font-size: 16px;
         margin-top: 12px;
         text-align: center;
     }
@@ -3942,7 +3976,7 @@ section.section_elf .content {
     }
 
     .section_elf .content .elfs .elf_data {
-        height: 564px;
+        height: 600px;
         position: relative;
         width: 326px;
     }
@@ -3986,7 +4020,7 @@ section.section_elf .content {
     }
 
     .section_elf .content .elfs .elf_data .content .description {
-        font-size: 12px;
+        font-size: 16px;
     }
 
     .section_elf .content .elfs .elf_data .toggle {
@@ -4017,7 +4051,7 @@ section.section_elf .content {
     }
 
     .section_elf .content .elfs2 .list li p {
-        font-size: 11px;
+        font-size: 16px;
     }
 }
 
@@ -4066,8 +4100,8 @@ section.section_elf .content {
         flex-direction: column;
     }
 
-    .section_spec .content .benefit .items>div {
-        max-width: 530px;
+    .section_spec .content .benefit .items>div:first-child {
+        /* max-width: 530px; */
         width: 100%;
     }
 }
