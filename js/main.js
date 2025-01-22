@@ -357,6 +357,19 @@ $(document).ready(() => {
             slidesPerView: 1,
             spaceBetween: 0,
             allowTouchMove: true,
+            on: {
+                slideChange: (swiper) => {
+                    if ($(window).width() > 768) {
+                        if (swiper.realIndex > 0) {
+                            swiper.slideTo(0); // 快速回到索引 1
+                        }
+                    } else {
+                        if (swiper.realIndex > 1) {
+                            swiper.slideTo(1); // 快速回到索引 1
+                        }
+                    }
+                }
+            }
         });
     };
 
