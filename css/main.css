@@ -1436,6 +1436,7 @@ button {
     .event_gnb_default .event_gnb_default_left .event_gnb_logo img {
         height: 100%;
         width: 100%;
+        transform: translateZ(0);
     }
 
     .event_banner_content .event_banner_store a:nth-of-type(3) {
