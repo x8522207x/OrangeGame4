@@ -55,9 +55,9 @@ $(document).ready(() => {
     const map6Plate = $('.section_story .map_plate');
     const map7Plate = $('.section_place .map_plate');
     let isDragging = false;
-    let startX4 = -540;
+    let startX4 = -270;
     let startY4 = -1;
-    let currentX4 = -540;
+    let currentX4 = -270;
     let currentY4 = -1;
     let startX6 = -686;
     let startY6 = -175;
@@ -427,6 +427,9 @@ $(document).ready(() => {
     };
 
     function pcAddMapEvent() {
+        currentX4 = -824 + ($(window).width() - 820) / 2;
+        startX4 = currentX4;
+        map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
         // 當鼠標按下時
         map4.on('mousedown touchstart', (e) => {
             isDragging = true;
@@ -490,7 +493,7 @@ $(document).ready(() => {
             currentY4 = newY;
 
             // 設置 transform，更新位置
-            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`)
+            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
         });
 
         // 當鼠標放開時
@@ -498,6 +501,12 @@ $(document).ready(() => {
             isDragging = false;
             map4.css("cursor", "grab")
         });
+
+        currentX6 = -970 + ($(window).width() - 820) / 2;
+        startX6 = currentX6;
+        currentY6 = -42 + ($(window).height() - 1180) / 2;
+        startY6 = currentY6;
+        map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
 
         map6.on('mousedown touchstart', (e) => {
             isDragging = true;
