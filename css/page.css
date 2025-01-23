@@ -3887,6 +3887,7 @@ section.section_elf .content {
         margin-right: unset;
         margin-top: 107px;
         width: 137px;
+        transform: translateZ(0);
     }
 
     .section_place .content .map .map_plate,
