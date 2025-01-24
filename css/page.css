@@ -721,14 +721,6 @@ section.area .visual video {
     background-size: cover;
 }
 
-.section_info .visual>video {
-    height: 100%;
-    object-fit: cover;
-    object-position: bottom;
-    transform: scale(1.25) translateZ(0);
-    width: 100%;
-}
-
 .section_info .visual .model {
     background-image: url(../img/page2/p2_visual.png);
     background-position: 50% 50%;
@@ -3317,10 +3309,6 @@ section.section_elf .content {
     .section_info .visual {
         background-image: url(../img/page2/p2_bg_m.png);
         background-size: 100% 100%;
-    }
-
-    .section_info .visual>video {
-        transform: scale(1.25) translateZ(0) translateX(clamp(0px, 50vw, 289px));
     }
 
     .section_info .visual .model {
