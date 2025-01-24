@@ -389,7 +389,7 @@ $(document).ready(() => {
                 momentumBounce: false,
             },
             autoHeight: true,
-            speed: 1000,
+            speed: 0,
             passiveListeners: false,
             allowTouchMove: true,
             on: {
