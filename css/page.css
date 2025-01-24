@@ -117,15 +117,11 @@
 .section-pages {
     box-sizing: border-box;
     max-height: var(--maxvh);
-}
-
-.section-pages {
     width: 100%;
     height: 100%;
     max-width: 100vw;
     overflow: hidden;
     display: flex;
-    box-sizing: border-box;
 }
 
 .section-pages>.swiper-wrapper,
@@ -163,13 +159,9 @@
 .section-pages>.swiper-wrapper>.swiper-slide {
     max-height: var(--maxvh);
     overflow: hidden;
-}
-
-.section-pages>.swiper-wrapper>.swiper-slide {
     width: 100%;
     height: auto;
     box-sizing: border-box;
-    overflow: hidden;
     position: relative;
 }
 
@@ -596,15 +588,6 @@ section.area .visual video {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-.section_hero .video_button:before {
-    background-image: url(../img/icon/shape_circle_1.png);
-    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
-}
-
-.section_hero .video_button:after,
-.section_hero .video_button:before {
     content: "";
     display: inline-block;
     height: 100%;
@@ -612,6 +595,11 @@ section.area .visual video {
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+.section_hero .video_button:before {
+    background-image: url(../img/icon/shape_circle_1.png);
+    transition: transform 1.2s cubic-bezier(.16, 1, .3, 1);
 }
 
 .section_hero .video_button:hover:before {
@@ -1641,13 +1629,6 @@ section.section_elf .content {
     width: 249px;
 }
 
-.section_hero_sec .content .header .title>span {
-    display: inline-block;
-    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, .4));
-    position: relative;
-    z-index: 2;
-}
-
 .section_hero_sec .content .header .title .dust {
     background-image: url(../img/page5/p5_title_dust.png);
     background-position: 50% 50%;
@@ -2245,7 +2226,6 @@ section.section_elf .content {
     font-weight: 600;
     left: 0;
     max-width: unset !important;
-    max-width: unset;
     min-height: 200px;
     padding-left: 0 !important;
     padding-right: 0 !important;
