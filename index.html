@@ -1,641 +1,482 @@
 <!DOCTYPE html>
 <html lang="zh-tw" style="min-height: 100%">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="666" />
-    <meta property="og:image:height" content="364" />
-    <meta
-      property="og:title"
-      content="波拉西亞戰記｜第五隻混沌首領，白夜之王的復活傳說"
-    />
-    <meta
-      property="og:description"
-      content="白夜之王甦醒後的憤怒與悲傷，揭開克隆地區神秘圖騰獸的傳說。"
-    />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>波拉西亞戰記｜第五隻混沌首領，白夜之王的復活傳說</title>
-    <link
-      rel="mask-icon"
-      href="img/icon/safari-pinned-tab.svg"
-      color="#162c32"
-    />
-    <link rel="shortcut icon" href="img/icon/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&family=Syne:wght@800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/swiper@11.1.0/swiper-bundle.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.0/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/page.css" />
-    <script
-      type="text/javascript"
-      src="https://frontend.beanfun.com/plugins/game-footer/game-footer.js"
-      id="game-footer"
-      prod="波拉西亞"
-      theme="dark"
-      defer
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://tw.beanfun.com/js/GA_CodeNew.js"
-      defer
-    ></script>
-    <script src="js/main.js" defer></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="666" />
+  <meta property="og:image:height" content="364" />
+  <meta property="og:title" content="波拉西亞戰記｜第五隻混沌首領，白夜之王的復活傳說" />
+  <meta property="og:description" content="白夜之王甦醒後的憤怒與悲傷，揭開克隆地區神秘圖騰獸的傳說。" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>波拉西亞戰記｜第五隻混沌首領，白夜之王的復活傳說</title>
+  <link rel="mask-icon" href="img/icon/safari-pinned-tab.svg" color="#162c32" />
+  <link rel="shortcut icon" href="img/icon/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&family=Syne:wght@800&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11.1.0/swiper-bundle.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-  <body style="height: 0; max-height: var(--maxvh); min-height: 100%">
-    <div
-      id="app"
-      style="
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.0/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/page.css" />
+  <script type="text/javascript" src="https://frontend.beanfun.com/plugins/game-footer/game-footer.js" id="game-footer"
+    prod="波拉西亞" theme="dark" defer></script>
+  <script type="text/javascript" src="https://tw.beanfun.com/js/GA_CodeNew.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body style="height: 0; max-height: var(--maxvh); min-height: 100%">
+  <div id="app" style="
         box-sizing: border-box;
         max-height: var(--maxvh);
         overflow-y: scroll;
-      "
-    >
-      <div id="plate_base">
-        <div class="scrollbar -none">
-          <div class="scrollbar_thumb">
-            <span></span>
-          </div>
+      ">
+    <div id="plate_base">
+      <div class="scrollbar -none">
+        <div class="scrollbar_thumb">
+          <span></span>
         </div>
-        <div class="cursor"></div>
       </div>
-      <div id="plate_modal">
-        <div class="modal type--youtube">
-          <div
-            class="modal_dimmed"
-            style="background-color: rgba(0, 0, 0, 0.8)"
-          >
-            <div class="loading">
-              <div
-                class="spinner_wave_dots"
-                style="--42f2e9e9: rgba(100, 100, 100, 1)"
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+      <div class="cursor"></div>
+    </div>
+    <div id="plate_modal">
+      <div class="modal type--youtube">
+        <div class="modal_dimmed" style="background-color: rgba(0, 0, 0, 0.8)">
+          <div class="loading">
+            <div class="spinner_wave_dots" style="--42f2e9e9: rgba(100, 100, 100, 1)">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
-          <div
-            class="modal_wrap"
-            style="
+        </div>
+        <div class="modal_wrap" style="
               translate: none;
               rotate: none;
               scale: none;
               transform: translate(0px, 0px);
-            "
-          >
-            <div class="modal_inner">
-              <div class="modal_box">
-                <div class="modal_box_theme"></div>
-                <div class="modal_box_veil">
-                  <div
-                    class="spinner_wave_dots"
-                    style="--42f2e9e9: rgba(100, 100, 100, 1)"
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <div class="modal_source">
-                  <span
-                    class="modal_source_ratio"
-                    style="padding-top: 56.4945%"
-                  >
-                  </span>
+            ">
+          <div class="modal_inner">
+            <div class="modal_box">
+              <div class="modal_box_theme"></div>
+              <div class="modal_box_veil">
+                <div class="spinner_wave_dots" style="--42f2e9e9: rgba(100, 100, 100, 1)">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
               </div>
-              <button class="modal_close">
-                <span></span>
-              </button>
+              <div class="modal_source">
+                <span class="modal_source_ratio" style="padding-top: 56.4945%">
+                </span>
+              </div>
             </div>
+            <button class="modal_close">
+              <span></span>
+            </button>
           </div>
         </div>
-        <div id="toast_area"></div>
       </div>
-      <div id="plate_nav">
-        <div class="nav_top">
-          <div
-            class="event_gnb type_clear"
-            style="
+      <div id="toast_area"></div>
+    </div>
+    <div id="plate_nav">
+      <div class="nav_top">
+        <div class="event_gnb type_clear" style="
               --75824c3e: rgba(27, 30, 34, 1);
               --47759c69: rgba(255, 255, 255, 1);
               --028dbcb1: rgba(122, 99, 67, 1);
               --aa46ff86: rgba(0, 0, 0, 1);
               --4fcf305d: rgba(255, 255, 255, 1);
               --2c0e22cd: rgba(122, 99, 67, 0.05);
-            "
-          >
-            <div class="event_gnb_default">
-              <div class="event_gnb_default_wrap">
-                <div class="event_gnb_default_left">
-                  <button class="event_gnb_menu">
-                    <span></span>
-                  </button>
-                  <a
-                    href="https://warsofprasia.beanfun.com/Main"
-                    class="event_gnb_logo"
-                    target="_self"
-                  >
-                    <img src="img/icon/LOGO-tw.png" class="icon" />
-                    <img src="img/icon/LOGO.png" class="mobile_icon" />
-                  </a>
-                </div>
-                <div class="event_gnb_default_right">
-                  <div class="event_gnb_gamestart">
-                    <button>GAME START</button>
-                  </div>
-                  <div class="event_gnb_links">
-                    <ul>
-                      <li>
-                        <a
-                          href="https://warsofprasia.beanfun.com/Main"
-                          target="_self"
-                        >
-                          <i class="i--home -box"></i>
-                          <span></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.facebook.com/warsofprasia.tw"
-                          target="_self"
-                        >
-                          <i class="i--logo-fb -box"></i>
-                          <span></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.youtube.com/@user-warsofprasia"
-                          target="_self"
-                        >
-                          <i class="i--logo-youtube -box"></i>
-                          <span></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="event_gnb_teleport"></div>
-          </div>
-          <div id="nav_top_teleport"></div>
-        </div>
-        <button class="gotop">
-          <i class="i--gotop"></i>
-        </button>
-        <div class="event_banner" style="--618ead0a: 95px">
-          <span class="event_banner_dimmed"></span>
-          <div class="event_banner_content" style="margin-top: 0px">
-            <div class="event_banner_menu">
-              <button class="event_banner_menu_button">
-                <span>活動</span>
-              </button>
-            </div>
-            <div class="event_banner_content_wrap">
-              <a
-                href="https://warsofprasia.beanfun.com/Main"
-                class="event_banner_home"
-                target="_self"
-              >
-                <div class="logo">
+            ">
+          <div class="event_gnb_default">
+            <div class="event_gnb_default_wrap">
+              <div class="event_gnb_default_left">
+                <button class="event_gnb_menu">
                   <span></span>
-                  <img src="img/icon/LOGO-tw.png" class="visible_roomy" />
-                  <img src="img/icon/LOGO-tw.png" class="visible_mobile" />
+                </button>
+                <a href="https://warsofprasia.beanfun.com/Main" class="event_gnb_logo" target="_self">
+                  <img src="img/icon/LOGO-tw.png" class="icon" />
+                  <img src="img/icon/LOGO.png" class="mobile_icon" />
+                </a>
+              </div>
+              <div class="event_gnb_default_right">
+                <div class="event_gnb_gamestart">
+                  <button>GAME START</button>
                 </div>
+                <div class="event_gnb_links">
+                  <ul>
+                    <li>
+                      <a href="https://warsofprasia.beanfun.com/Main" target="_self">
+                        <i class="i--home -box"></i>
+                        <span></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.facebook.com/warsofprasia.tw" target="_self">
+                        <i class="i--logo-fb -box"></i>
+                        <span></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/@user-warsofprasia" target="_self">
+                        <i class="i--logo-youtube -box"></i>
+                        <span></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event_gnb_teleport"></div>
+        </div>
+        <div id="nav_top_teleport"></div>
+      </div>
+      <button class="gotop">
+        <i class="i--gotop"></i>
+      </button>
+      <div class="event_banner" style="--618ead0a: 95px">
+        <span class="event_banner_dimmed"></span>
+        <div class="event_banner_content" style="margin-top: 0px">
+          <div class="event_banner_menu">
+            <button class="event_banner_menu_button">
+              <span>活動</span>
+            </button>
+          </div>
+          <div class="event_banner_content_wrap">
+            <a href="https://warsofprasia.beanfun.com/Main" class="event_banner_home" target="_self">
+              <div class="logo">
+                <span></span>
+                <img src="img/icon/LOGO-tw.png" class="visible_roomy" />
+                <img src="img/icon/LOGO-tw.png" class="visible_mobile" />
+              </div>
+            </a>
+            <div class="event_banner_list">
+              <ul>
+                <li>
+                  <a href="https://warsofprasia-event.beanfun.com/EventAD/EventAD?eventAdId=10634"
+                    class="event_banner_item" target="_self">
+                    <div class="image">
+                      <img src="img/icon/banner_01.jpg" />
+                    </div>
+                    <div class="content">直升30等</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://warsofprasia-event.beanfun.com/EventAD/EventAD?eventAdId=10884"
+                    class="event_banner_item" target="_self">
+                    <div class="image">
+                      <img src="img/icon/banner_02.jpg" />
+                    </div>
+                    <div class="content">波拉魂養成班</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=10872"
+                    class="event_banner_item" target="_self">
+                    <div class="image">
+                      <img src="img/icon/banner_03.jpg" />
+                    </div>
+                    <div class="content">特別 WP Coupon</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=10431"
+                    class="event_banner_item" target="_self">
+                    <div class="image">
+                      <img src="img/icon/banner_04.jpg" />
+                    </div>
+                    <div class="content">10% 紅利回饋</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240108J-2/index.html"
+                    class="event_banner_item" target="_self">
+                    <div class="image">
+                      <img src="img/icon/banner_05.jpg" />
+                    </div>
+                    <div class="content">EP3 生死一瞬</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="event_banner_store">
+              <a href="https://play.google.com/store/apps/details?hl=zh-TW&id=com.gamania.twp&referrer=adjust_reftag%3Dc1yWGEH0cDaIG%26utm_source%3D%25E6%25AD%25A3%25E5%25BC%258F%25E5%25AE%2598%25E7%25B6%25B2_AOS"
+                target="_self">
+                <img src="img/icon/btn-download-gp.png" alt="Google Play下載" />
               </a>
-              <div class="event_banner_list">
-                <ul>
-                  <li>
-                    <a
-                      href="https://warsofprasia-event.beanfun.com/EventAD/EventAD?eventAdId=10634"
-                      class="event_banner_item"
-                      target="_self"
-                    >
-                      <div class="image">
-                        <img src="img/icon/banner_01.jpg" />
-                      </div>
-                      <div class="content">直升30等</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://warsofprasia-event.beanfun.com/EventAD/EventAD?eventAdId=10884"
-                      class="event_banner_item"
-                      target="_self"
-                    >
-                      <div class="image">
-                        <img src="img/icon/banner_02.jpg" />
-                      </div>
-                      <div class="content">波拉魂養成班</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=10872"
-                      class="event_banner_item"
-                      target="_self"
-                    >
-                      <div class="image">
-                        <img src="img/icon/banner_03.jpg" />
-                      </div>
-                      <div class="content">特別 WP Coupon</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=10431"
-                      class="event_banner_item"
-                      target="_self"
-                    >
-                      <div class="image">
-                        <img src="img/icon/banner_04.jpg" />
-                      </div>
-                      <div class="content">10% 紅利回饋</div>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240108J-2/index.html"
-                      class="event_banner_item"
-                      target="_self"
-                    >
-                      <div class="image">
-                        <img src="img/icon/banner_05.jpg" />
-                      </div>
-                      <div class="content">EP3 生死一瞬</div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="event_banner_store">
-                <a
-                  href="https://play.google.com/store/apps/details?hl=zh-TW&id=com.gamania.twp&referrer=adjust_reftag%3Dc1yWGEH0cDaIG%26utm_source%3D%25E6%25AD%25A3%25E5%25BC%258F%25E5%25AE%2598%25E7%25B6%25B2_AOS"
-                  target="_self"
-                >
-                  <img
-                    src="img/icon/btn-download-gp.png"
-                    alt="Google Play下載"
-                  />
-                </a>
-                <a
-                  href="https://apps.apple.com/tw/app/%E6%B3%A2%E6%8B%89%E8%A5%BF%E4%BA%9E%E6%88%B0%E8%A8%98/id6451229143"
-                  target="_self"
-                >
-                  <img
-                    src="img/icon/btn-download-as.png"
-                    alt="Apple Store下載"
-                  />
-                </a>
-                <a
-                  href="https://warsofprasia.beanfun.com/Download?downloadTarget=1"
-                  target="_self"
-                >
-                  <img src="img/icon/btn-download-pc.png" alt="PC下載" />
-                </a>
-              </div>
+              <a href="https://apps.apple.com/tw/app/%E6%B3%A2%E6%8B%89%E8%A5%BF%E4%BA%9E%E6%88%B0%E8%A8%98/id6451229143"
+                target="_self">
+                <img src="img/icon/btn-download-as.png" alt="Apple Store下載" />
+              </a>
+              <a href="https://warsofprasia.beanfun.com/Download?downloadTarget=1" target="_self">
+                <img src="img/icon/btn-download-pc.png" alt="PC下載" />
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div
-        id="plate_page"
-        style="--72516594: 0px; --9617c380: 0px; --cfc4fde0: 0px"
-      >
-        <div class="page_events_sunkeeper">
-          <div class="particles" style="opacity: 1">
-            <div id="particle-snow"></div>
+    </div>
+    <div id="plate_page" style="--72516594: 0px; --9617c380: 0px; --cfc4fde0: 0px">
+      <div class="page_events_sunkeeper">
+        <div class="particles" style="opacity: 1">
+          <div id="particle-snow"></div>
+        </div>
+        <nav class="nav_side">
+          <div>
+            <ol>
+              <li class="depth_1">
+                <button class="page_p1">混沌首領：白夜之王</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p2">狼 圖騰獸的復活</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p3">充滿憎恨的嚎叫</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p4">倒塌的聖所</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p5">暗月要塞</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p6">STORY&佔領福利</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p7">特殊建築</button>
+              </li>
+              <li class="depth_1">
+                <button class="page_p8">妖精軍團</button>
+              </li>
+            </ol>
           </div>
-          <nav class="nav_side">
-            <div>
-              <ol>
-                <li class="depth_1">
-                  <button class="page_p1">混沌首領：白夜之王</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p2">狼 圖騰獸的復活</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p3">充滿憎恨的嚎叫</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p4">倒塌的聖所</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p5">暗月要塞</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p6">STORY&佔領福利</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p7">特殊建築</button>
-                </li>
-                <li class="depth_1">
-                  <button class="page_p8">妖精軍團</button>
-                </li>
-              </ol>
-            </div>
-          </nav>
-          <div class="section-pages swiper-container">
-            <div class="page-group swiper-wrapper">
-              <div
-                class="swiper-slide swiper-slide-page"
-                data-title="混沌首領：白夜之王"
-              >
-                <section class="section_hero area">
-                  <nav class="bosspage_tab">
-                    <div
-                      class="section-group-pages swiper-container swiper-initialized swiper-horizontal swiper-backface-hidden"
-                    >
-                      <div class="swiper-wrapper" aria-live="polite">
-                        <div class="swiper-slide">
-                          <a
-                            href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240709/index.html"
-                            rel="noopener noreferrer"
-                            class="item"
-                            style="--boss-color: #e2b07a"
-                          >
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_1.png" />
-                            </div>
-                            <p class="text">
-                              第一個混沌 :<br />
-                              <strong>賽爾卡林</strong>
-                            </p>
-                          </a>
-                        </div>
-                        <div class="swiper-slide">
-                          <a
-                            href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240904/index.html"
-                            rel="noopener noreferrer"
-                            class="item"
-                            style="--boss-color: #9fb16a"
-                          >
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_2.png" />
-                            </div>
-                            <p class="text">
-                              第二個混沌 :<br />
-                              <strong>鯨獅傳奇</strong>
-                            </p>
-                          </a>
-                        </div>
-                        <div class="swiper-slide">
-                          <a
-                            href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20241022J/index.html"
-                            rel="noopener noreferrer"
-                            class="item"
-                            style="--boss-color: #b992f2"
-                          >
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_3.png" />
-                            </div>
-                            <p class="text">
-                              第三個混沌：<br />
-                              <strong>被束縛的帕拿斯</strong>
-                            </p>
-                          </a>
-                        </div>
-                        <div class="swiper-slide">
-                          <a
-                            href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20241119J/index.html"
-                            rel="noopener noreferrer"
-                            class="item"
-                            style="--boss-color: #d396e0"
-                          >
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_4.png" />
-                            </div>
-                            <p class="text">
-                              第四個混沌：<br />
-                              <strong>凱黎溫</strong>
-                            </p>
-                          </a>
-                        </div>
-                        <div class="swiper-slide">
-                          <div
-                            class="item active"
-                            style="--boss-color: #f5c0b6"
-                          >
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_5.png" />
-                            </div>
-                            <p class="text">
-                              第五個混沌 :<br />
-                              <strong>白夜之王</strong>
-                            </p>
+        </nav>
+        <div class="section-pages swiper-container">
+          <div class="page-group swiper-wrapper">
+            <div class="swiper-slide swiper-slide-page" data-title="混沌首領：白夜之王">
+              <section class="section_hero area">
+                <nav class="bosspage_tab">
+                  <div
+                    class="section-group-pages swiper-container swiper-initialized swiper-horizontal swiper-backface-hidden">
+                    <div class="swiper-wrapper" aria-live="polite">
+                      <div class="swiper-slide">
+                        <a href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240709/index.html"
+                          rel="noopener noreferrer" class="item" style="--boss-color: #e2b07a">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_1.png" />
                           </div>
-                        </div>
-                        <div class="swiper-slide">
-                          <div class="item">
-                            <div class="thumb">
-                              <img src="img/page1/p1_tab_thumb_6.png" />
-                            </div>
-                            <p class="text">???</p>
+                          <p class="text">
+                            第一個混沌 :<br />
+                            <strong>賽爾卡林</strong>
+                          </p>
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20240904/index.html"
+                          rel="noopener noreferrer" class="item" style="--boss-color: #9fb16a">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_2.png" />
                           </div>
+                          <p class="text">
+                            第二個混沌 :<br />
+                            <strong>鯨獅傳奇</strong>
+                          </p>
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20241022J/index.html"
+                          rel="noopener noreferrer" class="item" style="--boss-color: #b992f2">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_3.png" />
+                          </div>
+                          <p class="text">
+                            第三個混沌：<br />
+                            <strong>被束縛的帕拿斯</strong>
+                          </p>
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="https://tw.hicdn.beanfun.com/beanfun/promo/TWP/20241119J/index.html"
+                          rel="noopener noreferrer" class="item" style="--boss-color: #d396e0">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_4.png" />
+                          </div>
+                          <p class="text">
+                            第四個混沌：<br />
+                            <strong>凱黎溫</strong>
+                          </p>
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="item active" style="--boss-color: #f5c0b6">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_5.png" />
+                          </div>
+                          <p class="text">
+                            第五個混沌 :<br />
+                            <strong>白夜之王</strong>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="item">
+                          <div class="thumb">
+                            <img src="img/page1/p1_tab_thumb_6.png" />
+                          </div>
+                          <p class="text">???</p>
                         </div>
                       </div>
                     </div>
-                  </nav>
-                  <div class="visual">
-                    <span class="dimmed"></span>
-                    <div class="scar">
-                      <span style="opacity: 0.7"></span>
-                      <span style="opacity: 0.7"></span>
-                    </div>
                   </div>
-                  <div
-                    class="content"
-                    style="
+                </nav>
+                <div class="visual">
+                  <span class="dimmed"></span>
+                  <div class="scar">
+                    <span style="opacity: 0.7"></span>
+                    <span style="opacity: 0.7"></span>
+                  </div>
+                </div>
+                <div class="content" style="
                       translate: none;
                       rotate: none;
                       scale: none;
                       filter: blur(0.3419px);
                       transform: translate(-0.625px, 0.9375px) scale(0.9, 0.9);
-                    "
-                  >
-                    <p class="subtitle">
-                      <span>狼 圖騰獸的</span>&nbsp;<strong>復活</strong>
-                    </p>
-                    <h2 class="title">
-                      <span class="title_text"></span>
-                    </h2>
-                    <div class="date">
+                    ">
+                  <p class="subtitle">
+                    <span>狼 圖騰獸的</span>&nbsp;<strong>復活</strong>
+                  </p>
+                  <h2 class="title">
+                    <span class="title_text"></span>
+                  </h2>
+                  <div class="date">
+                    <span></span>
+                    <div class="ornate">
                       <span></span>
-                      <div class="ornate">
-                        <span></span>
-                        <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="showvideo">
+                    <button class="video_button">
+                      <span>영상 보기</span>
+                    </button>
+                  </div>
+                  <button class="scroll">아래로 스크롤하기</button>
+                </div>
+              </section>
+            </div>
+            <div data-title="狼 圖騰獸的復活" class="swiper-slide swiper-slide-page">
+              <section class="section_info area">
+                <div class="visual">
+                  <span class="model"></span>
+                </div>
+                <div class="content">
+                  <div class="content_wrap">
+                    <div class="content_box">
+                      <div class="header">
+                        <div class="thumb"></div>
+                        <h3 class="title">
+                          狼 圖騰獸的復活<br />
+                          <strong>白夜之王</strong>
+                        </h3>
                       </div>
+                      <span class="ornate"></span>
+                      <p class="text">
+                        曾經守護克隆地區的神獸——圖騰獸，在妖精歸順克隆聯邦的過程中從歷史中消失。
+                        <br />
+                        妖精曾利用克隆遺留下的狼圖騰獸遺骸進行實驗，試圖支配圖騰獸的力量。然而，實驗最終證明，要與擁有神獸巨大靈魂相連的圖騰獸達成契合，幾乎是不可能的。
+                        <br />
+                        被遺棄在溪谷的圖騰獸，隨時間流逝逐漸被遺忘。但隨著守護者等人類再次踏足克隆地區，圖騰獸終於被喚醒。
+                        <br />
+                        再次甦醒的圖騰獸失去了理智，被過去的陰影糾纏，對所有接近的事物展露兇猛的牙齒。
+                      </p>
                     </div>
-                    <div class="showvideo">
-                      <button class="video_button">
-                        <span>영상 보기</span>
-                      </button>
-                    </div>
-                    <button class="scroll">아래로 스크롤하기</button>
                   </div>
-                </section>
-              </div>
-              <div
-                data-title="狼 圖騰獸的復活"
-                class="swiper-slide swiper-slide-page"
-              >
-                <section class="section_info area">
-                  <div class="visual">
-                    <span class="model"></span>
-                  </div>
-                  <div class="content">
+                </div>
+              </section>
+            </div>
+            <div data-title="充滿憎恨的嚎叫" class="swiper-slide swiper-slide-page">
+              <section class="section_spec area">
+                <div class="visual">
+                  <video loop autoplay muted playsinline class="visible_roomy">
+                    <source type="video/webm" src="img/page3/p3_video_loop.webm" />
+                  </video>
+                  <video loop autoplay muted playsinline class="visible_mobile">
+                    <source type="video/webm" src="img/page3/p3_video_loop.webm" />
+                  </video>
+                </div>
+                <div class="content">
+                  <div class="sub_content">
                     <div class="content_wrap">
-                      <div class="content_box">
-                        <div class="header">
-                          <div class="thumb"></div>
-                          <h3 class="title">
-                            狼 圖騰獸的復活<br />
-                            <strong>白夜之王</strong>
-                          </h3>
+                      <div class="header">
+                        <div class="title">
+                          充滿憎惡的&nbsp;<strong>嚎叫</strong>
                         </div>
-                        <span class="ornate"></span>
-                        <p class="text">
-                          曾經守護克隆地區的神獸——圖騰獸，在妖精歸順克隆聯邦的過程中從歷史中消失。
-                          <br />
-                          妖精曾利用克隆遺留下的狼圖騰獸遺骸進行實驗，試圖支配圖騰獸的力量。然而，實驗最終證明，要與擁有神獸巨大靈魂相連的圖騰獸達成契合，幾乎是不可能的。
-                          <br />
-                          被遺棄在溪谷的圖騰獸，隨時間流逝逐漸被遺忘。但隨著守護者等人類再次踏足克隆地區，圖騰獸終於被喚醒。
-                          <br />
-                          再次甦醒的圖騰獸失去了理智，被過去的陰影糾纏，對所有接近的事物展露兇猛的牙齒。
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-              <div
-                data-title="充滿憎恨的嚎叫"
-                class="swiper-slide swiper-slide-page"
-              >
-                <section class="section_spec area">
-                  <div class="visual">
-                    <video
-                      loop
-                      autoplay
-                      muted
-                      playsinline
-                      class="visible_roomy"
-                    >
-                      <source
-                        type="video/webm"
-                        src="img/page3/p3_video_loop.webm"
-                      />
-                    </video>
-                    <video
-                      loop
-                      autoplay
-                      muted
-                      playsinline
-                      class="visible_mobile"
-                    >
-                      <source
-                        type="video/webm"
-                        src="img/page3/p3_video_loop.webm"
-                      />
-                    </video>
-                  </div>
-                  <div class="content">
-                    <div class="sub_content">
-                      <div class="content_wrap">
-                        <div class="header">
-                          <div class="title">
-                            充滿憎惡的&nbsp;<strong>嚎叫</strong>
-                          </div>
-                          <div class="weapon">
-                            主要武器<i>&nbsp;：&nbsp;</i>
-                            <strong>神獸的力量與古代妖精的遺產</strong>
-                          </div>
-                        </div>
-                        <span class="ornate"></span>
-                        <p class="text">
-                          由人類創造，曾在妖精的實驗中遭到殘殺的白夜之王，如今再次甦醒。
-                          白夜之王的憎恨與悲傷交織，憤怒的咆哮淒涼地迴盪著。
-                        </p>
-                        <div class="video">
-                          <div class="sourcebox">
-                            <div class="video_button type_2">
-                              <span>xddd</span>
-                            </div>
-                            <video
-                              loop
-                              muted
-                              playsinline
-                              poster="img/page3/p3_videoframe.png"
-                            >
-                              <source
-                                type="video/mp4"
-                                src="img/page3/p3_video_play.mp4"
-                              />
-                            </video>
-                          </div>
+                        <div class="weapon">
+                          主要武器<i>&nbsp;：&nbsp;</i>
+                          <strong>神獸的力量與古代妖精的遺產</strong>
                         </div>
                       </div>
-                    </div>
-                    <div class="benefit">
-                      <h3 class="title">主要獎勵</h3>
-                      <div class="items">
-                        <div>
-                          Lv.55 傳說~稀有英雄裝備碎片
-                          <br />
-                          - 支配者襯衫碎片 <br />
-                          - 支配者褲子碎片 <br />
-                          - 支配者布手套碎片 <br />
-                          - 支配者頭帶碎片 <br />
-                          - 救贖耳環碎片 <br />
-                          - 救贖戒指碎片
-                        </div>
-                        <div>
-                          傳說~英雄亞奎殘片 <br />
-                          - 羅網香 <br />
-                          - 終極猛擊 <br />
-                          - 神之造型 <br />
-                          - 流星墜
+                      <span class="ornate"></span>
+                      <p class="text">
+                        由人類創造，曾在妖精的實驗中遭到殘殺的白夜之王，如今再次甦醒。
+                        白夜之王的憎恨與悲傷交織，憤怒的咆哮淒涼地迴盪著。
+                      </p>
+                      <div class="video">
+                        <div class="sourcebox">
+                          <div class="video_button type_2">
+                            <span>xddd</span>
+                          </div>
+                          <video loop muted playsinline poster="img/page3/p3_videoframe.png">
+                            <source type="video/mp4" src="img/page3/p3_video_play.mp4" />
+                          </video>
                         </div>
                       </div>
                     </div>
                   </div>
-                </section>
-              </div>
-              <div
-                data-title="倒塌的聖所"
-                class="swiper-slide swiper-slide-page"
-              >
-                <section class="section_map area">
-                  <div class="visual"></div>
-                  <div class="content">
-                    <div class="map">
-                      <div
-                        class="map_plate"
-                        style="
+                  <div class="benefit">
+                    <h3 class="title">主要獎勵</h3>
+                    <div class="items">
+                      <div>
+                        Lv.55 傳說~稀有英雄裝備碎片
+                        <br />
+                        - 支配者襯衫碎片 <br />
+                        - 支配者褲子碎片 <br />
+                        - 支配者布手套碎片 <br />
+                        - 支配者頭帶碎片 <br />
+                        - 救贖耳環碎片 <br />
+                        - 救贖戒指碎片
+                      </div>
+                      <div>
+                        傳說~英雄亞奎殘片 <br />
+                        - 羅網香 <br />
+                        - 終極猛擊 <br />
+                        - 神之造型 <br />
+                        - 流星墜
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div data-title="倒塌的聖所" class="swiper-slide swiper-slide-page">
+              <section class="section_map area">
+                <div class="visual"></div>
+                <div class="content">
+                  <div class="map">
+                    <div class="map_plate" style="
                           will-change: width, height, transform;
                           box-sizing: border-box;
                           position: absolute;
@@ -646,130 +487,124 @@
                           transform: translate3d(-278px, -1px, 0px);
                           width: 2603.08px;
                           height: 1269px;
-                        "
-                      >
-                        <div class="clouds">
+                        ">
+                      <div class="clouds">
+                        <span></span>
+                      </div>
+                      <div class="point">
+                        <span class="point_boss"></span>
+                        <div class="point_arrows">
+                          <span></span>
                           <span></span>
                         </div>
-                        <div class="point">
-                          <span class="point_boss"></span>
-                          <div class="point_arrows">
+                        <span class="point_circle"></span>
+                        <div class="point_lens">
+                          <span class="point_lens_line">
                             <span></span>
+                          </span>
+                          <div class="point_lens_view">
                             <span></span>
                           </div>
-                          <span class="point_circle"></span>
-                          <div class="point_lens">
-                            <span class="point_lens_line">
-                              <span></span>
-                            </span>
-                            <div class="point_lens_view">
-                              <span></span>
-                            </div>
-                            <p class="point_lens_text">倒塌的聖所</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="content_wrap">
-                      <div class="content_box">
-                        <h3 class="title">
-                          充滿痛苦的嚎叫聲迴盪在
-                          <br />
-                          <strong>倒塌的聖所</strong>
-                        </h3>
-                        <span class="ornate"></span>
-                        <p class="text">
-                          一位因突如其來的暴雪而迷路的調香師，不小心接近了倒塌的聖所，聽到了白夜之王的嚎叫聲。
-                          <br />
-                          <br />
-                          調香師被籠罩於古老的痛苦與仇恨中，遭到無法區分人類與妖精的白夜之王的攻擊，因此身受重傷勉強逃脫成功
-                          並留下白夜之王實際存在的消息而死去。
-                          <br />
-                          <br />
-                          聽聞白夜之王的出現，一位咒文刻印使為尋求冰的力量進入倒塌的聖所
-                          數日後，平靜地離開白夜城。 <br />
-                          <br />
-                          不久後，白夜手間流傳新的情報。據說這位咒文刻印使並未與白夜之王交戰，而是協助其恢復力量與能力。
-                          表面上，白夜之王仍兇猛奔跑，實際上卻在尋找具有能夠操縱自己資格的人類。
-                          <br />
-                          <br />
-                          儘管這個故事無法證實真偽，但聽聞白夜手傳出的這個謠言後
-                          許多守護者們都湧向傾倒的聖所，希望獲得新的圖騰獸力量。
-                        </p>
-                        <div class="source">
-                          <span></span>
-                          <span></span>
+                          <p class="point_lens_text">倒塌的聖所</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                </section>
-              </div>
-              <div data-title="暗月要塞" class="swiper-slide swiper-slide-page">
-                <section class="section_hero_sec area">
-                  <div class="visual">
-                    <div class="dimmed"></div>
-                    <div class="noise"></div>
-                    <div class="cloud"></div>
-                  </div>
-                  <div class="content">
-                    <div class="content_wrap">
-                      <div class="header">
-                        <p class="eptitle">EPISODE 4</p>
-                        <h2 class="title">
-                          <span>잿빛달 요새</span>
-                          <span>OPEN</span>
-                          <div class="dust"></div>
-                          <div class="moon"></div>
-                        </h2>
-                      </div>
-                      <button class="video_button">
+                  <div class="content_wrap">
+                    <div class="content_box">
+                      <h3 class="title">
+                        充滿痛苦的嚎叫聲迴盪在
+                        <br />
+                        <strong>倒塌的聖所</strong>
+                      </h3>
+                      <span class="ornate"></span>
+                      <p class="text">
+                        一位因突如其來的暴雪而迷路的調香師，不小心接近了倒塌的聖所，聽到了白夜之王的嚎叫聲。
+                        <br />
+                        <br />
+                        調香師被籠罩於古老的痛苦與仇恨中，遭到無法區分人類與妖精的白夜之王的攻擊，因此身受重傷勉強逃脫成功
+                        並留下白夜之王實際存在的消息而死去。
+                        <br />
+                        <br />
+                        聽聞白夜之王的出現，一位咒文刻印使為尋求冰的力量進入倒塌的聖所
+                        數日後，平靜地離開白夜城。 <br />
+                        <br />
+                        不久後，白夜手間流傳新的情報。據說這位咒文刻印使並未與白夜之王交戰，而是協助其恢復力量與能力。
+                        表面上，白夜之王仍兇猛奔跑，實際上卻在尋找具有能夠操縱自己資格的人類。
+                        <br />
+                        <br />
+                        儘管這個故事無法證實真偽，但聽聞白夜手傳出的這個謠言後
+                        許多守護者們都湧向傾倒的聖所，希望獲得新的圖騰獸力量。
+                      </p>
+                      <div class="source">
                         <span></span>
                         <span></span>
-                        <div>
-                          <span></span>
-                          <span></span>
-                        </div>
-                        영상 보기
-                      </button>
-                      <div class="detail">
-                        <div class="start">
-                          <strong>紛爭期間</strong>
-                          <span class="sword"></span>
-                        </div>
-                        <p>
-                          <strong>25.03.03</strong>(一) 晚上20點 -
-                          <strong>25.03.09</strong>(日) 晚上23點
-                        </p>
                       </div>
-                      <button class="scroll">SCROLL DOWN</button>
                     </div>
                   </div>
-                </section>
-              </div>
-              <div
-                data-title="STORY&佔領福利"
-                class="swiper-slide swiper-slide-page"
-              >
-                <section class="section_story area">
-                  <div class="visual"></div>
-                  <div class="content">
-                    <div class="content_wrap">
-                      <div class="textbox">
-                        <div class="title">
-                          <span>支配西吉爾領地的天賦要塞</span>
-                          <strong>暗月要塞</strong>
-                        </div>
-                        <div class="description">
-                          這是納塞爾家族在內索帝國解體後進軍並佔據的地方。<br />通過銀環與地蜘蛛的分歧政策，成功確立了對該地的支配權。
-                          <br />在此地培養了不死軍隊灰色軍團，<br />同時與妻子巴斯馬秘密籌劃通往波濤世界的次元之門計劃……
-                        </div>
+                </div>
+              </section>
+            </div>
+            <div data-title="暗月要塞" class="swiper-slide swiper-slide-page">
+              <section class="section_hero_sec area">
+                <div class="visual">
+                  <div class="dimmed"></div>
+                  <div class="noise"></div>
+                  <div class="cloud"></div>
+                </div>
+                <div class="content">
+                  <div class="content_wrap">
+                    <div class="header">
+                      <p class="eptitle">EPISODE 4</p>
+                      <h2 class="title">
+                        <span>잿빛달 요새</span>
+                        <span>OPEN</span>
+                        <div class="dust"></div>
+                        <div class="moon"></div>
+                      </h2>
+                    </div>
+                    <button class="video_button">
+                      <span></span>
+                      <span></span>
+                      <div>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      영상 보기
+                    </button>
+                    <div class="detail">
+                      <div class="start">
+                        <strong>紛爭期間</strong>
+                        <span class="sword"></span>
+                      </div>
+                      <p>
+                        <strong>25.03.03</strong>(一) 晚上20點 -
+                        <strong>25.03.09</strong>(日) 晚上23點
+                      </p>
+                    </div>
+                    <button class="scroll">SCROLL DOWN</button>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div data-title="STORY&佔領福利" class="swiper-slide swiper-slide-page">
+              <section class="section_story area">
+                <div class="visual"></div>
+                <div class="content">
+                  <div class="content_wrap">
+                    <div class="textbox">
+                      <div class="title">
+                        <span>支配西吉爾領地的天賦要塞</span>
+                        <strong>暗月要塞</strong>
+                      </div>
+                      <div class="description">
+                        這是納塞爾家族在內索帝國解體後進軍並佔據的地方。<br />通過銀環與地蜘蛛的分歧政策，成功確立了對該地的支配權。
+                        <br />在此地培養了不死軍隊灰色軍團，<br />同時與妻子巴斯馬秘密籌劃通往波濤世界的次元之門計劃……
                       </div>
                     </div>
-                    <div class="map">
-                      <div
-                        class="map_plate"
-                        style="
+                  </div>
+                  <div class="map">
+                    <div class="map_plate" style="
                           will-change: width, height, transform;
                           box-sizing: border-box;
                           position: absolute;
@@ -780,159 +615,152 @@
                           transform: translate3d(-840px, -175px, 0px);
                           width: 2816px;
                           height: 1584px;
-                        "
-                      >
-                        <div class="clouds">
-                          <span></span>
-                        </div>
-                        <button class="point type--fortress">
-                          <span class="pointbadge size--land"></span>
-                          <span class="pointname">
-                            <span>暗月要塞</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
+                        ">
+                      <div class="clouds">
+                        <span></span>
+                      </div>
+                      <button class="point type--fortress">
+                        <span class="pointbadge size--land"></span>
+                        <span class="pointname">
+                          <span>暗月要塞</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
                           </span>
-                        </button>
-                      </div>
+                        </span>
+                      </button>
                     </div>
-                    <div class="dimmed_bg"></div>
-                    <div class="infoside">
-                      <div class="close">
-                        <button><i class="i--xmark"></i> 닫기</button>
+                  </div>
+                  <div class="dimmed_bg"></div>
+                  <div class="infoside">
+                    <div class="close">
+                      <button><i class="i--xmark"></i> 닫기</button>
+                    </div>
+                    <div class="infoside_wrap">
+                      <div class="block">
+                        <h4 class="title">暗月要塞</h4>
+                        <div class="sourcebox">
+                          <img src="img/page6/p6_thumb.png" />
+                        </div>
                       </div>
-                      <div class="infoside_wrap">
-                        <div class="block">
-                          <h4 class="title">暗月要塞</h4>
-                          <div class="sourcebox">
-                            <img src="img/page6/p6_thumb.png" />
-                          </div>
-                        </div>
-                        <div class="block">
-                          <h5 class="title">持有效果</h5>
-                          <ul class="effects">
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                防禦力<span class="score">7</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                傷害抵抗<span class="score">5</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                PVP傷害<span class="score">4</span>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="block">
-                          <h5 class="title">首次佔領獎勵</h5>
-                          <ul class="items">
-                            <li>
-                              <span class="n--1 item frame"></span>
-                              X100萬
-                            </li>
-                            <li>
-                              <span class="n--2 item frame"></span>
-                              X2
-                            </li>
-                            <li>
-                              <span class="n--3 item frame"></span>
-                              X3
-                            </li>
-                            <li>
-                              <span class="n--4 item frame"></span>
-                              X1
-                            </li>
-                            <li>
-                              <span class="n--8 item frame"></span>
-                              x1
-                            </li>
-                            <li>
-                              <span class="n--5 item frame"></span>
-                              X1
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="block">
-                          <h5 class="title">累積稅金</h5>
-                          <p class="description">
-                            每週日23點，
-                            <br />累積的稅金將結算給持有暗月要塞的旅團。
-                          </p>
-                          <ul class="taxs">
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                <span class="item n--6"></span>
-                                <p>用交易所稅金累積的貨幣</p>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                <span class="item n--7"></span>
-                                <p>用旅團貿易所稅金累積的貨幣</p>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="dot_ornate">
-                                <span></span>
-                              </div>
-                              <div class="data">
-                                <span class="item n--1"></span>
-                                <p>
-                                  透過雜貨商店、鐵匠鋪、採集場及設置黑劍，
-                                  <br />可以獲取金幣稅金。
-                                  <br />
-                                  <span>
-                                    （暗月要塞的最大持有金幣上限：50億）
-                                  </span>
-                                </p>
-                              </div>
-                            </li>
-                          </ul>
-                          <a
-                            href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=12361"
-                            rel="noopener noreferrer"
-                            target="blank"
-                            class="link"
-                          >
-                            查看各領域累積稅金
-                          </a>
-                        </div>
+                      <div class="block">
+                        <h5 class="title">持有效果</h5>
+                        <ul class="effects">
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              防禦力<span class="score">7</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              傷害抵抗<span class="score">5</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              PVP傷害<span class="score">4</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="block">
+                        <h5 class="title">首次佔領獎勵</h5>
+                        <ul class="items">
+                          <li>
+                            <span class="n--1 item frame"></span>
+                            X100萬
+                          </li>
+                          <li>
+                            <span class="n--2 item frame"></span>
+                            X2
+                          </li>
+                          <li>
+                            <span class="n--3 item frame"></span>
+                            X3
+                          </li>
+                          <li>
+                            <span class="n--4 item frame"></span>
+                            X1
+                          </li>
+                          <li>
+                            <span class="n--8 item frame"></span>
+                            x1
+                          </li>
+                          <li>
+                            <span class="n--5 item frame"></span>
+                            X1
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="block">
+                        <h5 class="title">累積稅金</h5>
+                        <p class="description">
+                          每週日23點，
+                          <br />累積的稅金將結算給持有暗月要塞的旅團。
+                        </p>
+                        <ul class="taxs">
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              <span class="item n--6"></span>
+                              <p>用交易所稅金累積的貨幣</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              <span class="item n--7"></span>
+                              <p>用旅團貿易所稅金累積的貨幣</p>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="dot_ornate">
+                              <span></span>
+                            </div>
+                            <div class="data">
+                              <span class="item n--1"></span>
+                              <p>
+                                透過雜貨商店、鐵匠鋪、採集場及設置黑劍，
+                                <br />可以獲取金幣稅金。
+                                <br />
+                                <span>
+                                  （暗月要塞的最大持有金幣上限：50億）
+                                </span>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                        <a href="https://warsofprasia-event.beanfun.com/eventad/eventad?eventADID=12361"
+                          rel="noopener noreferrer" target="blank" class="link">
+                          查看各領域累積稅金
+                        </a>
                       </div>
                     </div>
                   </div>
-                </section>
-              </div>
-              <div data-title="特殊建築" class="swiper-slide swiper-slide-page">
-                <section class="section_place area">
-                  <div class="visual"></div>
-                  <div class="content">
-                    <div class="content_wrap">
-                      <h3 class="title">特殊建築</h3>
-                    </div>
-                    <div class="map">
-                      <div
-                        class="map_plate"
-                        style="
+                </div>
+              </section>
+            </div>
+            <div data-title="特殊建築" class="swiper-slide swiper-slide-page">
+              <section class="section_place area">
+                <div class="visual"></div>
+                <div class="content">
+                  <div class="content_wrap">
+                    <h3 class="title">特殊建築</h3>
+                  </div>
+                  <div class="map">
+                    <div class="map_plate" style="
                           will-change: width, height, transform;
                           box-sizing: border-box;
                           position: absolute;
@@ -943,319 +771,301 @@
                           transform: translate3d(-804px, -200px, 0px);
                           width: 2636.8px;
                           height: 1483.2px;
-                        "
-                      >
-                        <div class="clouds">
-                          <span></span>
-                        </div>
-                        <button class="type_1 key--1 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="pointname">
-                            <span>裝甲架橋車</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type_1 key--2 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="pointname">
-                            <span>裝甲架橋車</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type_2 key--3 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span class="new">
-                              <i class="i--new"></i>
-                            </span>
-                            <span>沙漠之瞳</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type_2 key--4 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span class="new">
-                              <i class="i--new"></i>
-                            </span>
-                            <span>沙漠之瞳</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type_3 key--5 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span>烽火台</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type_3 key--6 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span>烽火台</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type--n1 not key--7 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="pointname">
-                            <span>성문</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type--n1 not key--8 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="pointname">
-                            <span>성문</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type--n2 not key--9 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="pointname">
-                            <span>제단</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type--n3 not key--10 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span>엘프1</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
-                        <button class="type--n4 not key--11 point">
-                          <span class="pointbadge size--point"></span>
-                          <span class="reverse pointname">
-                            <span>엘프2</span>
-                            <span class="pointname_more">
-                              <i class="i--plus"></i>
-                            </span>
-                          </span>
-                        </button>
+                        ">
+                      <div class="clouds">
+                        <span></span>
                       </div>
+                      <button class="type_1 key--1 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="pointname">
+                          <span>裝甲架橋車</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type_1 key--2 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="pointname">
+                          <span>裝甲架橋車</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type_2 key--3 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span class="new">
+                            <i class="i--new"></i>
+                          </span>
+                          <span>沙漠之瞳</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type_2 key--4 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span class="new">
+                            <i class="i--new"></i>
+                          </span>
+                          <span>沙漠之瞳</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type_3 key--5 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span>烽火台</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type_3 key--6 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span>烽火台</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type--n1 not key--7 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="pointname">
+                          <span>성문</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type--n1 not key--8 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="pointname">
+                          <span>성문</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type--n2 not key--9 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="pointname">
+                          <span>제단</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type--n3 not key--10 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span>엘프1</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
+                      <button class="type--n4 not key--11 point">
+                        <span class="pointbadge size--point"></span>
+                        <span class="reverse pointname">
+                          <span>엘프2</span>
+                          <span class="pointname_more">
+                            <i class="i--plus"></i>
+                          </span>
+                        </span>
+                      </button>
                     </div>
-                    <div class="dimmed_bg"></div>
-                    <div class="infoside">
-                      <div class="close">
-                        <button><i class="i--xmark"></i> 닫기</button>
-                      </div>
+                  </div>
+                  <div class="dimmed_bg"></div>
+                  <div class="infoside">
+                    <div class="close">
+                      <button><i class="i--xmark"></i> 닫기</button>
+                    </div>
 
-                      <div class="infoside_wrap info_type_1">
+                    <div class="infoside_wrap info_type_1">
+                      <h4 class="name">裝甲架橋車</h4>
+                      <div class="sourcebox block">
+                        <img src="img/page7/p7_thumb_1.png" />
+                      </div>
+                      <div class="detail block">
                         <h4 class="name">裝甲架橋車</h4>
-                        <div class="sourcebox block">
-                          <img src="img/page7/p7_thumb_1.png" />
-                        </div>
-                        <div class="detail block">
-                          <h4 class="name">裝甲架橋車</h4>
-                          <span class="dot_ornate">
-                            <span></span>
-                          </span>
-                          <span class="tip">Tip</span>
-                          <p class="description">
-                            召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。
-                          </p>
-                        </div>
+                        <span class="dot_ornate">
+                          <span></span>
+                        </span>
+                        <span class="tip">Tip</span>
+                        <p class="description">
+                          召喚裝甲架橋車進行移動的旅團，可以事先摧毀沙漠之瞳及城堡內的主要建築，從而開闢迂迴路線。
+                        </p>
                       </div>
-                      <div class="infoside_wrap info_type_2">
+                    </div>
+                    <div class="infoside_wrap info_type_2">
+                      <h4 class="name">沙漠之瞳</h4>
+                      <div class="sourcebox block">
+                        <img src="img/page7/p7_thumb_2.png" />
+                      </div>
+                      <div class="detail block">
                         <h4 class="name">沙漠之瞳</h4>
-                        <div class="sourcebox block">
-                          <img src="img/page7/p7_thumb_2.png" />
-                        </div>
-                        <div class="detail block">
-                          <h4 class="name">沙漠之瞳</h4>
-                          <span class="dot_ornate">
-                            <span></span>
-                          </span>
-                          <span class="tip">Tip</span>
-                          <p class="description">
-                            配置於暗月要塞內部的專用防禦塔<br />
-                            當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。
-                          </p>
-                        </div>
+                        <span class="dot_ornate">
+                          <span></span>
+                        </span>
+                        <span class="tip">Tip</span>
+                        <p class="description">
+                          配置於暗月要塞內部的專用防禦塔<br />
+                          當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。
+                        </p>
                       </div>
-                      <div class="infoside_wrap info_type_3">
+                    </div>
+                    <div class="infoside_wrap info_type_3">
+                      <h4 class="name">烽火台</h4>
+                      <div class="sourcebox block">
+                        <img src="img/page7/p7_thumb_3.png" />
+                      </div>
+                      <div class="detail block">
                         <h4 class="name">烽火台</h4>
-                        <div class="sourcebox block">
-                          <img src="img/page7/p7_thumb_3.png" />
-                        </div>
-                        <div class="detail block">
-                          <h4 class="name">烽火台</h4>
-                          <span class="dot_ornate">
-                            <span></span>
-                          </span>
-                          <span class="tip">Tip</span>
-                          <p class="description">
-                            在主要路徑上施加緩速減益效果。<br />
-                            為了縮短通往祭壇的動線，必須將其清除。
-                          </p>
-                        </div>
+                        <span class="dot_ornate">
+                          <span></span>
+                        </span>
+                        <span class="tip">Tip</span>
+                        <p class="description">
+                          在主要路徑上施加緩速減益效果。<br />
+                          為了縮短通往祭壇的動線，必須將其清除。
+                        </p>
                       </div>
                     </div>
                   </div>
-                </section>
-              </div>
-              <div data-title="妖精軍團" class="swiper-slide swiper-slide-page">
-                <section class="section_elf area">
-                  <div class="visual">
-                    <video
-                      loop
-                      autoplay
-                      muted
-                      playsinline
-                      class="visible_roomy"
-                    >
-                      <source
-                        type="video/webm"
-                        src="img/page8/p8_video_elf.webm"
-                      />
-                    </video>
-                    <video
-                      loop
-                      autoplay
-                      muted
-                      playsinline
-                      class="visible_mobile"
-                    >
-                      <source
-                        type="video/webm"
-                        src="img/page8/p8_video_elf_m.webm"
-                      />
-                    </video>
-                  </div>
-                  <div class="content">
-                    <div class="content_wrap">
-                      <ul class="elfs">
-                        <li class="elf_data">
-                          <div class="wrap">
-                            <div class="title">
-                              <span>大領主</span>
-                              <strong>納賽爾·洛瓦爾西吉爾</strong>
-                            </div>
-                            <div class="rune">
-                              <i class="i--prasia--n"></i>
-                              <i class="i--prasia--a"></i>
-                              <i class="i--prasia--s"></i>
-                              <i class="i--prasia--s"></i>
-                              <i class="i--prasia--e"></i>
-                              <i class="i--prasia--r"></i>
-                              <span></span>
-                              <i class="i--prasia--l"></i>
-                              <i class="i--prasia--o"></i>
-                              <i class="i--prasia--w"></i>
-                              <i class="i--prasia--a"></i>
-                              <i class="i--prasia--r"></i>
-                              <span></span>
-                              <i class="i--prasia--s"></i>
-                              <i class="i--prasia--i"></i>
-                              <i class="i--prasia--g"></i>
-                              <i class="i--prasia--i"></i>
-                              <i class="i--prasia--l"></i>
-                            </div>
-                            <div class="content">
-                              <div class="thumb"></div>
-                              <div class="flavor">
-                                「僅憑這點力量就妄圖阻擋我嗎？<br />
-                                世上沒有任何事物能夠阻止我。」
-                              </div>
-                              <div class="description">
-                                作為西吉爾妖精的君主，他在漫長的沉睡中等待重生。<br />
-                                然而，他對混亂的波濤世界感到幻滅，最終決心推動世界的遷徙計畫。<br />
-                                為了奪取神獸之骨，他執著地追擊金獅會的帕爾媞雅
-                                但因守護者與派系的干預而不得不放棄，轉而憑藉自身力量強行推動世界移居。<br />
-                                為了抵禦攜獅子神獸而來的波拉西亞同盟，他派遣巴斯馬前往西吉爾，以分散敵方注意力，趁機試圖打開次元之門。<br />然而，他最終未能成功，只得撤退至暗月要塞……&ZeroWidthSpace;
-                              </div>
-                            </div>
-                            <button class="toggle">열기/닫기</button>
+                </div>
+              </section>
+            </div>
+            <div data-title="妖精軍團" class="swiper-slide swiper-slide-page">
+              <section class="section_elf area">
+                <div class="visual">
+                  <video loop autoplay muted playsinline class="visible_roomy">
+                    <source type="video/webm" src="img/page8/p8_video_elf.webm" />
+                  </video>
+                  <video loop autoplay muted playsinline class="visible_mobile">
+                    <source type="video/webm" src="img/page8/p8_video_elf_m.webm" />
+                  </video>
+                </div>
+                <div class="content">
+                  <div class="content_wrap">
+                    <ul class="elfs">
+                      <li class="elf_data">
+                        <div class="wrap">
+                          <div class="title">
+                            <span>大領主</span>
+                            <strong>納賽爾·洛瓦爾西吉爾</strong>
                           </div>
+                          <div class="rune">
+                            <i class="i--prasia--n"></i>
+                            <i class="i--prasia--a"></i>
+                            <i class="i--prasia--s"></i>
+                            <i class="i--prasia--s"></i>
+                            <i class="i--prasia--e"></i>
+                            <i class="i--prasia--r"></i>
+                            <span></span>
+                            <i class="i--prasia--l"></i>
+                            <i class="i--prasia--o"></i>
+                            <i class="i--prasia--w"></i>
+                            <i class="i--prasia--a"></i>
+                            <i class="i--prasia--r"></i>
+                            <span></span>
+                            <i class="i--prasia--s"></i>
+                            <i class="i--prasia--i"></i>
+                            <i class="i--prasia--g"></i>
+                            <i class="i--prasia--i"></i>
+                            <i class="i--prasia--l"></i>
+                          </div>
+                          <div class="content">
+                            <div class="thumb"></div>
+                            <div class="flavor">
+                              「僅憑這點力量就妄圖阻擋我嗎？<br />
+                              世上沒有任何事物能夠阻止我。」
+                            </div>
+                            <div class="description">
+                              作為西吉爾妖精的君主，他在漫長的沉睡中等待重生。<br />
+                              然而，他對混亂的波濤世界感到幻滅，最終決心推動世界的遷徙計畫。<br />
+                              為了奪取神獸之骨，他執著地追擊金獅會的帕爾媞雅
+                              但因守護者與派系的干預而不得不放棄，轉而憑藉自身力量強行推動世界移居。<br />
+                              為了抵禦攜獅子神獸而來的波拉西亞同盟，他派遣巴斯馬前往西吉爾，以分散敵方注意力，趁機試圖打開次元之門。<br />然而，他最終未能成功，只得撤退至暗月要塞……&ZeroWidthSpace;
+                            </div>
+                          </div>
+                          <button class="toggle">열기/닫기</button>
+                        </div>
+                      </li>
+                      <li class="elf_data">
+                        <div class="wrap">
+                          <div class="title">
+                            <span>大領主</span>
+                            <strong>巴斯馬·洛瓦爾西吉爾</strong>
+                          </div>
+                          <div class="rune">
+                            <i class="i--prasia--b"></i>
+                            <i class="i--prasia--a"></i>
+                            <i class="i--prasia--s"></i>
+                            <i class="i--prasia--m"></i>
+                            <i class="i--prasia--a"></i>
+                            <span></span>
+                            <i class="i--prasia--l"></i>
+                            <i class="i--prasia--o"></i>
+                            <i class="i--prasia--w"></i>
+                            <i class="i--prasia--a"></i>
+                            <i class="i--prasia--r"></i>
+                            <span></span>
+                            <i class="i--prasia--s"></i>
+                            <i class="i--prasia--i"></i>
+                            <i class="i--prasia--g"></i>
+                            <i class="i--prasia--i"></i>
+                            <i class="i--prasia--l"></i>
+                          </div>
+                          <div class="content">
+                            <div class="thumb"></div>
+                            <div class="flavor">
+                              「帕爾媞雅，為我起舞吧。<br />
+                              當舞步停止之時，就是你生命的終結。」
+                            </div>
+                            <div class="description">
+                              在納賽爾復甦期間，巴斯馬被授予了象徵性的權力代理。<br />
+                              她將實際的統治權交由金獅會負責，專注於培養灰色軍團的力量。隨著納賽爾的歸來，她開始推動世界的遷徙計畫。<br />
+                              巴斯馬率領灰色軍團對外宣戰，親自面對波拉西亞同盟，並與守護者展開了激烈的決鬥。<br />
+                              然而，在這場殘酷的戰鬥中，一個與她糾纏在一起的秘密終於浮出水面……&ZeroWidthSpace;
+                            </div>
+                          </div>
+                          <button class="toggle">열기/닫기</button>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="elfs2">
+                      <div class="title">妖精軍團</div>
+                      <ul class="list">
+                        <li>
+                          <span class="thumb"></span>
+                          <p>灰色軍團上將</p>
                         </li>
-                        <li class="elf_data">
-                          <div class="wrap">
-                            <div class="title">
-                              <span>大領主</span>
-                              <strong>巴斯馬·洛瓦爾西吉爾</strong>
-                            </div>
-                            <div class="rune">
-                              <i class="i--prasia--b"></i>
-                              <i class="i--prasia--a"></i>
-                              <i class="i--prasia--s"></i>
-                              <i class="i--prasia--m"></i>
-                              <i class="i--prasia--a"></i>
-                              <span></span>
-                              <i class="i--prasia--l"></i>
-                              <i class="i--prasia--o"></i>
-                              <i class="i--prasia--w"></i>
-                              <i class="i--prasia--a"></i>
-                              <i class="i--prasia--r"></i>
-                              <span></span>
-                              <i class="i--prasia--s"></i>
-                              <i class="i--prasia--i"></i>
-                              <i class="i--prasia--g"></i>
-                              <i class="i--prasia--i"></i>
-                              <i class="i--prasia--l"></i>
-                            </div>
-                            <div class="content">
-                              <div class="thumb"></div>
-                              <div class="flavor">
-                                「帕爾媞雅，為我起舞吧。<br />
-                                當舞步停止之時，就是你生命的終結。」
-                              </div>
-                              <div class="description">
-                                在納賽爾復甦期間，巴斯馬被授予了象徵性的權力代理。<br />
-                                她將實際的統治權交由金獅會負責，專注於培養灰色軍團的力量。隨著納賽爾的歸來，她開始推動世界的遷徙計畫。<br />
-                                巴斯馬率領灰色軍團對外宣戰，親自面對波拉西亞同盟，並與守護者展開了激烈的決鬥。<br />
-                                然而，在這場殘酷的戰鬥中，一個與她糾纏在一起的秘密終於浮出水面……&ZeroWidthSpace;
-                              </div>
-                            </div>
-                            <button class="toggle">열기/닫기</button>
-                          </div>
+                        <li>
+                          <span class="thumb"></span>
+                          <p>沙塵暴指揮官</p>
+                        </li>
+                        <li>
+                          <span class="thumb"></span>
+                          <p>沙塵暴先鋒</p>
                         </li>
                       </ul>
-                      <div class="elfs2">
-                        <div class="title">妖精軍團</div>
-                        <ul class="list">
-                          <li>
-                            <span class="thumb"></span>
-                            <p>灰色軍團上將</p>
-                          </li>
-                          <li>
-                            <span class="thumb"></span>
-                            <p>沙塵暴指揮官</p>
-                          </li>
-                          <li>
-                            <span class="thumb"></span>
-                            <p>沙塵暴先鋒</p>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
                   </div>
-                </section>
-              </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
