@@ -2478,7 +2478,6 @@ section.section_elf .content {
 }
 
 .section_story .content .infoside .items {
-    display: flex;
     flex-wrap: wrap;
     grid-gap: 10px;
     display: grid;
@@ -3928,9 +3927,6 @@ section.section_elf .content {
 
     .section_elf .content .elfs .elf_data .toggle {
         background-image: url(../img/page8/p8_toggle_active.png);
-    }
-
-    .section_elf .content .elfs .elf_data .toggle {
         display: none;
     }
 
