@@ -461,8 +461,6 @@ section.area .visual video {
 
 .section_hero .content>:not(.layout-escape) {
     max-width: 1597px;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 .section_hero .content>* {
@@ -487,7 +485,6 @@ section.area .visual video {
     align-items: center;
     box-sizing: border-box;
     color: #0000 !important;
-    color: #333;
     display: flex;
     font-family: "Noto Serif TC", serif;
     font-size: 164px;
@@ -2062,7 +2059,7 @@ section.section_elf .content {
     position: absolute;
     top: 100%;
     white-space: nowrap;
-    will-change: transform;
+
     font-weight: 400;
 }
 
@@ -2920,6 +2917,8 @@ section.section_elf .content {
     .section_hero .content {
         transform: scale(.9);
         transform-origin: 50% 100%;
+        -webkit-transform: scale(0.9);
+        -webkit-transform-origin: 50% 100%;
     }
 
     .section_spec .content .sub_content {
