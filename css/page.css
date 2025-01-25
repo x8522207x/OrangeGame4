@@ -379,7 +379,7 @@ section.area .visual video {
 }
 
 .section_hero .visual {
-    background-image: url(../img/page1/p1_bg_pc.png);
+    background-image: url(../img/page1/p1_bg_pc.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -661,14 +661,14 @@ section.area .visual video {
 }
 
 .section_info .visual {
-    background-image: url(../img/page2/p2_bg_pc.png);
+    background-image: url(../img/page2/p2_bg_pc.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .section_info .visual .model {
-    background-image: url(../img/page2/p2_visual.png);
+    background-image: url(../img/page2/p2_visual.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -786,7 +786,7 @@ section.area .visual video {
 
 .section_spec .visual:before {
     transform: translateZ(0);
-    background-image: url(../img/page3/p3_vignette.png);
+    background-image: url(../img/page3/p3_vignette.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1095,7 +1095,7 @@ section.area .visual video {
 }
 
 .section_spec .content .benefit .items>div:first-child {
-    background-image: url(../img/page3/p3_benefit_1.png);
+    background-image: url(../img/page3/p3_benefit_1.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1113,7 +1113,7 @@ section.area .visual video {
 }
 
 .section_spec .content .benefit .items>div:nth-child(2) {
-    background-image: url(../img/page3/p3_benefit_2.png);
+    background-image: url(../img/page3/p3_benefit_2.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1136,7 +1136,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     position: absolute;
     cursor: grab;
-    background-image: url(../img/page4/p4_bg.jpg);
+    background-image: url(../img/page4/p4_bg.webp);
     will-change: background-position;
     pointer-events: none;
 }
@@ -1388,7 +1388,7 @@ section.area .visual video {
 
 .section_map .content .content_wrap .content_box {
     align-items: center;
-    background-image: url(../img/page4/p4_flag.png);
+    background-image: url(../img/page4/p4_flag.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1504,7 +1504,7 @@ section.section_elf .content {
 }
 
 .section_hero_sec .visual {
-    background-image: url(../img/page5/p5_bg_pc.png);
+    background-image: url(../img/page5/p5_bg_pc.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1540,7 +1540,7 @@ section.section_elf .content {
 
 .section_hero_sec .visual .cloud {
     animation: cloud-flow 20s cubic-bezier(.37, 0, .63, 1) infinite alternate;
-    background-image: url(../img/page5/p5_visual_cloud.png);
+    background-image: url(../img/page5/p5_visual_cloud.webp);
     background-position: 0;
     background-size: cover;
     bottom: -50%;
@@ -1826,7 +1826,7 @@ section.section_elf .content {
     background-repeat: no-repeat;
     position: absolute;
     cursor: grab;
-    background-image: url(../img/page6/p6_bg.jpg);
+    background-image: url(../img/page6/p6_bg.webp);
     will-change: background-position;
     pointer-events: none;
 }
@@ -2201,7 +2201,7 @@ section.section_elf .content {
     background-repeat: no-repeat;
     position: absolute;
     cursor: grab;
-    background-image: url(../img/page7/p7_bg.jpg);
+    background-image: url(../img/page7/p7_bg.webp);
     will-change: background-position;
     pointer-events: none;
 }
@@ -3021,7 +3021,7 @@ section.section_elf .content {
     }
 
     .section_hero .visual {
-        background-image: url(../img/page1/p1_bg_m.png);
+        background-image: url(../img/page1/p1_bg_m.webp);
     }
 
     .section_story .map,
@@ -3220,12 +3220,12 @@ section.section_elf .content {
     }
 
     .section_info .visual:before {
-        background-image: url(../img/page2/p2_vignette_m.png);
+        background-image: url(../img/page2/p2_vignette_m.webp);
         background-size: 100% 100%;
     }
 
     .section_info .visual {
-        background-image: url(../img/page2/p2_bg_m.png);
+        background-image: url(../img/page2/p2_bg_m.webp);
         background-size: 100% 100%;
     }
 
@@ -3406,7 +3406,7 @@ section.section_elf .content {
 
     .section_map .content .content_wrap .content_box {
         align-items: center;
-        background-image: url(../img/page4/p4_flag_m.png);
+        background-image: url(../img/page4/p4_flag_m.webp);
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: cover;
@@ -3480,7 +3480,7 @@ section.section_elf .content {
     }
 
     .section_hero_sec .visual {
-        background-image: url(../img/page5/p5_bg_m.png);
+        background-image: url(../img/page5/p5_bg_m.webp);
     }
 
     .section_hero_sec .content .header {
@@ -3587,7 +3587,7 @@ section.section_elf .content {
 
     .section_story .content .map .map_plate,
     .section_story .content .map:before {
-        background-image: url(../img/page6/p2_bg_m.jpg);
+        background-image: url(../img/page6/p6_bg_m.webp);
     }
 
     section.area .content .dimmed_bg {
@@ -3794,7 +3794,7 @@ section.section_elf .content {
 
     .section_place .content .map .map_plate,
     .section_place .content .map:before {
-        background-image: url(../img/page7/p7_bg_m.jpg);
+        background-image: url(../img/page7/p7_bg_m.webp);
     }
 
     .section_place .point.type_1.key--1 {
@@ -4011,7 +4011,7 @@ section.section_elf .content {
     .section_spec .content .benefit .items>div:first-child {
         width: 516px;
         height: 500px;
-        background-image: url(../img/page3/p3_benefit_1x.png);
+        background-image: url(../img/page3/p3_benefit_1x.webp);
     }
 }
 

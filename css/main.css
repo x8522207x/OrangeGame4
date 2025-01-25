@@ -1080,7 +1080,7 @@ html {
 }
 
 .event_banner_content {
-    background-image: url(../img/icon/bg.png);
+    background-image: url(../img/icon/bg.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
