@@ -3220,7 +3220,7 @@ section.section_elf .content {
     }
 
     .section_info .visual:before {
-        background-image: url(../img/page2/p2_vignette_m.webp);
+        background-image: url(../img/page2/p2_vignette_m.png);
         background-size: 100% 100%;
     }
 
