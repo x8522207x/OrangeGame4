@@ -345,6 +345,7 @@ html {
     left: 0;
     pointer-events: none;
     position: fixed;
+    will-change: transform;
     top: 0;
     width: 100%;
     z-index: 4000;
@@ -362,6 +363,7 @@ html {
     opacity: 1;
     pointer-events: none;
     position: fixed;
+    will-change: transform;
     top: 0;
     width: 100%;
     z-index: 3000;
@@ -733,6 +735,7 @@ html {
     left: 0;
     pointer-events: none;
     position: fixed;
+    will-change: transform;
     top: 0;
     width: 100%;
 }
@@ -772,6 +775,7 @@ html {
     opacity: 0;
     pointer-events: none;
     position: fixed;
+    will-change: transform;
     right: 43px;
     transition: opacity .3s ease;
     width: 42px;
@@ -1351,17 +1355,6 @@ button {
     outline: none;
     padding: 0;
 }
-
-/* #plate_nav:after {
-    background-color: #d6d7d933;
-    content: "";
-    height: 100%;
-    position: fixed;
-    right: 25.5px;
-    top: 0;
-    width: 1px;
-    z-index: 1;
-} */
 
 @media (min-width: 769px) {
     .event_gnb {
