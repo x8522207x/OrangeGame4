@@ -390,7 +390,7 @@ $(document).ready(() => {
             },
             autoHeight: true,
             speed: 0,
-            passiveListeners: false,
+            passiveListeners: true,
             allowTouchMove: true,
             on: {
                 init: (swiper) => {
