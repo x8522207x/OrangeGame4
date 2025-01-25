@@ -2805,7 +2805,7 @@ section.section_elf .content {
     font-weight: 600;
     font-family: "Noto Serif TC", serif;
     font-size: 20px;
-    margin-top: 23px;
+    margin-top: 5px;
 }
 
 .section_elf .content .elfs .elf_data .content .description {
@@ -3892,7 +3892,7 @@ section.section_elf .content {
     }
 
     .section_elf .content .elfs .elf_data .title {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
     .section_elf .content .elfs .elf_data .title span {
