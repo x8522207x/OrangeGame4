@@ -362,7 +362,7 @@ html {
     opacity: 0;
     opacity: 1;
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     will-change: transform;
     top: 0;
     width: 100%;
@@ -734,7 +734,7 @@ html {
     height: 100%;
     left: 0;
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     will-change: transform;
     top: 0;
     width: 100%;
@@ -1426,6 +1426,10 @@ button {
 }
 
 @media (max-width: 768px) {
+    #plate_base {
+        display: none;
+    }
+
     .event_gnb_default .event_gnb_default_left .event_gnb_logo img {
         height: 100%;
         width: 100%;

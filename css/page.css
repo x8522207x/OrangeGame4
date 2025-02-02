@@ -646,7 +646,7 @@ section.area .visual video {
 
 .section_info .visual:before {
     transform: translateZ(0);
-    background-image: url(../img/page2/p2_vignette.png);
+    background-image: url(../img/page2/p2_vignette.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
