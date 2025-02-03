@@ -1130,7 +1130,7 @@ section.area .visual video {
     width: 0;
 }
 
-.section_map .map_plate {
+/* .section_map .map_plate {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -1139,7 +1139,7 @@ section.area .visual video {
     background-image: url(../img/page4/p4_bg.webp);
     will-change: background-position;
     pointer-events: none;
-}
+} */
 
 .section_map .visual:active {
     cursor: grabbing;
@@ -1162,7 +1162,7 @@ section.area .visual video {
     left: 0;
     max-width: unset;
     overflow: hidden;
-    padding: 0;
+    padding: 0 !important;
     pointer-events: all;
     position: absolute;
     top: 0;
@@ -1820,7 +1820,7 @@ section.section_elf .content {
     -webkit-text-size-adjust: none;
 }
 
-.section_story .map_plate {
+/* .section_story .map_plate {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -1829,7 +1829,7 @@ section.section_elf .content {
     background-image: url(../img/page6/p6_bg.webp);
     will-change: background-position;
     pointer-events: none;
-}
+} */
 
 .section_story .content .dimmed_bg.show,
 .section_place .content .dimmed_bg.show {
@@ -1969,7 +1969,6 @@ section.section_elf .content {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover !important;
-    background-size: contain;
     content: "";
     display: inline-block;
     filter: blur(10px);
@@ -2195,7 +2194,7 @@ section.section_elf .content {
     background-image: url(../img/page7/p7_point_n4.png);
 }
 
-.section_place .map_plate {
+/* .section_place .map_plate {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -2204,7 +2203,7 @@ section.section_elf .content {
     background-image: url(../img/page7/p7_bg.webp);
     will-change: background-position;
     pointer-events: none;
-}
+} */
 
 .section_story .content .infoside {
     color: #6b665f;
@@ -3034,7 +3033,8 @@ section.section_elf .content {
     }
 
     .map .map_plate .clouds,
-    .map canvas {
+    #map6,
+    #map7 {
         display: none;
     }
 

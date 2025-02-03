@@ -49,8 +49,17 @@ $(document).ready(() => {
     });
 
     const map4 = $('.section_map .map'); // 取得背景圖容器
+    const canvas4 = document.getElementById('map4');
+    const ctx4 = canvas4.getContext('2d');
+    const img4 = new Image();
     const map6 = $('.section_story .map');
+    const canvas6 = document.getElementById('map6');
+    const ctx6 = canvas6.getContext('2d');
+    const img6 = new Image();
     const map7 = $('.section_place .map');
+    const canvas7 = document.getElementById('map7');
+    const ctx7 = canvas7.getContext('2d');
+    const img7 = new Image();
     const map4Plate = $('.section_map .map_plate');
     const map6Plate = $('.section_story .map_plate');
     const map7Plate = $('.section_place .map_plate');
@@ -79,6 +88,9 @@ $(document).ready(() => {
     let map7Height = map7[0].offsetHeight; // 父容器的高度
     let plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
     let plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+    let canvas4Width, canvas4Height, canvas7Width, canvas7Height;
+    let canvas6Width = 3240.89;
+    let canvas6Height = 1823;
 
     $('.type--fortress').on('click', () => {
         $('.section_story .textbox').addClass('open');
@@ -134,8 +146,10 @@ $(document).ready(() => {
     });
 
     $('.section_place .close button').on('click', () => {
-        map7Plate.css('width', '2636.8px');
-        map7Plate.css('height', '1483.2px');
+        canvas7Width = 2636.8;
+        canvas7Height = 1483.2;
+        map7Plate.css('width', `${canvas7Width}px`);
+        map7Plate.css('height', `${canvas7Height}px`);
         plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
         plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
         map7.removeClass('mini');
@@ -150,11 +164,9 @@ $(document).ready(() => {
             if (lightBtn.hasClass('key--1')) {
                 startX7 = -551;
                 currentX7 = -551;
-                map7Plate.css("transform", `translate3d(-551px, -182px, 0)`);
             } else {
                 startX7 = -707;
                 currentX7 = -707;
-                map7Plate.css("transform", `translate3d(-707px, -182px, 0)`);
             }
         } else if (lightBtn.hasClass('type_2')) {
             startY7 = -81;
@@ -162,11 +174,9 @@ $(document).ready(() => {
             if (lightBtn.hasClass('key--3')) {
                 startX7 = -533;
                 currentX7 = -533;
-                map7Plate.css("transform", `translate3d(-533px, -81px, 0)`);
             } else {
                 startX7 = -725;
                 currentX7 = -725;
-                map7Plate.css("transform", `translate3d(-725px, -81px, 0)`);
             }
         } else if (lightBtn.hasClass('type_3')) {
             startY7 = -66;
@@ -174,15 +184,14 @@ $(document).ready(() => {
             if (lightBtn.hasClass('key--5')) {
                 startX7 = -393;
                 currentX7 = -393;
-                map7Plate.css("transform", `translate3d(-393px, -66px, 0)`);
             } else {
                 startX7 = -852;
                 currentX7 = -852;
-                map7Plate.css("transform", `translate3d(-852px, -66px, 0)`);
             }
         }
+        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
+        drawCanvas7();
     });
-
 
     let pcSwiperPage, mobileSwiperPage, heroSwiperPage;
 
@@ -313,8 +322,10 @@ $(document).ready(() => {
                     }
 
                     if (swiper.realIndex === 6) {
-                        map7Plate.css('width', '2636.8px');
-                        map7Plate.css('height', '1483.2px');
+                        canvas7Width = 2636.8;
+                        canvas7Height = 1483.2;
+                        map7Plate.css('width', `${canvas7Width}px`);
+                        map7Plate.css('height', `${canvas7Height}px`);
                         plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
                         plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
                         startX7 = ($(window).width() - 2637) / 2;
@@ -323,6 +334,7 @@ $(document).ready(() => {
                         currentY7 = ($(window).height() - 1483) / 2;
 
                         map7Plate.css("transform", `translate3d(${startX7}px, ${startY7}px, 0)`);
+                        drawCanvas7();
                     }
 
                     if (swiper.realIndex === 7) {
@@ -426,9 +438,43 @@ $(document).ready(() => {
         });
     };
 
+    function drawCanvas4() {
+        ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+        ctx4.drawImage(img4, currentX4, currentY4, canvas4Width, canvas4Height);
+        img4.onload = () => {
+            ctx4.drawImage(img4, currentX4, currentY4, canvas4Width, canvas4Height);
+        };
+    }
+
+    function drawCanvas6() {
+        ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+        ctx6.drawImage(img6, currentX6, currentY6, canvas6Width, canvas6Height);
+        img6.onload = () => {
+            ctx6.drawImage(img6, currentX6, currentY6, canvas6Width, canvas6Height);
+        };
+    }
+
+    function drawCanvas7() {
+        ctx7.clearRect(0, 0, canvas7.width, canvas7.height);
+        ctx7.drawImage(img7, currentX7, currentY7, canvas7Width, canvas7Height);
+        img7.onload = () => {
+            ctx7.drawImage(img7, currentX7, currentY7, canvas7Width, canvas7Height);
+        };
+    }
+
     function pcAddMapEvent() {
+        canvas4Width = 2603.8;
+        canvas4Height = 1269;
+        canvas4.width = $(window).width();
+        canvas4.height = 1268;
+        canvas6.width = $(window).width();
+        canvas6.height = $(window).height();
+        canvas7.width = $(window).width();
+        canvas7.height = $(window).height();
+
         currentX4 = -824 + ($(window).width() - 820) / 2;
         startX4 = currentX4;
+        drawCanvas4();
         map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
         // 當鼠標按下時
         map4.on('mousedown touchstart', (e) => {
@@ -494,6 +540,7 @@ $(document).ready(() => {
 
             // 設置 transform，更新位置
             map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
+            drawCanvas4();
         });
 
         // 當鼠標放開時
@@ -506,6 +553,7 @@ $(document).ready(() => {
         startX6 = currentX6;
         currentY6 = -42 + ($(window).height() - 1180) / 2;
         startY6 = currentY6;
+        drawCanvas6();
         map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
 
         map6.on('mousedown touchstart', (e) => {
@@ -571,7 +619,8 @@ $(document).ready(() => {
             currentY6 = newY;
 
             // 設置 transform，更新位置
-            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`)
+            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
+            drawCanvas6();
         });
 
         // 當鼠標放開時
@@ -580,6 +629,7 @@ $(document).ready(() => {
             map6.css("cursor", "grab")
         });
 
+        drawCanvas7();
         map7.on('mousedown touchstart', (e) => {
             isDragging = true;
             let clientX = 0;
@@ -643,6 +693,7 @@ $(document).ready(() => {
 
             // 設置 transform，更新位置
             map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
+            drawCanvas7();
         });
 
         // 當鼠標放開時
@@ -696,9 +747,12 @@ $(document).ready(() => {
             // 更新背景位置
             if (e.currentTarget.classList.length > 0) {
                 map7.addClass('mini');
-                map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`)
-                map7Plate.css('width', '3692.52px');
-                map7Plate.css('height', '2076.48px');
+                map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`);
+                canvas7Width = 3692.52;
+                canvas7Height = 2076.48;
+                map7Plate.css('width', `${canvas7Width}px`);
+                map7Plate.css('height', `${canvas7Height}px`);
+                drawCanvas7();
                 plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
                 plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
             }
@@ -706,14 +760,23 @@ $(document).ready(() => {
     }
 
     if ($(window).width() > 768) {
+        img4.src = "img/page4/p4_bg.webp";
+        img6.src = "img/page6/p6_bg.webp";
+        img7.src = "img/page7/p7_bg.webp";
         pcAddMapEvent();
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
-        $('.section_story .map_plate').css('transform', `translate3d(${-1147 + ($(window).width() - 375) / 2}px, ${-234 + ($(window).height() - 675) / 2}px, 0px)`);
-        $('.section_map .map_plate').css('width', '1868.8px').css('height', '911.04px');
-        $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
+        currentX4 = -470 + ($(window).width() - 375) / 2;
+        currentY4 = -121;
+        currentX6 = -1147 + ($(window).width() - 375) / 2;
+        currentY6 = -234 + ($(window).height() - 675) / 2;
+        map6Plate.css('transform', `translate3d(${currentX6}px, ${currentY6}px, 0px)`);
+        canvas4Width = 1868.8;
+        canvas4Height = 911.04;
+        map4Plate.css('width', `${canvas4Width}px`).css('height', `${canvas4Height}px`);
+        map4Plate.css('transform', `translate3d(${currentX4}px, ${currentY4}px, 0px)`);
         $('.section_place button:not(.not)').on('click', (e) => {
             // 更新背景位置
             if (e.currentTarget.classList.length > 0) {
@@ -738,11 +801,20 @@ $(document).ready(() => {
             setTimeout(() => heroTabSwiper());
         }
         if ($(window).width() > 768) {
+            canvas4.width = $(window).width();
+            canvas4.height = 1268;
+            canvas6.width = $(window).width();
+            canvas6.height = $(window).height();
+            canvas7.width = $(window).width();
+            canvas7.height = $(window).height();
+            canvas4Width = 2603.8;
+            canvas4Height = 1269;
+            map4Plate.css('width', `${canvas4Width}px`);
+            map4Plate.css('height', `${canvas4Height}px`);
             if (originWindowWidth <= 768) {
                 pcAddMapEvent();
             }
-            map4Plate.css('width', '2603.8px');
-            map4Plate.css('height', '1269px');
+
             $('.event_gnb').addClass('type_clear');
             $('.event_gnb').removeClass('type_default');
             if (mobileSwiperPage) {
@@ -779,16 +851,19 @@ $(document).ready(() => {
             currentX4 = Math.max(minX, Math.min(maxX, currentX4));
             currentY4 = Math.max(minY, Math.min(maxY, currentY4));
             map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
+            drawCanvas4();
             minX = map6Width - plate6Width;
             minY = map6Height - plate6Height; // 上边界
             currentX6 = Math.max(minX, Math.min(maxX, currentX6));
             currentY6 = Math.max(minY, Math.min(maxY, currentY6));
             map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
+            drawCanvas6();
             minY = map7Height - plate7Height; // 上边界
             minX = map7Width - plate7Width;
             currentX7 = Math.max(minX, Math.min(maxX, currentX7));
             currentY7 = Math.max(minY, Math.min(maxY, currentY7));
             map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
+            drawCanvas7();
             originWindowWidth = $(window).width();
             originWindowHeight = $(window).height();
         } else {
@@ -811,8 +886,12 @@ $(document).ready(() => {
                     node.removeEventListener('touchstart', pcTouchStart, { passive: true });
                 });
             }
-            $('.section_map .map_plate').css('transform', `translate3d(${-470 + ($(window).width() - 375) / 2}px, -121px, 0px)`);
-            $('.section_story .map_plate').css('transform', `translate3d(${-1147 + ($(window).width() - 375) / 2}px, ${-234 + ($(window).height() - 675) / 2}px, 0px)`);
+            currentX4 = -470 + ($(window).width() - 375) / 2;
+            currentY4 = -121;
+            map4Plate.css('transform', `translate3d(${currentX4}px, ${currentY4}px, 0px)`);
+            currentX6 = -1147 + ($(window).width() - 375) / 2;
+            currentY6 = -234 + ($(window).height() - 675) / 2;
+            map6Plate.css('transform', `translate3d(${currentX6}px, ${currentY6}px, 0px)`);
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');
             if (mobileSwiperPage) {
