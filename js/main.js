@@ -570,8 +570,8 @@ $(document).ready(() => {
         });
     }
 
+    maps['map4'].img.src = "img/page4/p4_bg.webp";
     if ($(window).width() > 768) {
-        maps['map4'].img.src = "img/page4/p4_bg.webp";
         maps['map6'].img.src = "img/page6/p6_bg.webp";
         maps['map7'].img.src = "img/page7/p7_bg.webp";
         pcAddMapEvent();
@@ -583,9 +583,11 @@ $(document).ready(() => {
         maps['map4'].currentY = -121;
         maps['map4'].canvasWidth = 1868.8;
         maps['map4'].canvasHeight = 911.04;
+        maps['map4'].canvas.width = $(window).width();
+        maps['map4'].canvas.height = 670;
         maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
         maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
-
+        drawCanvas('map4');
         maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
         maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
         maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
@@ -698,9 +700,12 @@ $(document).ready(() => {
                     node.removeEventListener('touchstart', pcTouchStart, { passive: true });
                 });
             }
+            maps['map4'].canvas.width = $(window).width();
+            maps['map4'].canvas.height = 670;
             maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
             maps['map4'].currentY = -121;
             maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
+            drawCanvas('map4');
             maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
             maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
             maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
