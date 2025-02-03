@@ -607,6 +607,8 @@ $(document).ready(() => {
     let originWindowHeight = $(window).height();
 
     function updateMaxVH() {
+        const page3Video = document.getElementById('page3Video');
+        const page8Video = document.getElementById('page8Video');
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
         root.style.setProperty('--maxvh', newMaxVh);
@@ -621,6 +623,8 @@ $(document).ready(() => {
             if (mobileSwiperPage) {
                 mobileSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 mobileSwiperPage = null; // 重置為 null
+                page3Video?.load();
+                page8Video?.load();
             }
             if (pcSwiperPage) {
                 pcSwiperPage.update();
@@ -682,6 +686,8 @@ $(document).ready(() => {
             }
         } else {
             if (pcSwiperPage) {
+                page3Video?.load();
+                page8Video?.load();
                 pcSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 pcSwiperPage = null; // 重置為 null
                 document.querySelectorAll('.swiper-slide-page').forEach(node => {

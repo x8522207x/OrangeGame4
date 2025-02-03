@@ -16,7 +16,6 @@
     mix-blend-mode: overlay;
     pointer-events: none !important;
     position: fixed;
-    will-change: transform;
     top: 0;
     width: 100%;
     z-index: 2;
@@ -27,7 +26,6 @@
 }
 
 .particles>div {
-    display: inline-block;
     height: 100%;
     left: 0;
     pointer-events: none !important;
@@ -257,7 +255,8 @@ section.area .visual video {
     max-width: 100%;
     overflow: hidden;
     position: absolute;
-    top: var(--navtop-height);
+    top: 0;
+    transform: translateY(var(--navtop-height));
     transition: padding .5s cubic-bezier(.33, 1, .68, 1);
     width: 100%;
     z-index: 22;
@@ -2980,7 +2979,8 @@ section.section_elf .content {
     }
 
     .bosspage_tab {
-        top: 44px;
+        top: 0;
+        transform: translateY(44px);
     }
 
     .section_hero .visual {
@@ -3927,7 +3927,8 @@ section.section_elf .content {
     }
 
     .bosspage_tab {
-        top: 60px;
+        top: 0;
+        transform: translateY(60px);
     }
 }
 
