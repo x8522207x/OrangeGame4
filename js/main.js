@@ -48,49 +48,44 @@ $(document).ready(() => {
         $(e.target).parent().parent().siblings().removeClass('open');
     });
 
-    const map4 = $('.section_map .map'); // 取得背景圖容器
-    const canvas4 = document.getElementById('map4');
-    const ctx4 = canvas4.getContext('2d');
-    const img4 = new Image();
-    const map6 = $('.section_story .map');
-    const canvas6 = document.getElementById('map6');
-    const ctx6 = canvas6.getContext('2d');
-    const img6 = new Image();
-    const map7 = $('.section_place .map');
-    const canvas7 = document.getElementById('map7');
-    const ctx7 = canvas7.getContext('2d');
-    const img7 = new Image();
-    const map4Plate = $('.section_map .map_plate');
-    const map6Plate = $('.section_story .map_plate');
-    const map7Plate = $('.section_place .map_plate');
     let isDragging = false;
-    let startX4 = -270;
-    let startY4 = -1;
-    let currentX4 = -270;
-    let currentY4 = -1;
-    let startX6 = -686;
-    let startY6 = -175;
-    let currentX6 = -686;
-    let currentY6 = -175;
-    let startX7 = ($(window).width() - 2637) / 2;
-    let startY7 = ($(window).height() - 1483) / 2;
-    let currentX7 = ($(window).width() - 2637) / 2;
-    let currentY7 = ($(window).height() - 1483) / 2;
-    let map4Width = map4[0].offsetWidth; // 父容器的寬度
-    let map4Height = map4[0].offsetHeight; // 父容器的高度
-    let plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
-    let plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
-    let map6Width = map6[0].offsetWidth; // 父容器的寬度
-    let map6Height = map6[0].offsetHeight; // 父容器的高度
-    let plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
-    let plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
-    let map7Width = map7[0].offsetWidth;
-    let map7Height = map7[0].offsetHeight; // 父容器的高度
-    let plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-    let plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
-    let canvas4Width, canvas4Height, canvas7Width, canvas7Height;
-    let canvas6Width = 3240.89;
-    let canvas6Height = 1823;
+    const mapsConfig = [
+        { id: 'map4', section: '.section_map', startX: -270, startY: -1 },
+        { id: 'map6', section: '.section_story', startX: -686, startY: -175, canvasWidth: 3240.89, canvasHeight: 1823 },
+        {
+            id: 'map7', section: '.section_place',
+            startX: ($(window).width() - 2637) / 2,
+            startY: ($(window).height() - 1483) / 2
+        }
+    ];
+
+    const maps = {};
+
+    mapsConfig.forEach(({ id, section, startX, startY, canvasWidth, canvasHeight }) => {
+        const mapContainer = $(`${section} .map`);
+        const canvas = document.getElementById(id);
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        const plate = $(`${section} .map_plate`);
+
+        maps[id] = {
+            mapContainer,
+            canvas,
+            ctx,
+            img,
+            plate,
+            startX,
+            startY,
+            currentX: startX,
+            currentY: startY,
+            mapWidth: mapContainer[0].offsetWidth,
+            mapHeight: mapContainer[0].offsetHeight,
+            plateWidth: plate[0].offsetWidth,
+            plateHeight: plate[0].offsetHeight,
+            canvasWidth: canvasWidth,
+            canvasHeight: canvasHeight
+        };
+    });
 
     $('.type--fortress').on('click', () => {
         $('.section_story .textbox').addClass('open');
@@ -135,7 +130,7 @@ $(document).ready(() => {
                     $('.section_place .dimmed_bg').removeClass('show');
                     $('.section_place .infoside').removeClass('open');
                     $('.section_place .infoside_wrap').css('display', 'none');
-                    map7.removeClass('mini');
+                    maps['map7'].mapContainer.removeClass('mini');
                 });
 
                 $('.section_place .infoside_wrap').on('touchmove', (e) => {
@@ -146,51 +141,51 @@ $(document).ready(() => {
     });
 
     $('.section_place .close button').on('click', () => {
-        canvas7Width = 2636.8;
-        canvas7Height = 1483.2;
-        map7Plate.css('width', `${canvas7Width}px`);
-        map7Plate.css('height', `${canvas7Height}px`);
-        plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-        plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
-        map7.removeClass('mini');
+        maps['map7'].canvasWidth = 2636.8;
+        maps['map7'].canvasHeight = 1483.2;
+        maps['map7'].plate.css('width', `${maps['map7'].canvasWidth}px`);
+        maps['map7'].plate.css('height', `${maps['map7'].canvasHeight}px`);
+        maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
+        maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
+        maps['map7'].mapContainer.removeClass('mini');
         $('.section_place .point').removeClass('dimmed');
         $('.section_place .dimmed_bg').removeClass('show');
         $('.section_place .infoside').removeClass('open');
         $('.section_place .infoside_wrap').css('display', 'none');
         const lightBtn = $('.section_place .map_plate .point:not(.dimmed)');
         if (lightBtn.hasClass('type_1')) {
-            startY7 = -182;
-            currentY7 = -182;
+            maps['map7'].startY = -182;
+            maps['map7'].currentY = -182;
             if (lightBtn.hasClass('key--1')) {
-                startX7 = -551;
-                currentX7 = -551;
+                maps['map7'].startX = -551;
+                maps['map7'].currentX = -551;
             } else {
-                startX7 = -707;
-                currentX7 = -707;
+                maps['map7'].startX = -707;
+                maps['map7'].currentX = -707;
             }
         } else if (lightBtn.hasClass('type_2')) {
-            startY7 = -81;
-            currentY7 = -81;
+            maps['map7'].startY = -81;
+            maps['map7'].currentY = -81;
             if (lightBtn.hasClass('key--3')) {
-                startX7 = -533;
-                currentX7 = -533;
+                maps['map7'].startX = -533;
+                maps['map7'].currentX = -533;
             } else {
-                startX7 = -725;
-                currentX7 = -725;
+                maps['map7'].startX = -725;
+                maps['map7'].currentX = -725;
             }
         } else if (lightBtn.hasClass('type_3')) {
-            startY7 = -66;
-            currentY7 = -66;
+            maps['map7'].startY = -66;
+            maps['map7'].currentY = -66;
             if (lightBtn.hasClass('key--5')) {
-                startX7 = -393;
-                currentX7 = -393;
+                maps['map7'].startX = -393;
+                maps['map7'].currentX = -393;
             } else {
-                startX7 = -852;
-                currentX7 = -852;
+                maps['map7'].startX = -852;
+                maps['map7'].currentX = -852;
             }
         }
-        map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
-        drawCanvas7();
+        maps['map7'].plate.css("transform", `translate3d(${maps['map7'].currentX}px, ${maps['map7'].currentY}px, 0)`);
+        drawCanvas('map7');
     });
 
     let pcSwiperPage, mobileSwiperPage, heroSwiperPage;
@@ -251,7 +246,6 @@ $(document).ready(() => {
             },
             loop: false,
             freeMode: false,
-            // slideActiveClass: 'animated',
             noSwiping: true,
             noSwipingSelector: 'button',
             autoHeight: true,
@@ -301,7 +295,7 @@ $(document).ready(() => {
                     });
                 },
                 slideChange: (swiper) => {
-                    map7.removeClass('mini');
+                    maps['map7'].mapContainer.removeClass('mini');
                     $('.section_story .textbox').removeClass('open');
                     $('.section_story .dimmed_bg').removeClass('show');
                     $('.section_story .infoside').removeClass('open');
@@ -322,19 +316,19 @@ $(document).ready(() => {
                     }
 
                     if (swiper.realIndex === 6) {
-                        canvas7Width = 2636.8;
-                        canvas7Height = 1483.2;
-                        map7Plate.css('width', `${canvas7Width}px`);
-                        map7Plate.css('height', `${canvas7Height}px`);
-                        plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-                        plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
-                        startX7 = ($(window).width() - 2637) / 2;
-                        startY7 = ($(window).height() - 1483) / 2;
-                        currentX7 = ($(window).width() - 2637) / 2;
-                        currentY7 = ($(window).height() - 1483) / 2;
+                        maps['map7'].canvasWidth = 2636.8;
+                        maps['map7'].canvasHeight = 1483.2;
+                        maps['map7'].plate.css('width', `${maps['map7'].canvasWidth}px`);
+                        maps['map7'].plate.css('height', `${maps['map7'].canvasHeight}px`);
+                        maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
+                        maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
+                        maps['map7'].startX = ($(window).width() - 2637) / 2;
+                        maps['map7'].startY = ($(window).height() - 1483) / 2;
+                        maps['map7'].currentX = ($(window).width() - 2637) / 2;
+                        maps['map7'].currentY = ($(window).height() - 1483) / 2;
 
-                        map7Plate.css("transform", `translate3d(${startX7}px, ${startY7}px, 0)`);
-                        drawCanvas7();
+                        maps['map7'].plate.css("transform", `translate3d(${maps['map7'].startX}px, ${maps['map7'].startY}px, 0)`);
+                        drawCanvas('map7');
                     }
 
                     if (swiper.realIndex === 7) {
@@ -438,349 +432,167 @@ $(document).ready(() => {
         });
     };
 
-    function drawCanvas4() {
-        ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
-        ctx4.drawImage(img4, currentX4, currentY4, canvas4Width, canvas4Height);
-        img4.onload = () => {
-            ctx4.drawImage(img4, currentX4, currentY4, canvas4Width, canvas4Height);
-        };
-    }
+    function drawCanvas(mapId) {
+        const map = maps[mapId];
+        if (!map) return;
 
-    function drawCanvas6() {
-        ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
-        ctx6.drawImage(img6, currentX6, currentY6, canvas6Width, canvas6Height);
-        img6.onload = () => {
-            ctx6.drawImage(img6, currentX6, currentY6, canvas6Width, canvas6Height);
-        };
-    }
+        const { ctx, canvas, img, currentX, currentY, canvasWidth, canvasHeight } = map;
 
-    function drawCanvas7() {
-        ctx7.clearRect(0, 0, canvas7.width, canvas7.height);
-        ctx7.drawImage(img7, currentX7, currentY7, canvas7Width, canvas7Height);
-        img7.onload = () => {
-            ctx7.drawImage(img7, currentX7, currentY7, canvas7Width, canvas7Height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, currentX, currentY, canvasWidth, canvasHeight);
+
+        img.onload = () => {
+            ctx.drawImage(img, currentX, currentY, canvasWidth, canvasHeight);
         };
     }
 
     function pcAddMapEvent() {
-        canvas4Width = 2603.8;
-        canvas4Height = 1269;
-        canvas4.width = $(window).width();
-        canvas4.height = 1268;
-        canvas6.width = $(window).width();
-        canvas6.height = $(window).height();
-        canvas7.width = $(window).width();
-        canvas7.height = $(window).height();
+        maps['map4'].canvasWidth = 2603.8;
+        maps['map4'].canvasHeight = 1269;
+        maps['map4'].canvas.width = $(window).width();
+        maps['map4'].canvas.height = 1268;
+        maps['map4'].currentX = -824 + ($(window).width() - 820) / 2;
+        maps['map4'].startX = maps['map4'].currentX;
+        maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
+        maps['map6'].canvas.width = $(window).width();
+        maps['map6'].canvas.height = $(window).height();
+        maps['map6'].currentX = -970 + ($(window).width() - 820) / 2;
+        maps['map6'].startX = maps['map6'].currentX;
+        maps['map6'].currentY = -42 + ($(window).height() - 1180) / 2;
+        maps['map6'].startY = maps['map6'].currentY;
+        maps['map6'].plate.css("transform", `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0)`);
+        maps['map7'].canvas.width = $(window).width();
+        maps['map7'].canvas.height = $(window).height();
+        drawCanvas('map4');
+        drawCanvas('map6');
+        drawCanvas('map7');
 
-        currentX4 = -824 + ($(window).width() - 820) / 2;
-        startX4 = currentX4;
-        drawCanvas4();
-        map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
-        // 當鼠標按下時
-        map4.on('mousedown touchstart', (e) => {
-            isDragging = true;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
+        function attachDragEvents(mapKey) {
+            const map = maps[mapKey];
 
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-            startX4 = clientX - currentX4;
-            startY4 = clientY - currentY4;
-            map4.css("cursor", "grabbing")
-        });
+            map.mapContainer.on('mousedown touchstart', (e) => {
+                isDragging = true;
 
-        // 當鼠標移動時
-        map4.on('mousemove touchmove', (e) => {
-            if (!isDragging) return;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
+                const clientX = e.clientX !== undefined ? e.clientX : e.targetTouches[0].clientX;
+                const clientY = e.clientY !== undefined ? e.clientY : e.targetTouches[0].clientY;
 
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-            let newX = clientX - startX4;
-            let newY = clientY - startY4;
+                map.startX = clientX - map.currentX;
+                map.startY = clientY - map.currentY;
+                map.mapContainer.css("cursor", "grabbing");
+            });
 
+            map.mapContainer.on('mousemove touchmove', (e) => {
+                if (!isDragging) return;
 
-            // 限制 X 軸範圍
-            if (plate4Width > map4Width) {
-                const minX = map4Width - plate4Width; // 左边界
-                const maxX = 0; // 右边界
-                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-            } else {
-                newX = 0; // 如果子容器比父容器小，则保持水平居中
-            }
+                const clientX = e.clientX !== undefined ? e.clientX : e.targetTouches[0].clientX;
+                const clientY = e.clientY !== undefined ? e.clientY : e.targetTouches[0].clientY;
 
-            if (plate4Height > map4Height) {
-                const minY = map4Height - plate4Height; // 上边界
-                const maxY = 0; // 下边界
-                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-            } else {
-                newY = 0; // 如果子容器比父容器小，则保持垂直居中
-            }
+                let newX = clientX - map.startX;
+                let newY = clientY - map.startY;
 
-            // 更新位置
-            currentX4 = newX;
-            currentY4 = newY;
+                // 限制 X 轴范围
+                if (map.plateWidth > map.mapWidth) {
+                    const minX = map.mapWidth - map.plateWidth;
+                    const maxX = 0;
+                    newX = Math.max(minX, Math.min(maxX, newX));
+                } else {
+                    newX = 0;
+                }
 
-            // 設置 transform，更新位置
-            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
-            drawCanvas4();
-        });
+                // 限制 Y 轴范围
+                if (map.plateHeight > map.mapHeight) {
+                    const minY = map.mapHeight - map.plateHeight;
+                    const maxY = 0;
+                    newY = Math.max(minY, Math.min(maxY, newY));
+                } else {
+                    newY = 0;
+                }
 
-        // 當鼠標放開時
-        map4.on('mouseup touchend', () => {
-            isDragging = false;
-            map4.css("cursor", "grab")
-        });
+                // 更新位置
+                map.currentX = newX;
+                map.currentY = newY;
+                map.plate.css("transform", `translate3d(${map.currentX}px, ${map.currentY}px, 0)`);
+                drawCanvas(mapKey);
+            });
 
-        currentX6 = -970 + ($(window).width() - 820) / 2;
-        startX6 = currentX6;
-        currentY6 = -42 + ($(window).height() - 1180) / 2;
-        startY6 = currentY6;
-        drawCanvas6();
-        map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
+            map.mapContainer.on('mouseup touchend', () => {
+                isDragging = false;
+                map.mapContainer.css("cursor", "grab");
+            });
+        }
 
-        map6.on('mousedown touchstart', (e) => {
-            isDragging = true;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
-
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-
-            startX6 = clientX - currentX6;
-            startY6 = clientY - currentY6;
-            map6.css("cursor", "grabbing")
-        });
-
-        // 當鼠標移動時
-        map6.on('mousemove touchmove', (e) => {
-            if (!isDragging) return;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
-
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-            let newX = clientX - startX6;
-            let newY = clientY - startY6;
-
-
-            // 限制 X 軸範圍
-            if (plate6Width > map6Width) {
-                const minX = map6Width - plate6Width; // 左边界
-                const maxX = 0; // 右边界
-                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-            } else {
-                newX = 0; // 如果子容器比父容器小，则保持水平居中
-            }
-
-            if (plate6Height > map6Height) {
-                const minY = map6Height - plate6Height; // 上边界
-                const maxY = 0; // 下边界
-                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-            } else {
-                newY = 0; // 如果子容器比父容器小，则保持垂直居中
-            }
-
-            // 更新位置
-            currentX6 = newX;
-            currentY6 = newY;
-
-            // 設置 transform，更新位置
-            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
-            drawCanvas6();
-        });
-
-        // 當鼠標放開時
-        map6.on('mouseup touchend', () => {
-            isDragging = false;
-            map6.css("cursor", "grab")
-        });
-
-        drawCanvas7();
-        map7.on('mousedown touchstart', (e) => {
-            isDragging = true;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
-
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-            startX7 = clientX - currentX7;
-            startY7 = clientY - currentY7;
-            map7.css("cursor", "grabbing")
-        });
-
-        // 當鼠標移動時
-        map7.on('mousemove touchmove', (e) => {
-            if (!isDragging) return;
-            let clientX = 0;
-            if (e.clientX !== undefined) {
-                clientX = e.clientX;
-            } else {
-                clientX = e.targetTouches[0].clientX;
-            }
-
-            let clientY = 0;
-            if (e.clientY !== undefined) {
-                clientY = e.clientY;
-            } else {
-                clientY = e.targetTouches[0].clientY;
-            }
-            let newX = clientX - startX7;
-            let newY = clientY - startY7;
-
-
-            // 限制 X 軸範圍
-            if (plate7Width > map7Width) {
-                const minX = map7Width - plate7Width; // 左边界
-                const maxX = 0; // 右边界
-                newX = Math.max(minX, Math.min(maxX, newX)); // 限制 newX 在 minX 和 maxX 范围内
-            } else {
-                newX = 0; // 如果子容器比父容器小，则保持水平居中
-            }
-
-            if (plate7Height > map7Height) {
-                const minY = map7Height - plate7Height; // 上边界
-                const maxY = 0; // 下边界
-                newY = Math.max(minY, Math.min(maxY, newY)); // 限制 newY 在 minY 和 maxY 范围内
-            } else {
-                newY = 0; // 如果子容器比父容器小，则保持垂直居中
-            }
-
-            // 更新位置
-            currentX7 = newX;
-            currentY7 = newY;
-
-            // 設置 transform，更新位置
-            map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
-            drawCanvas7();
-        });
-
-        // 當鼠標放開時
-        map7.on('mouseup touchend', () => {
-            isDragging = false;
-            map7.css("cursor", "grab")
-        });
+        ['map4', 'map6', 'map7'].forEach(attachDragEvents);
 
         $('.section_place button:not(.not)').on('click', (e) => {
-            let constrainedX, constrainedY;
             if (e.currentTarget.classList.contains("type_1")) {
-                startY7 = -437;
-                currentY7 = -437;
-                constrainedY = -437;
+                maps['map7'].startY = -437;
+                maps['map7'].currentY = -437;
                 if (e.currentTarget.classList.contains("key--1")) {
-                    startX7 = -1042;
-                    currentX7 = -1042;
-                    constrainedX = -1042;
+                    maps['map7'].startX = -1042;
+                    maps['map7'].currentX = -1042;
                 } else {
-                    startX7 = -1259;
-                    currentX7 = -1259;
-                    constrainedX = -1259;
+                    maps['map7'].startX = -1259;
+                    maps['map7'].currentX = -1259;
                 }
             } else if (e.currentTarget.classList.contains("type_2")) {
-                startY7 = -296;
-                currentY7 = -296;
-                constrainedY = -296;
+                maps['map7'].startY = -296;
+                maps['map7'].currentY = -296;
                 if (e.currentTarget.classList.contains("key--3")) {
-                    startX7 = -1016;
-                    currentX7 = -1016;
-                    constrainedX = -1016;
+                    maps['map7'].startX = -1016;
+                    maps['map7'].currentX = -1016;
                 } else {
-                    startX7 = -1285;
-                    currentX7 = -1285;
-                    constrainedX = -1285;
+                    maps['map7'].startX = -1285;
+                    maps['map7'].currentX = -1285;
                 }
             } else if (e.currentTarget.classList.contains("type_3")) {
-                startY7 = -275;
-                currentY7 = -275;
-                constrainedY = -275;
+                maps['map7'].startY = -275;
+                maps['map7'].currentY = -275;
                 if (e.currentTarget.classList.contains("key--5")) {
-                    constrainedX = -820;
-                    startX7 = -820;
-                    currentX7 = -820;
+                    maps['map7'].startX = -820;
+                    maps['map7'].currentX = -820;
                 } else {
-                    constrainedX = -1462;
-                    startX7 = -1462;
-                    currentX7 = -1462;
+                    maps['map7'].startX = -1462;
+                    maps['map7'].currentX = -1462;
                 }
             }
             // 更新背景位置
             if (e.currentTarget.classList.length > 0) {
-                map7.addClass('mini');
-                map7Plate.css("transform", `translate3d(${constrainedX}px, ${constrainedY}px, 0)`);
-                canvas7Width = 3692.52;
-                canvas7Height = 2076.48;
-                map7Plate.css('width', `${canvas7Width}px`);
-                map7Plate.css('height', `${canvas7Height}px`);
-                drawCanvas7();
-                plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-                plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
+                maps['map7'].mapContainer.addClass('mini');
+                maps['map7'].plate.css("transform", `translate3d(${maps['map7'].currentX}px, ${maps['map7'].currentY}px, 0)`);
+                maps['map7'].canvasWidth = 3692.52;
+                maps['map7'].canvasHeight = 2076.48;
+                maps['map7'].plate.css('width', `${maps['map7'].canvasWidth}px`);
+                maps['map7'].plate.css('height', `${maps['map7'].canvasHeight}px`);
+                drawCanvas('map7');
+                maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
+                maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
             }
         });
     }
 
     if ($(window).width() > 768) {
-        img4.src = "img/page4/p4_bg.webp";
-        img6.src = "img/page6/p6_bg.webp";
-        img7.src = "img/page7/p7_bg.webp";
+        maps['map4'].img.src = "img/page4/p4_bg.webp";
+        maps['map6'].img.src = "img/page6/p6_bg.webp";
+        maps['map7'].img.src = "img/page7/p7_bg.webp";
         pcAddMapEvent();
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
-        currentX4 = -470 + ($(window).width() - 375) / 2;
-        currentY4 = -121;
-        currentX6 = -1147 + ($(window).width() - 375) / 2;
-        currentY6 = -234 + ($(window).height() - 675) / 2;
-        map6Plate.css('transform', `translate3d(${currentX6}px, ${currentY6}px, 0px)`);
-        canvas4Width = 1868.8;
-        canvas4Height = 911.04;
-        map4Plate.css('width', `${canvas4Width}px`).css('height', `${canvas4Height}px`);
-        map4Plate.css('transform', `translate3d(${currentX4}px, ${currentY4}px, 0px)`);
+        maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
+        maps['map4'].currentY = -121;
+        maps['map4'].canvasWidth = 1868.8;
+        maps['map4'].canvasHeight = 911.04;
+        maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
+        maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
+
+        maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
+        maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
+        maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
         $('.section_place button:not(.not)').on('click', (e) => {
             // 更新背景位置
             if (e.currentTarget.classList.length > 0) {
-                map7.addClass('mini');
+                maps['map7'].mapContainer.addClass('mini');
             }
         });
         $('.event_gnb').addClass('type_default');
@@ -791,6 +603,7 @@ $(document).ready(() => {
 
     let originWindowWidth = $(window).width();
     let originWindowHeight = $(window).height();
+
     function updateMaxVH() {
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
@@ -801,20 +614,6 @@ $(document).ready(() => {
             setTimeout(() => heroTabSwiper());
         }
         if ($(window).width() > 768) {
-            canvas4.width = $(window).width();
-            canvas4.height = 1268;
-            canvas6.width = $(window).width();
-            canvas6.height = $(window).height();
-            canvas7.width = $(window).width();
-            canvas7.height = $(window).height();
-            canvas4Width = 2603.8;
-            canvas4Height = 1269;
-            map4Plate.css('width', `${canvas4Width}px`);
-            map4Plate.css('height', `${canvas4Height}px`);
-            if (originWindowWidth <= 768) {
-                pcAddMapEvent();
-            }
-
             $('.event_gnb').addClass('type_clear');
             $('.event_gnb').removeClass('type_default');
             if (mobileSwiperPage) {
@@ -826,46 +625,59 @@ $(document).ready(() => {
             } else {
                 setTimeout(() => pcSwiper());
             }
-            map4Width = map4[0].offsetWidth; // 父容器的寬度
-            map4Height = map4[0].offsetHeight; // 父容器的高度
-            plate4Width = map4Plate[0].offsetWidth; // 背景容器的寬度
-            plate4Height = map4Plate[0].offsetHeight; // 背景容器的高度
-            map6Width = map6[0].offsetWidth; // 父容器的寬度
-            map6Height = map6[0].offsetHeight; // 父容器的高度
-            plate6Width = map6Plate[0].offsetWidth; // 背景容器的寬度
-            plate6Height = map6Plate[0].offsetHeight; // 背景容器的高度
-            map7Width = map7[0].offsetWidth;
-            map7Height = map7[0].offsetHeight; // 父容器的高度
-            plate7Width = map7Plate[0].offsetWidth; // 背景容器的寬度
-            plate7Height = map7Plate[0].offsetHeight; // 背景容器的高度
             let maxX = 0; // 右边界
             let maxY = 0; // 下边界
-            currentX4 += ($(window).width() - originWindowWidth) / 2;
-            currentY4 += ($(window).height() - originWindowHeight) / 2;
-            currentX6 += ($(window).width() - originWindowWidth) / 2;
-            currentY6 += ($(window).height() - originWindowHeight) / 2;
-            currentX7 += ($(window).width() - originWindowWidth) / 2;
-            currentY7 += ($(window).height() - originWindowHeight) / 2;
-            let minX = map4Width - plate4Width; // 左边界
-            let minY = map4Height - plate4Height; // 上边界
-            currentX4 = Math.max(minX, Math.min(maxX, currentX4));
-            currentY4 = Math.max(minY, Math.min(maxY, currentY4));
-            map4Plate.css("transform", `translate3d(${currentX4}px, ${currentY4}px, 0)`);
-            drawCanvas4();
-            minX = map6Width - plate6Width;
-            minY = map6Height - plate6Height; // 上边界
-            currentX6 = Math.max(minX, Math.min(maxX, currentX6));
-            currentY6 = Math.max(minY, Math.min(maxY, currentY6));
-            map6Plate.css("transform", `translate3d(${currentX6}px, ${currentY6}px, 0)`);
-            drawCanvas6();
-            minY = map7Height - plate7Height; // 上边界
-            minX = map7Width - plate7Width;
-            currentX7 = Math.max(minX, Math.min(maxX, currentX7));
-            currentY7 = Math.max(minY, Math.min(maxY, currentY7));
-            map7Plate.css("transform", `translate3d(${currentX7}px, ${currentY7}px, 0)`);
-            drawCanvas7();
+            maps['map4'].canvas.width = $(window).width();
+            maps['map4'].canvas.height = 1268;
+            maps['map4'].canvasWidth = 2603.8;
+            maps['map4'].canvasHeight = 1269;
+            maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`);
+            maps['map4'].plate.css('height', `${maps['map4'].canvasHeight}px`);
+            maps['map4'].mapWidth = maps['map4'].mapContainer[0].offsetWidth; // 父容器的寬度
+            maps['map4'].mapHeight = maps['map4'].mapContainer[0].offsetHeight; // 父容器的高度
+            maps['map4'].plateWidth = maps['map4'].plate[0].offsetWidth; // 背景容器的寬度
+            maps['map4'].plateHeight = maps['map4'].plate[0].offsetHeight; // 背景容器的高度
+            maps['map4'].currentX += ($(window).width() - originWindowWidth) / 2;
+            maps['map4'].currentY += ($(window).height() - originWindowHeight) / 2;
+            let minX = maps['map4'].mapWidth - maps['map4'].plateWidth; // 左边界
+            let minY = maps['map4'].mapHeight - maps['map4'].plateHeight; // 上边界
+            maps['map4'].currentX = Math.max(minX, Math.min(maxX, maps['map4'].currentX));
+            maps['map4'].currentY = Math.max(minY, Math.min(maxY, maps['map4'].currentY));
+            maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
+            drawCanvas('map4');
+            maps['map6'].canvas.width = $(window).width();
+            maps['map6'].canvas.height = $(window).height();
+            maps['map6'].mapWidth = maps['map6'].mapContainer[0].offsetWidth; // 父容器的寬度
+            maps['map6'].mapHeight = maps['map6'].mapContainer[0].offsetHeight; // 父容器的高度
+            maps['map6'].plateWidth = maps['map6'].plate[0].offsetWidth; // 背景容器的寬度
+            maps['map6'].plateHeight = maps['map6'].plate[0].offsetHeight; // 背景容器的高度
+            maps['map6'].currentX += ($(window).width() - originWindowWidth) / 2;
+            maps['map6'].currentY += ($(window).height() - originWindowHeight) / 2;
+            minX = maps['map6'].mapWidth - maps['map6'].plateWidth;
+            minY = maps['map6'].mapHeight - maps['map6'].plateHeight; // 上边界
+            maps['map6'].currentX = Math.max(minX, Math.min(maxX, maps['map6'].currentX));
+            maps['map6'].currentY = Math.max(minY, Math.min(maxY, maps['map6'].currentY));
+            maps['map6'].plate.css("transform", `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0)`);
+            drawCanvas('map6');
+            maps['map7'].canvas.width = $(window).width();
+            maps['map7'].canvas.height = $(window).height();
+            maps['map7'].mapWidth = maps['map7'].mapContainer[0].offsetWidth;
+            maps['map7'].mapHeight = maps['map7'].mapContainer[0].offsetHeight; // 父容器的高度
+            maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
+            maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
+            maps['map7'].currentX += ($(window).width() - originWindowWidth) / 2;
+            maps['map7'].currentY += ($(window).height() - originWindowHeight) / 2;
+            minY = maps['map7'].mapHeight - maps['map7'].plateHeight; // 上边界
+            minX = maps['map7'].mapWidth - maps['map7'].plateWidth;
+            maps['map7'].currentX = Math.max(minX, Math.min(maxX, maps['map7'].currentX));
+            maps['map7'].currentY = Math.max(minY, Math.min(maxY, maps['map7'].currentY));
+            maps['map7'].plate.css("transform", `translate3d(${maps['map7'].currentX}px, ${maps['map7'].currentY}px, 0)`);
+            drawCanvas('map7');
             originWindowWidth = $(window).width();
             originWindowHeight = $(window).height();
+            if (originWindowWidth <= 768) {
+                pcAddMapEvent();
+            }
         } else {
             if (pcSwiperPage) {
                 pcSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
@@ -886,12 +698,12 @@ $(document).ready(() => {
                     node.removeEventListener('touchstart', pcTouchStart, { passive: true });
                 });
             }
-            currentX4 = -470 + ($(window).width() - 375) / 2;
-            currentY4 = -121;
-            map4Plate.css('transform', `translate3d(${currentX4}px, ${currentY4}px, 0px)`);
-            currentX6 = -1147 + ($(window).width() - 375) / 2;
-            currentY6 = -234 + ($(window).height() - 675) / 2;
-            map6Plate.css('transform', `translate3d(${currentX6}px, ${currentY6}px, 0px)`);
+            maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
+            maps['map4'].currentY = -121;
+            maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
+            maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
+            maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
+            maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');
             if (mobileSwiperPage) {
@@ -939,10 +751,6 @@ const addPageClick = (index, swiper) => {
     $(`.page_p${index + 1}`).on('click', () => {
         swiper.slideTo(index);
     });
-};
-
-const addAnimateClass = (arr) => {
-    arr.forEach(ele => $(ele).addClass('animate'));
 };
 
 const openVideo = (video, path) => {

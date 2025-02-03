@@ -116,7 +116,6 @@ var,
 video {
     border: 0;
     font-size: 100%;
-    /* font-weight: inherit; */
     margin: 0;
     padding: 0;
     vertical-align: initial;
@@ -910,7 +909,6 @@ html {
     align-items: center;
     display: flex;
     margin-left: auto;
-    /* margin-right: 20px; */
     grid-gap: 6px 20px;
 }
 
@@ -1073,7 +1071,6 @@ html {
     pointer-events: none;
     position: absolute;
     top: 50%;
-    /* transform: translate3d(-50%, -50%, 0); */
     width: 0px;
     transition: transform .2s ease;
     width: 73%;
@@ -1096,7 +1093,6 @@ html {
     transform: translate3d(-100%, 0, 0);
     transition: transform .4s cubic-bezier(.33, 1, .68, 1);
     width: 170px;
-    /* width: 0px; */
     will-change: transform, margin-top;
 }
 
@@ -1404,7 +1400,6 @@ button {
         align-items: center;
         flex-direction: column;
         margin-top: 3px;
-        /* margin-right: 0px; */
     }
 
     .event_gnb_default .event_gnb_default_right .event_gnb_gamestart {
