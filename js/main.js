@@ -316,19 +316,7 @@ $(document).ready(() => {
                     }
 
                     if (swiper.realIndex === 6) {
-                        maps['map7'].canvasWidth = 2636.8;
-                        maps['map7'].canvasHeight = 1483.2;
-                        maps['map7'].plate.css('width', `${maps['map7'].canvasWidth}px`);
-                        maps['map7'].plate.css('height', `${maps['map7'].canvasHeight}px`);
-                        maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
-                        maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
-                        maps['map7'].startX = ($(window).width() - 2637) / 2;
-                        maps['map7'].startY = ($(window).height() - 1483) / 2;
-                        maps['map7'].currentX = ($(window).width() - 2637) / 2;
-                        maps['map7'].currentY = ($(window).height() - 1483) / 2;
-
-                        maps['map7'].plate.css("transform", `translate3d(${maps['map7'].startX}px, ${maps['map7'].startY}px, 0)`);
-                        drawCanvas('map7');
+                        initPCMap7();
                     }
 
                     if (swiper.realIndex === 7) {
@@ -386,7 +374,7 @@ $(document).ready(() => {
             touchReleaseOnEdges: true,
             mousewheel: {
                 releaseOnEdges: true,
-                enabled: false,
+                enabled: true,
             },
             loop: false,
             freeMode: {
@@ -447,26 +435,6 @@ $(document).ready(() => {
     }
 
     function pcAddMapEvent() {
-        maps['map4'].canvasWidth = 2603.8;
-        maps['map4'].canvasHeight = 1269;
-        maps['map4'].canvas.width = $(window).width();
-        maps['map4'].canvas.height = 1268;
-        maps['map4'].currentX = -824 + ($(window).width() - 820) / 2;
-        maps['map4'].startX = maps['map4'].currentX;
-        maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
-        maps['map6'].canvas.width = $(window).width();
-        maps['map6'].canvas.height = $(window).height();
-        maps['map6'].currentX = -970 + ($(window).width() - 820) / 2;
-        maps['map6'].startX = maps['map6'].currentX;
-        maps['map6'].currentY = -42 + ($(window).height() - 1180) / 2;
-        maps['map6'].startY = maps['map6'].currentY;
-        maps['map6'].plate.css("transform", `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0)`);
-        maps['map7'].canvas.width = $(window).width();
-        maps['map7'].canvas.height = $(window).height();
-        drawCanvas('map4');
-        drawCanvas('map6');
-        drawCanvas('map7');
-
         function attachDragEvents(mapKey) {
             const map = maps[mapKey];
 
@@ -571,26 +539,30 @@ $(document).ready(() => {
     }
 
     maps['map4'].img.src = "img/page4/p4_bg.webp";
+    const p3video = document.getElementById("page3Video");
+    const p3source = document.getElementById("video3Source");
+    const p8video = document.getElementById("page8Video");
+    const p8source = document.getElementById("video8Source");
     if ($(window).width() > 768) {
+        p3source.src = "img/page3/p3_video_loop.mp4";
+        p3video.load();
+        p8source.src = "img/page8/p8_video_elf.webm";
+        p8video.load();
         maps['map6'].img.src = "img/page6/p6_bg.webp";
         maps['map7'].img.src = "img/page7/p7_bg.webp";
+        initPCMap4();
+        initPCMap6();
         pcAddMapEvent();
         $('.event_gnb').addClass('type_clear');
         $('.event_gnb').removeClass('type_default');
         pcSwiper();
     } else {
-        maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
-        maps['map4'].currentY = -121;
-        maps['map4'].canvasWidth = 1868.8;
-        maps['map4'].canvasHeight = 911.04;
-        maps['map4'].canvas.width = $(window).width();
-        maps['map4'].canvas.height = 670;
-        maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
-        maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
-        drawCanvas('map4');
-        maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
-        maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
-        maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
+        initMBMap4();
+        initMBMap6();
+        p3source.src = "img/page3/p3_video_loop_m.mp4";
+        p3video.load();
+        p8source.src = "img/page8/p8_video_elf_m.webm";
+        p8video.load();
         $('.section_place button:not(.not)').on('click', (e) => {
             // 更新背景位置
             if (e.currentTarget.classList.length > 0) {
@@ -604,12 +576,7 @@ $(document).ready(() => {
     heroTabSwiper();
 
     let originWindowWidth = $(window).width();
-    let originWindowHeight = $(window).height();
-
-    let isLoadedVideo = false;
     function updateMaxVH() {
-        const page3Video = document.getElementById('page3Video');
-        const page8Video = document.getElementById('page8Video');
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
         root.style.setProperty('--maxvh', newMaxVh);
@@ -624,11 +591,10 @@ $(document).ready(() => {
             if (mobileSwiperPage) {
                 mobileSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 mobileSwiperPage = null; // 重置為 null
-                if (!isLoadedVideo) {
-                    page3Video?.load();
-                    page8Video?.load();
-                    isLoadedVideo = true;
-                }
+                p3source.src = "img/page3/p3_video_loop.mp4";
+                p3video.load();
+                p8source.src = "img/page8/p8_video_elf.webm";
+                p8video.load();
             }
             if (pcSwiperPage) {
                 pcSwiperPage.update();
@@ -636,64 +602,20 @@ $(document).ready(() => {
                 setTimeout(() => pcSwiper());
             }
 
-            maps['map4'].canvas.width = $(window).width();
-            maps['map4'].canvas.height = 1268;
-            maps['map4'].canvasWidth = 2603.8;
-            maps['map4'].canvasHeight = 1269;
-            maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`);
-            maps['map4'].plate.css('height', `${maps['map4'].canvasHeight}px`);
-            maps['map4'].mapWidth = maps['map4'].mapContainer[0].offsetWidth; // 父容器的寬度
-            maps['map4'].mapHeight = maps['map4'].mapContainer[0].offsetHeight; // 父容器的高度
-            maps['map4'].plateWidth = maps['map4'].plate[0].offsetWidth; // 背景容器的寬度
-            maps['map4'].plateHeight = maps['map4'].plate[0].offsetHeight; // 背景容器的高度
-            maps['map4'].currentX += ($(window).width() - originWindowWidth) / 2;
-            maps['map4'].currentY += ($(window).height() - originWindowHeight) / 2;
-            let minX = maps['map4'].mapWidth - maps['map4'].plateWidth; // 左边界
-            let minY = maps['map4'].mapHeight - maps['map4'].plateHeight; // 上边界
-            maps['map4'].currentX = Math.max(minX, Math.min(maxX, maps['map4'].currentX));
-            maps['map4'].currentY = Math.max(minY, Math.min(maxY, maps['map4'].currentY));
-            maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
-            drawCanvas('map4');
-            maps['map6'].canvas.width = $(window).width();
-            maps['map6'].canvas.height = $(window).height();
-            maps['map6'].mapWidth = maps['map6'].mapContainer[0].offsetWidth; // 父容器的寬度
-            maps['map6'].mapHeight = maps['map6'].mapContainer[0].offsetHeight; // 父容器的高度
-            maps['map6'].plateWidth = maps['map6'].plate[0].offsetWidth; // 背景容器的寬度
-            maps['map6'].plateHeight = maps['map6'].plate[0].offsetHeight; // 背景容器的高度
-            maps['map6'].currentX += ($(window).width() - originWindowWidth) / 2;
-            maps['map6'].currentY += ($(window).height() - originWindowHeight) / 2;
-            minX = maps['map6'].mapWidth - maps['map6'].plateWidth;
-            minY = maps['map6'].mapHeight - maps['map6'].plateHeight; // 上边界
-            maps['map6'].currentX = Math.max(minX, Math.min(maxX, maps['map6'].currentX));
-            maps['map6'].currentY = Math.max(minY, Math.min(maxY, maps['map6'].currentY));
-            maps['map6'].plate.css("transform", `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0)`);
-            drawCanvas('map6');
-            maps['map7'].canvas.width = $(window).width();
-            maps['map7'].canvas.height = $(window).height();
-            maps['map7'].mapWidth = maps['map7'].mapContainer[0].offsetWidth;
-            maps['map7'].mapHeight = maps['map7'].mapContainer[0].offsetHeight; // 父容器的高度
-            maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
-            maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
-            maps['map7'].currentX += ($(window).width() - originWindowWidth) / 2;
-            maps['map7'].currentY += ($(window).height() - originWindowHeight) / 2;
-            minY = maps['map7'].mapHeight - maps['map7'].plateHeight; // 上边界
-            minX = maps['map7'].mapWidth - maps['map7'].plateWidth;
-            maps['map7'].currentX = Math.max(minX, Math.min(maxX, maps['map7'].currentX));
-            maps['map7'].currentY = Math.max(minY, Math.min(maxY, maps['map7'].currentY));
-            maps['map7'].plate.css("transform", `translate3d(${maps['map7'].currentX}px, ${maps['map7'].currentY}px, 0)`);
-            drawCanvas('map7');
+            initPCMap4();
+            initPCMap6();
+            initPCMap7();
+
             originWindowWidth = $(window).width();
-            originWindowHeight = $(window).height();
             if (originWindowWidth <= 768) {
                 pcAddMapEvent();
             }
         } else {
             if (pcSwiperPage) {
-                if (!isLoadedVideo) {
-                    page3Video?.load();
-                    page8Video?.load();
-                    isLoadedVideo = true;
-                }
+                p3source.src = "img/page3/p3_video_loop_m.mp4";
+                p3video.load();
+                p8source.src = "img/page8/p8_video_elf_m.webm";
+                p8video.load();
                 pcSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 pcSwiperPage = null; // 重置為 null
                 document.querySelectorAll('.swiper-slide-page').forEach(node => {
@@ -712,15 +634,8 @@ $(document).ready(() => {
                     node.removeEventListener('touchstart', pcTouchStart, { passive: true });
                 });
             }
-            maps['map4'].canvas.width = $(window).width();
-            maps['map4'].canvas.height = 670;
-            maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
-            maps['map4'].currentY = -121;
-            maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
-            drawCanvas('map4');
-            maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
-            maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
-            maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
+            initMBMap4();
+            initMBMap6();
             $('.event_gnb').addClass('type_default');
             $('.event_gnb').removeClass('type_clear');
             if (mobileSwiperPage) {
@@ -729,6 +644,62 @@ $(document).ready(() => {
                 setTimeout(() => mobileSwiper());
             }
         }
+    }
+
+    function initPCMap4() {
+        maps['map4'].canvasWidth = 2603.8;
+        maps['map4'].canvasHeight = 1269;
+        maps['map4'].canvas.width = $(window).width();
+        maps['map4'].canvas.height = 1268;
+        maps['map4'].currentX = -824 + ($(window).width() - 820) / 2;
+        maps['map4'].startX = maps['map4'].currentX;
+        maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
+        drawCanvas('map4');
+    }
+
+    function initMBMap4() {
+        maps['map4'].currentX = -470 + ($(window).width() - 375) / 2;
+        maps['map4'].currentY = -121;
+        maps['map4'].canvasWidth = 1868.8;
+        maps['map4'].canvasHeight = 911.04;
+        maps['map4'].canvas.width = $(window).width();
+        maps['map4'].canvas.height = 670;
+        maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
+        maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
+    }
+
+    function initPCMap6() {
+        maps['map6'].canvas.width = $(window).width();
+        maps['map6'].canvas.height = $(window).height();
+        maps['map6'].currentX = -970 + ($(window).width() - 820) / 2;
+        maps['map6'].startX = maps['map6'].currentX;
+        maps['map6'].currentY = -42 + ($(window).height() - 1180) / 2;
+        maps['map6'].startY = maps['map6'].currentY;
+        maps['map6'].plate.css("transform", `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0)`);
+        drawCanvas('map6');
+    }
+
+    function initMBMap6() {
+        maps['map6'].currentX = -1147 + ($(window).width() - 375) / 2;
+        maps['map6'].currentY = -234 + ($(window).height() - 675) / 2;
+        maps['map6'].plate.css('transform', `translate3d(${maps['map6'].currentX}px, ${maps['map6'].currentY}px, 0px)`);
+    }
+
+    function initPCMap7() {
+        maps['map7'].canvas.width = $(window).width();
+        maps['map7'].canvas.height = $(window).height();
+        maps['map7'].canvasWidth = 2636.8;
+        maps['map7'].canvasHeight = 1483.2;
+        maps['map7'].plate.css('width', `${maps['map7'].canvasWidth}px`);
+        maps['map7'].plate.css('height', `${maps['map7'].canvasHeight}px`);
+        maps['map7'].plateWidth = maps['map7'].plate[0].offsetWidth; // 背景容器的寬度
+        maps['map7'].plateHeight = maps['map7'].plate[0].offsetHeight; // 背景容器的高度
+        maps['map7'].startX = ($(window).width() - 2637) / 2;
+        maps['map7'].startY = ($(window).height() - 1483) / 2;
+        maps['map7'].currentX = ($(window).width() - 2637) / 2;
+        maps['map7'].currentY = ($(window).height() - 1483) / 2;
+        maps['map7'].plate.css("transform", `translate3d(${maps['map7'].currentX}px, ${maps['map7'].currentY}px, 0)`);
+        drawCanvas('map7');
     }
 });
 

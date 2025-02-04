@@ -535,18 +535,11 @@
               >
                 <section class="section_spec area">
                   <div class="visual">
-                    <video id="page3Video" loop autoplay muted playsinline>
-                      <source
-                        src="img/page3/p3_video_loop.mp4"
-                        type="video/mp4"
-                        media="(min-width: 769px)"
-                      />
-                      <source
-                        src="img/page3/p3_video_loop_m.mp4"
-                        type="video/mp4"
-                        media="(max-width: 768px)"
-                      />
+                    <div class="background"></div>
+                    <video id="page3Video" loop autoplay muted playsinline preload="auto">
+                      <source id="video3Source" src=""type="video/mp4">
                     </video>
+                    <div class="overlay"></div>
                   </div>
                   <div class="content">
                     <div class="sub_content">
@@ -562,7 +555,7 @@
                         </div>
                         <span class="ornate"></span>
                         <p class="text">
-                          由人類創造，曾在妖精的實驗中遭到殘殺的白夜之王，如今再次甦醒。
+                          由人類創造，因妖精的實驗而遭受折磨並被遺忘的白夜之王，如今再次甦醒。
                           白夜之王的憎恨與悲傷交織，憤怒的咆哮淒涼地迴盪著。
                         </p>
                         <div class="video">
@@ -575,6 +568,7 @@
                               muted
                               playsinline
                               poster="img/page3/p3_videoframe.webp"
+                              preload="auto"
                             >
                               <source
                                 type="video/webm"
@@ -679,8 +673,7 @@
                           表面上，白夜之王仍兇猛奔跑，實際上卻在尋找具有能夠操縱自己資格的人類。
                           <br />
                           <br />
-                          儘管這個故事無法證實真偽，但聽聞白夜手傳出的這個謠言後
-                          許多守護者們都湧向傾倒的聖所，希望獲得新的圖騰獸力量。
+                          儘管這個故事無法證實真偽，但聽聞白夜手傳出的這個謠言後，許多守護者們都湧向倒塌的聖所，希望獲得新的圖騰獸力量。
                         </p>
                         <div class="source">
                           <span></span>
@@ -1077,7 +1070,7 @@
                           </span>
                           <span class="tip">Tip</span>
                           <p class="description">
-                            配置於暗月要塞內部的專用防禦塔<br />
+                            配置於暗月要塞內部的西吉爾妖精專用防禦塔<br />
                             當敵人接近防禦塔周圍時，會在周圍生成流沙漩渦。
                           </p>
                         </div>
@@ -1106,17 +1099,8 @@
               <div data-title="妖精軍團" class="swiper-slide swiper-slide-page">
                 <section class="section_elf area">
                   <div class="visual">
-                    <video id="page8Video" loop autoplay muted playsinline>
-                      <source
-                        type="video/webm"
-                        src="img/page8/p8_video_elf.webm"
-                        media="(min-width: 769px)"
-                      />
-                      <source
-                        type="video/webm"
-                        src="img/page8/p8_video_elf_m.webm"
-                        media="(max-width: 768px)"
-                      />
+                    <video id="page8Video" loop autoplay muted playsinline preload="auto">
+                      <source id="video8Source" src="" type="video/webm">
                     </video>
                   </div>
                   <div class="content">

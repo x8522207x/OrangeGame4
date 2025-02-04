@@ -455,6 +455,10 @@ section.area .visual video {
     perspective: 300px;
     text-align: center;
     width: 100%;
+    transform: scale(.9);
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.9);
+    -webkit-transform-origin: 50% 100%;
 }
 
 .section_hero .content .subtitle {
@@ -783,32 +787,35 @@ section.area .visual video {
     background-color: #17151b;
 }
 
-.section_spec .visual:before {
-    transform: translateZ(0);
+.section_spec .visual .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url(../img/page3/p3_vignette.webp);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
     z-index: 1;
+    will-change: transform, opacity; 
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-.section_spec .visual:after {
-    background: linear-gradient(0deg, #1c1a1f 50%, #1c1a1f00);
-    content: "";
-    display: inline-block;
-    display: none;
-    height: 100%;
-    left: 0;
-    position: absolute;
+.section_spec .visual .overlay {
+    position: fixed;
     top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #1c1a1f 50%, #1c1a1f00);
     z-index: 3;
+    will-change: opacity, transform; /* 預先讓瀏覽器知道這個元素可能會變化 */
+    transform: translate3d(0, 0, 0);
 }
 
 .section_spec .visual video {
@@ -1127,6 +1134,17 @@ section.area .visual video {
     padding-top: 34.22%;
     vertical-align: top;
     width: 0;
+}
+
+.section_map .map_plate {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    cursor: grab;
+    background-image: url(../img/page4/p4_bg.webp);
+    will-change: background-position;
+    pointer-events: none;
 }
 
 .section_map .visual:active {
@@ -2205,7 +2223,7 @@ section.section_elf .content {
     display: flex;
     height: 50px;
     justify-content: center;
-    left: 47%;
+    left: -44%;
     max-width: 1400px;
     pointer-events: none;
     position: absolute;
@@ -2481,6 +2499,10 @@ section.section_elf .content {
 
 .section_story .content .infoside .item.n--4:before {
     background-position: 15.72% 0;
+}
+
+.section_story .content .infoside .item.n--5:before {
+    background-position: 20.96% 0;
 }
 
 .section_story .content .infoside .item.n--8:before {
@@ -2881,13 +2903,6 @@ section.section_elf .content {
 }
 
 @media (max-height: 1000px) and (min-width: 769px) {
-    .section_hero .content {
-        transform: scale(.9);
-        transform-origin: 50% 100%;
-        -webkit-transform: scale(0.9);
-        -webkit-transform-origin: 50% 100%;
-    }
-
     .section_spec .content .sub_content {
         margin: 0 auto;
         max-width: 1248px;
@@ -2997,8 +3012,7 @@ section.section_elf .content {
     }
 
     .map .map_plate .clouds,
-    #map6,
-    #map7 {
+    .map canvas {
         display: none;
     }
 
@@ -3249,7 +3263,7 @@ section.section_elf .content {
         width: 0;
     }
 
-    .section_spec .visual:before {
+    .section_spec .visual .background {
         background-position: 30% 60%;
     }
 
@@ -3555,6 +3569,7 @@ section.section_elf .content {
 
     section.area .content .dimmed_bg {
         background-color: #00000080;
+        transform: translateZ(0);
     }
 
     .infoside .close {
@@ -3945,8 +3960,9 @@ section.section_elf .content {
         margin: 0 auto;
     }
 
-    .section_spec .visual:after {
-        display: block;
+    .section_spec .visual .overlay {
+        opacity: 1;
+        visibility: visible;
     }
 
     .section_spec .visual video {
