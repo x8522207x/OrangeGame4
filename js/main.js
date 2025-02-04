@@ -606,7 +606,10 @@ $(document).ready(() => {
     let originWindowWidth = $(window).width();
     let originWindowHeight = $(window).height();
 
+    let isLoadedVideo = false;
     function updateMaxVH() {
+        const page3Video = document.getElementById('page3Video');
+        const page8Video = document.getElementById('page8Video');
         const root = document.documentElement;
         const newMaxVh = window.innerHeight + 'px';
         root.style.setProperty('--maxvh', newMaxVh);
@@ -621,14 +624,18 @@ $(document).ready(() => {
             if (mobileSwiperPage) {
                 mobileSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 mobileSwiperPage = null; // 重置為 null
+                if (!isLoadedVideo) {
+                    page3Video?.load();
+                    page8Video?.load();
+                    isLoadedVideo = true;
+                }
             }
             if (pcSwiperPage) {
                 pcSwiperPage.update();
             } else {
                 setTimeout(() => pcSwiper());
             }
-            let maxX = 0; // 右边界
-            let maxY = 0; // 下边界
+
             maps['map4'].canvas.width = $(window).width();
             maps['map4'].canvas.height = 1268;
             maps['map4'].canvasWidth = 2603.8;
@@ -682,6 +689,11 @@ $(document).ready(() => {
             }
         } else {
             if (pcSwiperPage) {
+                if (!isLoadedVideo) {
+                    page3Video?.load();
+                    page8Video?.load();
+                    isLoadedVideo = true;
+                }
                 pcSwiperPage.destroy(true, true); // 銷毀 Swiper 實例
                 pcSwiperPage = null; // 重置為 null
                 document.querySelectorAll('.swiper-slide-page').forEach(node => {
