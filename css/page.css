@@ -2772,18 +2772,6 @@ section.section_elf .content {
     text-align: center;
 }
 
-.section_elf .content .elfs .elf_data:first-child .thumb {
-    background-image: url(../img/page8/p8_elf_1.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.section_elf .content .elfs .elf_data .content .thumb {
-    height: 193px;
-    width: 186px;
-}
-
 .section_elf .content .elfs .elf_data .content .flavor {
     color: #5c3824;
     font-weight: 600;
@@ -2825,13 +2813,6 @@ section.section_elf .content {
 
 .section_elf .content .elfs .elf_data .toggle:hover {
     background-image: url(../img/page8/p8_toggle_hover.png);
-}
-
-.section_elf .content .elfs .elf_data:nth-child(2) .thumb {
-    background-image: url(../img/page8/p8_elf_2.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 .section_elf .content .elfs2 {
@@ -3892,11 +3873,6 @@ section.section_elf .content {
 
     .section_elf .content .elfs .elf_data .content {
         display: flex;
-    }
-
-    .section_elf .content .elfs .elf_data .content .thumb {
-        height: 140px;
-        width: 143px;
     }
 
     .section_elf .content .elfs .elf_data .content .flavor {
