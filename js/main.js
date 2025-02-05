@@ -428,7 +428,6 @@ $(document).ready(() => {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, currentX, currentY, canvasWidth, canvasHeight);
-
         img.onload = () => {
             ctx.drawImage(img, currentX, currentY, canvasWidth, canvasHeight);
         };
@@ -596,16 +595,15 @@ $(document).ready(() => {
                 p8source.src = "img/page8/p8_video_elf.webm";
                 p8video.load();
             }
+            initPCMap4();
+            initPCMap6();
+            initPCMap7();
+
             if (pcSwiperPage) {
                 pcSwiperPage.update();
             } else {
                 setTimeout(() => pcSwiper());
             }
-
-            initPCMap4();
-            initPCMap6();
-            initPCMap7();
-
             originWindowWidth = $(window).width();
             if (originWindowWidth <= 768) {
                 pcAddMapEvent();
@@ -652,9 +650,12 @@ $(document).ready(() => {
         maps['map4'].canvas.width = $(window).width();
         maps['map4'].canvas.height = 1268;
         maps['map4'].currentX = -824 + ($(window).width() - 820) / 2;
+        maps['map4'].currentY = -1;
         maps['map4'].startX = maps['map4'].currentX;
+        maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
         maps['map4'].plate.css("transform", `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0)`);
         drawCanvas('map4');
+        $('.section_map .map_plate').css('background-image', 'none');
     }
 
     function initMBMap4() {
@@ -666,6 +667,7 @@ $(document).ready(() => {
         maps['map4'].canvas.height = 670;
         maps['map4'].plate.css('width', `${maps['map4'].canvasWidth}px`).css('height', `${maps['map4'].canvasHeight}px`);
         maps['map4'].plate.css('transform', `translate3d(${maps['map4'].currentX}px, ${maps['map4'].currentY}px, 0px)`);
+        $('.section_map .map_plate').css('background-image', 'url(img/page4/p4_bg.webp)');
     }
 
     function initPCMap6() {

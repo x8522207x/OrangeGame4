@@ -1142,7 +1142,6 @@ section.area .visual video {
     background-repeat: no-repeat;
     position: absolute;
     cursor: grab;
-    background-image: url(../img/page4/p4_bg.webp);
     will-change: background-position;
     pointer-events: none;
 }
