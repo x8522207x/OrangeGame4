@@ -1105,8 +1105,8 @@ section.area .visual video {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    height: auto;
-    width: 901px;
+    height: 458px;
+    width: 497px;
 }
 
 .section_spec .content .benefit .items>div:first-child:before {
@@ -1123,8 +1123,8 @@ section.area .visual video {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    height: auto;
-    width: 580px;
+    height: 458px;
+    width: 497px;
 }
 
 .section_spec .content .benefit .items>div:nth-child(2):before {
@@ -3961,12 +3961,6 @@ section.section_elf .content {
         align-items: center;
         flex-direction: column;
         row-gap: unset;
-    }
-
-    .section_spec .content .benefit .items>div:first-child {
-        width: 516px;
-        height: 500px;
-        background-image: url(../img/page3/p3_benefit_1x.webp);
     }
 }
 
