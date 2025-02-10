@@ -699,7 +699,7 @@ section.area .visual video {
     display: flex;
     flex-direction: column;
     height: auto;
-    margin: 130px 0 200px;
+    margin: 100px 0 200px;
 }
 
 .section_info .content .content_wrap {
@@ -798,7 +798,7 @@ section.area .visual video {
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
-    will-change: transform, opacity; 
+    will-change: transform, opacity;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -814,7 +814,8 @@ section.area .visual video {
     height: 100%;
     background: linear-gradient(0deg, #1c1a1f 50%, #1c1a1f00);
     z-index: 3;
-    will-change: opacity, transform; /* 預先讓瀏覽器知道這個元素可能會變化 */
+    will-change: opacity, transform;
+    /* 預先讓瀏覽器知道這個元素可能會變化 */
     transform: translate3d(0, 0, 0);
 }
 
@@ -2936,6 +2937,16 @@ section.section_elf .content {
         white-space: nowrap;
     }
 
+    .section_hero, .section_hero .content {
+        min-height: max(100vh, 815px) !important;
+    }
+
+    .section_elf,
+    .section_hero_sec .content,
+    .section_info {
+        min-height: 900px !important;
+    }
+
     .section_elf .content .elfs .elf_data:first-child {
         left: 78.4%;
         top: 14%;
@@ -2947,7 +2958,7 @@ section.section_elf .content {
 
     .section_elf .content .elfs .elf_data:nth-child(2) {
         left: 19.4%;
-        top: 24.4%;
+        top: 20.4%;
     }
 
     .section_elf .content .elfs .elf_data.open .wrap {
